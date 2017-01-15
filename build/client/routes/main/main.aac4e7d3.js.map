@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "main.js",
+  "sourceRoot": "../../../../src/client/routes/main/",
+  "sources": [
+    "main.ctrl.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;EAAA;EAEA,OAAO,CAAC,MAAR,CAAe,YAAf,CACA,CAAC,UADD,CACY,UADZ,EACwB,SAAC,MAAD;WACtB,OAAO,CAAC,GAAR,CAAY,iBAAZ;EADsB,CADxB;AAFA"
+}
