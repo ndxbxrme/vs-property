@@ -1,0 +1,2 @@
+body{font-family:'Arial',sans-serif;margin:0;}body .body{padding:1rem}
+.header{background:#ffa500;color:#fff;padding:0;}.header h1{padding:1rem 0 0 .5rem}.header .menu{list-style-type:none;display:flex;margin:0;padding:0;}.header .menu li{flex:1;}.header .menu li a{color:#fff;text-decoration:none;display:block;padding:.5rem}.header .menu li:hover{background:rgba(255,255,255,0.2)}.header .menu li.selected{background:rgba(255,255,255,0.3)}
