@@ -4,6 +4,11 @@
   padding 0
   h1
     padding 1rem 0 0 0.5rem
+  a
+    padding 20px 0
+    display block
+    img
+      width 250px
   .menu
     list-style-type none
     display flex
