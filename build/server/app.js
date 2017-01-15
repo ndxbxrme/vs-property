@@ -7,7 +7,7 @@
     tables: ['users'],
     host: 'localhost:3000',
     localStorage: './data'
-  }).use('ndx-passport').use('ndx-socket').use('ndx-keep-awake').controller(require('./dezrez.js')).controller('ndx-static-routes').start();
+  }).use('ndx-passport').use('ndx-socket').use('ndx-keep-awake').controller('ndx-static-routes').start();
 
 }).call(this);
 
