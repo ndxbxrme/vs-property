@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "dashboard.js",
+  "sourceRoot": "../../../../src/client/routes/dashboard/",
+  "sources": [
+    "dashboard.ctrl.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;EAAA;EAEA,OAAO,CAAC,MAAR,CAAe,YAAf,CACA,CAAC,UADD,CACY,eADZ,EAC6B,SAAC,MAAD;WAC3B,OAAO,CAAC,GAAR,CAAY,sBAAZ;EAD2B,CAD7B;AAFA"
+}

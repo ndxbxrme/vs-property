@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "feedback.js",
+  "sourceRoot": "../../../../src/client/routes/feedback/",
+  "sources": [
+    "feedback.ctrl.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;EAAA;EAEA,OAAO,CAAC,MAAR,CAAe,YAAf,CACA,CAAC,UADD,CACY,cADZ,EAC4B,SAAC,MAAD;WAC1B,OAAO,CAAC,GAAR,CAAY,qBAAZ;EAD0B,CAD5B;AAFA"
+}

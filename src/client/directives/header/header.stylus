@@ -1,0 +1,22 @@
+.header
+  background red
+  color white
+  padding 0
+  h1
+    padding 1rem 0 0 0.5rem
+  .menu
+    list-style-type none
+    display flex
+    margin 0
+    padding 0
+    li
+      flex 1
+      a
+        color #fff
+        text-decoration none
+        display block
+        padding 0.5rem
+      &:hover
+        background rgba(255,255,255,0.2)
+      &.selected
+        background rgba(255,255,255,0.3)

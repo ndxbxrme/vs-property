@@ -1,0 +1,13 @@
+.header
+  h1 Vitalspace Property
+  ul.menu
+    li(ng-class="{selected:isSelected('/')}")
+      a(href='/') Dashboard
+    li(ng-class="{selected:isSelected('/property')}")
+      a(href='/property') Property
+    li(ng-class="{selected:isSelected('/viewings')}")
+      a(href='/viewings') Viewings
+    li(ng-class="{selected:isSelected('/feedback')}")
+      a(href='/feedback') Feedback
+    li(ng-class="{selected:isSelected('/offers')}")
+      a(href='/offers') Offers
