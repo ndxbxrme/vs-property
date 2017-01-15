@@ -1,5 +1,5 @@
 .header
-  background orange
+  background #f15b25
   color white
   padding 0
   h1
