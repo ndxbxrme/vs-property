@@ -9,6 +9,6 @@ ndx = require 'ndx-server'
 .use 'ndx-passport'
 .use 'ndx-socket'
 .use 'ndx-keep-awake'
-#.controller require './dezrez.js'
+.controller require './dezrez.js'
 .controller 'ndx-static-routes'
 .start()
