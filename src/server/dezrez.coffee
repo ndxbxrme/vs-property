@@ -23,7 +23,7 @@ module.exports = ->
         .set 'Authorization', 'Bearer ' + credentials.access_token
         .query
           emailAddress: 'martin@manchestermade.com'
-          agencyId: 37
+          agencyId: 36
           branchId: 1656
         .send()
         .end (err, response) ->
