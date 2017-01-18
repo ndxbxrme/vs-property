@@ -17,12 +17,14 @@ module.exports = ->
     .end (err, response) ->
       if not err
         credentials = response.body
+        console.log credentials
         superagent.get 'https://core-api-uat.dezrez.com/api/people/findbyemail'
         .set 'Rezi-Api-Version', '1.0'
-        .set 'Authorization', 'bearer ' + credentials.access_token
+        .set 'Authorization', 'Bearer ' + credentials.access_token
         .query
           emailAddress: 'martin@manchestermade.com'
-          agencyId: 1656
+          agencyId: 37
+          branchId: 1656
         .send()
         .end (err, response) ->
           console.log 'err', err, 'response', response.body
