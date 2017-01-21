@@ -17,15 +17,21 @@ module.exports = ->
     .end (err, response) ->
       if not err
         credentials = response.body
-        console.log credentials
-        superagent.get 'https://core-api-uat.dezrez.com/api/people/findbyemail'
+        superagent.post 'https://core-api-uat.dezrez.com/api/simplepropertyrole/search'
         .set 'Rezi-Api-Version', '1.0'
         .set 'Content-Type', 'application/json'
         .set 'Authorization', 'Bearer ' + credentials.access_token
         .query
-          emailAddress: 'richard@vitalspace.co.uk'
           agencyId: 37
-        .send()
+        .send
+          MarketingFlags: 'ApprovedForMarketingWebsite'
+          MinimumPrice: 0
+          MaximumPrice: 9999999
+          MinimumBedrooms: 0
+          SortBy: 0
+          PageSize: 2000
+          IncludeStc: true
+          BranchIdList: []
         .end (err, response) ->
           console.log 'err', err, 'response', response.body
         
