@@ -22,7 +22,8 @@ angular.module 'vsProperty'
           else
             auth.getPromise()
             .then ->
-              $location.path '/'
+              console.log 'i wanna redirect'
+              $location.path '/loggedin'
         , ->
           scope.submitted = false
     scope.signup = ->
@@ -38,6 +39,6 @@ angular.module 'vsProperty'
           else
             auth.getPromise()
             .then ->
-              $location.path '/'
+              $location.path '/loggedin'
         , ->
           scope.submitted = false

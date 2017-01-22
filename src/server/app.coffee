@@ -11,6 +11,7 @@ ndx = require 'ndx-server'
 .use 'ndx-passport-facebook'
 .use 'ndx-socket'
 .use 'ndx-keep-awake'
-.controller require './dezrez.js'
+.use require './services/dezrez'
+.controller require './controllers/dezrez'
 .controller 'ndx-static-routes'
 .start()

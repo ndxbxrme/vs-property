@@ -12,30 +12,6 @@ module.exports = (ndx) ->
         auth: ''
         api: ''
     urls = envUrls[process.env.ENV or 'dev']
-    updateUserDezrez = (dezrez, userId) ->
-      ndx.database.exec 'UPDATE ' + ndx.settings.USER_TABLE + ' SET dezrez=? WHERE _id=?', [
-        dezrez
-        userId
-      ]
-    findByEmail = (email, userId, callback) ->
-      get 'people/findbyemail', 
-        emailAddress:email
-      , (err, body) ->
-        if not err and body and body.length
-          if body.length is 1
-            updateUserDezrez body[0], userId
-          callback body
-        else
-          callback error:'error'
-    ndx.app.post '/api/dezrez/email', (req, res) ->
-      findByEmail req.body.email, req.user._id, (data) ->
-        res.json data
-    ndx.app.post '/api/dezrez/findbyemail', (req, res) ->
-      findByEmail req.body.email, req.user._id, (data) ->
-        res.json data
-    ndx.app.post '/api/dezrez/update', (req, res) ->
-      updateUserDezrez req.body.dezrez, req.user._id
-      res.end 'OK'
     accessToken = null
     tokenExpires = 0
     refreshToken = (cb) ->
@@ -106,5 +82,3 @@ module.exports = (ndx) ->
       get: get
       post: post
         
-        
-    
