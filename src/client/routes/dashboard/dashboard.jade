@@ -1,1 +1,2 @@
-h2 dashboard
+.dashboard(ng-show='auth.getDezrezUser()')
+  h2 dashboard, {{auth.getUser().dezrez.ContactName}}

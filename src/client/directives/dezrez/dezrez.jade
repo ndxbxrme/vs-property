@@ -1,0 +1,12 @@
+.dezrez(ng-show='auth.getUser() && !auth.getDezrezUser()')
+  div(ng-show='auth.loading()') Contacting DezRez
+  div(ng-hide='auth.loading()')
+    .dezrez-email(ng-show='!auth.getPotentialUsers().length')
+      form(name='emailForm', ng-submit='findEmail()')
+        input(type='email', ng-model='dezrezEmail', placeholder='Dezrez Email')
+        input(type='submit', value='Find')
+    .dezrez-potential-users(ng-show='auth.getPotentialUsers().length')
+      .potential-user(ng-repeat='user in auth.getPotentialUsers()') 
+        .name {{user.FirstName}} {{user.LastName}} {{user.CreatedDate | date}}
+        .controls
+          a(ng-click='selectDezrezUser(user)', href='') Select

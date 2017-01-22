@@ -1,5 +1,6 @@
 'use strict'
 
 angular.module 'vsProperty'
-.controller 'ViewingsCtrl', ($scope) ->
-  console.log 'viewings controller'
+.controller 'ViewingsCtrl', ($scope, user) ->
+  if user
+    console.log 'viewings controller'
