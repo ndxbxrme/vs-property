@@ -1,6 +1,6 @@
 'use strict'
 
 angular.module 'vsProperty'
-.controller 'ViewingsCtrl', ($scope, user) ->
-  if user
-    console.log 'viewings controller'
+.controller 'ViewingsCtrl', ($scope, $http, dezrez) ->
+  console.log 'waking up dezrez'
+  dezrez.fetchViewings()

@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'vsProperty'
-.directive 'login', (auth, $http, $location) ->
+.directive 'login', (auth, $http, $location, dezrez) ->
   restrict: 'AE'
   templateUrl: 'directives/login/login.html'
   replace: true
@@ -23,6 +23,7 @@ angular.module 'vsProperty'
             auth.getPromise()
             .then ->
               console.log 'i wanna redirect'
+              dezrez.refresh()
               $location.path '/loggedin'
         , ->
           scope.submitted = false
@@ -39,6 +40,7 @@ angular.module 'vsProperty'
           else
             auth.getPromise()
             .then ->
+              dezrez.refresh()
               $location.path '/loggedin'
         , ->
           scope.submitted = false
