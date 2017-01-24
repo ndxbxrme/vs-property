@@ -1,5 +1,6 @@
+@import '../../variables'
 .header
-  background #f15b25
+  background vs-orange
   color white
   padding 0
   h1
@@ -9,6 +10,13 @@
     display block
     img
       width 250px
+  .branding
+    display flex
+    align-items center
+    justify-content space-between
+    .user
+      a
+        color #fff
   .menu
     list-style-type none
     display flex

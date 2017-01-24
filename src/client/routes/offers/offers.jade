@@ -1,2 +1,23 @@
-h2 offers
-div(ng-repeat='property in getProperties()') {{property.details.Address.Town}}
+.Offers
+  h2 Offers
+  p(ng-show='loading("offers") && !getOffers().length') Loading offers
+  p(ng-show='!loading("offers") && !getOffers().length') No offers
+  table(ng-show='getOffers().length')
+    thead
+      tr
+        th Property
+        th Applicant
+        th Amount
+        th Date
+        th Time
+        th Status
+    tbody(ng-repeat='offer in getOffers() | orderBy:"!DateTime"') 
+      tr
+        td {{offer.Property.Address.Number}} {{offer.Property.Address.Street}}, {{offer.Property.Address.Town}}
+        td {{offer.ApplicantGroup.PrimaryMember.ContactName}}
+        td {{offer.Value | currency:'£':0}}
+        td 
+          nobr {{offer.DateTime | date:'mediumDate'}}
+        td 
+          nobr {{offer.DateTime | date:'shortTime'}}
+        td {{offer.Response.ResponseType.Name}}

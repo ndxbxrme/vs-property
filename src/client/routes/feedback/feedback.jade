@@ -1,1 +1,40 @@
-h2 feedback
+.feedback
+  h2 Feedback
+  div(ng-repeat='property in getProperties()') 
+    h3(ng-hide='property.error || property.loading') {{property.details.Address.Number}} {{property.details.Address.Street }}, {{property.details.Address.Town}}
+    h3(ng-show='property.error') Error fetching property details
+    h3(ng-show='property.loading') Fetching property details
+    p(ng-show='loading("viewings") && !property.viewings.length') Loading Viewings
+    p(ng-show='!loading("viewings") && !property.viewings.length') No viewings
+    table(ng-show='property.viewings.length')
+      thead
+        tr
+          th Main contact
+          th Date
+          th Time
+          th Accompanied by
+          th.squish Feedback status
+      tbody(ng-repeat='viewing in property.viewings | orderBy: "StartDate"') 
+        tr(ng-click='toggle(viewing)', ng-class='{open:viewing.open, "has-feedback":viewing.Feedback.length}')
+          td {{viewing.MainContact}}
+          td 
+            nobr {{viewing.StartDate | date:'mediumDate'}}
+          td 
+            nobr {{viewing.StartDate | date:'shortTime'}}
+          td
+            div(ng-repeat='person in viewing.AccompaniedBy') {{person}}
+          td.status.squish 
+            div(ng-show='viewing.Feedback.length')
+              div(ng-hide='viewing.open') Feedback obtained ▽
+              div(ng-show='viewing.open') Feedback obtained △
+            div(ng-hide='viewing.Feedback.length') Feedback not yet taken
+        tr.popout(ng-show='viewing.open')
+          td(colspan='5')
+            .feedback-header
+              .feedback-title 
+                h4 Viewing Feedback
+            .feedback-list
+              .feedback-item(ng-repeat='feedback in viewing.Feedback')
+                h6 {{feedback.DateTime | date:'mediumDate'}}, {{feedback.DateTime | date:'shortTime'}}
+                p {{feedback.Feedback}}
+  h3(ng-show='!loading("properties") && !getProperties().length') No properties to show

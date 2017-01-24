@@ -43,7 +43,6 @@ module.exports = (ndx) ->
           if params
             route = route.replace /\{([^\}]+)\}/g, (all, key) ->
               params[key]
-          console.log 'getting', route
           query = query or {}
           query.agencyId = 37
           superagent.get urls.api + route

@@ -54,7 +54,6 @@ angular.module 'vsProperty'
         defer.reject {}
     defer.promise
   getPromise: (needsDezrez) ->
-    console.log 'get promise'
     defer = $q.defer()
     getUserPromise needsDezrez
     .then ->
@@ -70,7 +69,7 @@ angular.module 'vsProperty'
   getUser: ->
     user
   getDezrezUser: ->
-    if user.dezrez then user else null
+    if user and user.dezrez then user else null
   getPotentialUsers: ->
     potentialUsers
   clearPotentialUsers: ->

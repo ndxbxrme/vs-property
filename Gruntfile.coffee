@@ -91,11 +91,52 @@ module.exports = (grunt) ->
           'directives/**/*.html'
         ]
         dest: 'build/client/templates.js'
+    copy:
+      html:
+        files: [{
+          expand: true
+          cwd: 'src/client'
+          dest: 'build/client'
+          src: [
+            '*/**/*.html'
+          ]
+        }]
+    curl:
+      overview:
+        src: 'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/overview.php'
+        dest: 'build/client/routes/property/overview.html'
+    'curl-dir':
+      'remote-templates':
+        src: [
+          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/brochure.html'
+          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/featured-properties.html'
+          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/layout.html'
+          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/maps.html'
+          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/mobile-slider.html'
+          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/overview.html'
+          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/photos.html'
+          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/schools.html'
+          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/similar-properties.html'
+          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/taxbands.html'
+          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/transport.html'
+        ]
+        dest: 'build/client/routes/property'
+      'remote-css':
+        src: [
+          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/public/css/stylesheet.css'
+          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/public/css/vitalspace.css'
+          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/public/css/MyFontsWebfontsKit.css'
+        ]
+        dest: 'build/client/styles'
   grunt.registerTask 'buildClient', [
     'clean:client'
     'coffee:client'
     'jade'
     'stylus'
+    'copy:html'
+    'curl:overview'
+    'curl-dir:remote-templates'
+    'curl-dir:remote-css'
     'ngtemplates'
     'filerev'
     'usemin'

@@ -1,0 +1,29 @@
+@import '../../variables'
+.feedback
+  .feedback-list, .feedback-header
+    display flex
+    justify-content center
+    .feedback-item, .feedback-title
+      flex 1
+      max-width 46em
+  table
+    tr.has-feedback
+      cursor pointer
+    td.status 
+      color vs-orange
+    tr.open
+      td
+        border-bottom 1px solid rgba(0,0,0,0)
+    tr.popout
+      td
+        padding 0
+      .feedback-header
+        margin 1em 0
+        padding 0
+        border-bottom 1px solid vs-orange
+      .feedback-item
+        margin-bottom 1em
+        background #fefefe
+      p
+        padding 0
+        margin 0

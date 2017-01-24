@@ -1,1 +1,27 @@
-h2 viewings
+.viewings
+  h2 viewings
+  div(ng-repeat='property in getProperties()') 
+    h3(ng-hide='property.error || property.loading') {{property.details.Address.Number}} {{property.details.Address.Street }}, {{property.details.Address.Town}}
+    h3(ng-show='property.error') Error fetching property details
+    h3(ng-show='property.loading') Fetching property details
+    p(ng-show='loading("viewings") && !property.viewings.length') Loading Viewings
+    p(ng-show='!loading("viewings") && !property.viewings.length') No viewings
+    table(ng-show='property.viewings.length')
+      thead
+        tr
+          th Main contact
+          th Date
+          th Time
+          th Viewing status
+          th Accompanied by
+      tbody(ng-repeat='viewing in property.viewings | orderBy: "StartDate"') 
+        tr
+          td {{viewing.MainContact}}
+          td 
+            nobr {{viewing.StartDate | date:'mediumDate'}}
+          td 
+            nobr {{viewing.StartDate | date:'shortTime'}}
+          td {{viewing.EventStatus.Name}}
+          td
+            div(ng-repeat='person in viewing.AccompaniedBy') {{person}}
+  h3(ng-show='!loading("properties") && !getProperties().length') No properties to show

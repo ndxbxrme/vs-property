@@ -1,5 +1,30 @@
+@import 'variables'
 body
   font-family 'Arial', sans-serif
   margin 0
+  display flex
+  flex-direction column
   .body
-    padding 1rem
+    flex 1
+    
+.viewings, .feedback, .offers
+  table
+    width 100%
+    font-size 1em
+    .squish
+      width 1%
+      white-space nowrap
+    th
+      padding 1rem
+      background #eee
+    td
+      padding 1rem
+      border-bottom 1px solid #eee
+      vertical-align top
+
+//vitalspace overrides
+.property-menu
+  position relative!important
+.main-page-content
+  padding 0!important
+  margin 0!important
