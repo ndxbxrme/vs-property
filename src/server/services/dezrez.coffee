@@ -9,8 +9,8 @@ module.exports = (ndx) ->
         auth: 'https://dezrez-core-auth-uat.dezrez.com/Dezrez.Core.Api/oauth/token/'
         api: 'https://core-api-uat.dezrez.com/api/'
       live:
-        auth: ''
-        api: ''
+        auth: 'https://auth.dezrez.com/Dezrez.Core.Api/oauth/token/'
+        api: 'https://api.dezrez.com/api/'
     urls = envUrls[process.env.ENV or 'dev']
     accessToken = null
     tokenExpires = 0
