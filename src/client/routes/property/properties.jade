@@ -2,12 +2,19 @@
   h2 My property
   .property(ng-repeat='property in getProperties()')
     a(href='/3775830/overview', ng-hide='property.error || property.loading')
-      .property-image(style='background-image: url({{property.details.Images[0].Url}})')
-      .property-details
-        h2 {{property.details.Address.Number}} {{property.details.Address.Street }}, {{property.details.Address.Town}}
-        h3 {{property.details.Price.PriceValue | currency:'£':0}}
-      .property-controls
-        p View Details
+      .property-item
+        .property-image(style='background-image: url({{property.details.Images[0].Url}})')
+        .property-details
+          h2 {{property.details.Address.Number}} {{property.details.Address.Street }}, {{property.details.Address.Town}}
+          h3 {{property.details.Price.PriceValue | currency:'£':0}}
+          p(ng-show='!loading("all") || property.viewings.length || property.offers.length')
+            a(href='/viewings') Viewings: {{property.viewings.length}}
+            | , 
+            a(href='/feedback') Feedback: {{getFeedbackCount(property)}}
+            | , 
+            a(href='/offers') Offers: {{property.offers.length}}
+        .property-controls
+          a(href='') View Details
           
     h3(ng-show='property.error') Error fetching property details
     h3(ng-show='property.loading') Fetching property details

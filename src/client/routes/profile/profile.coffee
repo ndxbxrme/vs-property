@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'vsProperty'
-.controller 'ProfileCtrl', ($scope, $http, user) ->
+.controller 'ProfileCtrl', ($scope, $http, alert, user) ->
   status = ''
   $scope.user = user
   $scope.status = (name) ->
@@ -20,8 +20,11 @@ angular.module 'vsProperty'
         if response.error
           $scope.error = response.error
         else
-          #pop a message
-          console.log 'password updated'
+          alert.log 'Password updated successfully'
+          $scope.oldPassword = null
+          $scope.oldPassword1 = null
+          $scope.newPassword = null
+          $scope.status = ''
         $scope.submitted = false
       , ->
         $scope.error = 'Server error'

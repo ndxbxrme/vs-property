@@ -1,6 +1,6 @@
 .properties
   .property
-    a
+    .property-item
       display flex
       .property-image
         width 12em

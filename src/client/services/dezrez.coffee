@@ -116,4 +116,6 @@ angular.module 'vsProperty'
   loading: (type) ->
     if type is 'properties'
       return loading.selling or loading.letting
+    if type is 'all'
+      return loading.selling or loading.letting or loading.viewings or loading.offers
     loading[type]
