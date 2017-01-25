@@ -44,7 +44,7 @@ module.exports = (ndx) ->
             route = route.replace /\{([^\}]+)\}/g, (all, key) ->
               params[key]
           query = query or {}
-          query.agencyId = 37
+          query.agencyId = process.env.AGENCY_ID or 37
           superagent.get urls.api + route
           .set 'Rezi-Api-Version', '1.0'
           .set 'Content-Type', 'application/json'
@@ -67,12 +67,12 @@ module.exports = (ndx) ->
             route = route.replace /\{([^\}]+)\}/g, (all, key) ->
               params[key]
           data = data or {}
-          superagent.post 'https://core-api-uat.dezrez.com/api/' + route
+          superagent.post urls.api + route
           .set 'Rezi-Api-Version', '1.0'
           .set 'Content-Type', 'application/json'
           .set 'Authorization', 'Bearer ' + accessToken
           .query
-            agencyId: 37
+            agencyId: process.env.AGENCY_ID or 37
           .send data
           .end (err, response) ->
             doCallback err, response?.body
