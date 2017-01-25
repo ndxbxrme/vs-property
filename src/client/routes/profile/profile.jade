@@ -1,6 +1,7 @@
 .profile
   h1 Profile
-  h2 {{user.dezrez.ContactName}}
+  h2 {{user.dezrez.ContactName}}: 
+    a(href='/api/logout', target='_self') Log out
   .update-password(ng-show='user.local')
     a(href='', ng-click='setStatus("updating-password")', ng-hide='status("updating-password")') Update password
     .password-controls(ng-show='status("updating-password")')
