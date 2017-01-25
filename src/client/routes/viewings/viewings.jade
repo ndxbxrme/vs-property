@@ -14,7 +14,7 @@
           th Time
           th Viewing status
           th Accompanied by
-      tbody(ng-repeat='viewing in property.viewings | orderBy: "StartDate"') 
+      tbody(ng-repeat='viewing in property.viewings | orderBy: "!date"') 
         tr
           td {{viewing.MainContact}}
           td 

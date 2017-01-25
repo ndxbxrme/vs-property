@@ -48,6 +48,7 @@ angular.module 'vsProperty'
               if viewing.open then openIds.push viewing.Id
             property.viewings = []
           for viewing in response.data
+            viewing.date = new Date(viewing.StartDate).valueOf()
             viewing.AccompaniedBy = []
             for group in viewing.AttendingGroups
               if group.Type.Name isnt 'Owner'
@@ -73,6 +74,7 @@ angular.module 'vsProperty'
           for property in properties
             property.offers = []
           for offer in response.data
+            offer.date = new Date(offer.DateTime).valueOf()
             prop = getProperty offer.Property.Id
             prop.offers.push offer
             offers.push offer

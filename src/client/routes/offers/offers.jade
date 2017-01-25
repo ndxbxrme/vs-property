@@ -11,7 +11,7 @@
         th Date
         th Time
         th Status
-    tbody(ng-repeat='offer in getOffers() | orderBy:"!DateTime"') 
+    tbody(ng-repeat='offer in getOffers() | orderBy:"!date"') 
       tr
         td {{offer.Property.Address.Number}} {{offer.Property.Address.Street}}, {{offer.Property.Address.Town}}
         td {{offer.ApplicantGroup.PrimaryMember.ContactName}}
