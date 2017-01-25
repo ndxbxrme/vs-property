@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'vsProperty'
-.config ($stateProvider, $locationProvider) ->
+.config ($stateProvider, $locationProvider, $urlRouterProvider) ->
   $stateProvider
   .state 'dashboard',
     url: '/'
@@ -101,7 +101,7 @@ angular.module 'vsProperty'
     resolve:
       user: (auth) ->
         auth.getPromise true
-  
+  $urlRouterProvider.otherwise '/'
     
   #.otherwise '/'
   $locationProvider.html5Mode true

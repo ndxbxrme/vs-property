@@ -39,7 +39,7 @@
   "dependencies": {
     "async": "^2.1.4",
     "ndx-keep-awake": "0.0.2",
-    "ndx-passport": "0.0.3",
+    "ndx-passport": "0.0.4",
     "ndx-passport-facebook": "0.0.1",
     "ndx-passport-twitter": "0.0.3",
     "ndx-server": "^0.1.6",
