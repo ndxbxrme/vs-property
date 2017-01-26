@@ -36,6 +36,7 @@ html
       login
       dezrez
       property-menu(ng-hide='!propertyPage')
+      property-status-bar(ng-show='propertyPage')
       property-header
       .view(ui-view='')
     footer
@@ -49,4 +50,3 @@ html
     script(src='https://use.fontawesome.com/7cf3591d99.js')
     <!-- injector:js -->
     <!-- endinjector -->
-    script(src='http://localhost:35729/livereload.js', type='text/javascript')

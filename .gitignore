@@ -1,5 +1,6 @@
 node_modules
 bower
 data
+backup
 build
 env.bat

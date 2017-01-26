@@ -19,7 +19,7 @@ module.exports = (grunt) ->
         tasks: ['buildWeb', 'express:web']
         options:
           spawn: false
-          atBegin: true
+          atBegin: false
     coffee:
       options:
         sourceMap: true
@@ -128,6 +128,13 @@ module.exports = (grunt) ->
           'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/public/css/MyFontsWebfontsKit.css'
         ]
         dest: 'build/client/styles'
+    file_append:
+      main:
+        files: [{
+          append: '<script src="http://localhost:35729/livereload.js" type="text/javascript"></script>'
+          input: 'build/client/index.html'
+          output: 'build/client/index.html'
+        }]
   grunt.registerTask 'buildClient', [
     'clean:client'
     'coffee:client'
@@ -142,6 +149,7 @@ module.exports = (grunt) ->
     'usemin'
     'wiredep'
     'injector'
+    'file_append'
     'clean:html'
   ]
   grunt.registerTask 'buildWeb', [

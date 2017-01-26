@@ -29,6 +29,7 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-curl": "^2.2.0",
     "grunt-express-server": "^0.5.3",
+    "grunt-file-append": "0.0.7",
     "grunt-filerev": "^2.3.1",
     "grunt-injector": "^1.1.0",
     "grunt-parallel": "^0.5.1",
@@ -38,14 +39,16 @@
   },
   "dependencies": {
     "async": "^2.1.4",
+    "ndx-database-backup": "0.0.2",
     "ndx-keep-awake": "0.0.2",
-    "ndx-passport": "0.0.4",
+    "ndx-passport": "0.0.10",
     "ndx-passport-facebook": "0.0.1",
     "ndx-passport-twitter": "0.0.3",
-    "ndx-server": "^0.1.6",
+    "ndx-server": "^0.1.11",
     "ndx-socket": "0.0.2",
     "ndx-static-routes": "0.0.5",
     "ndx-sync": "0.0.2",
+    "ndx-user-roles": "0.0.4",
     "rezi-auth-js": "^1.0.0",
     "superagent": "^3.3.2"
   }
