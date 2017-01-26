@@ -40,6 +40,8 @@ module.exports = (grunt) ->
           ext: '.js'
         }]
     jade:
+      options:
+        pretty: true
       default:
         files: [{
           expand: true
@@ -71,6 +73,8 @@ module.exports = (grunt) ->
           'build/client/**/*.js'
           'build/client/**/*.css'
         ]
+    useminPrepare:
+      html: 'build/client/index.html'
     usemin:
       html: ['build/client/**/*.html']
       js: ['build/client/**/*.js']
@@ -135,6 +139,12 @@ module.exports = (grunt) ->
           input: 'build/client/index.html'
           output: 'build/client/index.html'
         }]
+    ngmin: dist: files: [ {
+      expand: true
+      cwd: 'build/client'
+      src: '**/*.js'
+      dest: 'build/client'
+    } ]
   grunt.registerTask 'buildClient', [
     'clean:client'
     'coffee:client'
@@ -146,9 +156,13 @@ module.exports = (grunt) ->
     'curl-dir:remote-css'
     'ngtemplates'
     'filerev'
-    'usemin'
     'wiredep'
     'injector'
+    'ngmin'
+    #'cssmin'
+    #'uglify'
+    #'concat'
+    'usemin'
     'file_append'
     'clean:html'
   ]

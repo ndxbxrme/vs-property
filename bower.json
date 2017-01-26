@@ -26,6 +26,7 @@
     "angular-ui-router": "0.2.15",
     "bootstrap-css": "~3.3.6",
     "fancybox": "~2.1.6",
+    "headjs": "~1.0.3",
     "humane-js": "humane#~3.2.2",
     "ngmap": "1.15.4"
   },
