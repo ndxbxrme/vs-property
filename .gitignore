@@ -2,5 +2,8 @@ node_modules
 bower
 data
 backup
+.tmp
 build
 env.bat
+server
+dist

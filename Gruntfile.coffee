@@ -1,12 +1,17 @@
 module.exports = (grunt) ->
   require('load-grunt-tasks') grunt
+  require('grunt-ndxmin') grunt
   grunt.initConfig
     express:
       options: {}
       web:
         options:
-          script: 'build/server/app.js'
-      
+          script: 'server/app.js'
+      dist:
+        options:
+          script: 'server/app.js'
+          node_env: 'production'
+          port: 3001
     watch:
       frontend:
         options:
@@ -36,7 +41,7 @@ module.exports = (grunt) ->
           expand: true
           cwd: 'src'
           src: ['server/**/*.coffee']
-          dest: 'build'
+          dest: ''
           ext: '.js'
         }]
     jade:
@@ -53,7 +58,7 @@ module.exports = (grunt) ->
     injector:
       default:
         files:
-          "build/client/index.html": ['build/client/**/*.js', 'build/client/**/*.css']
+          "build\/client\/index.html": ['build/client/**/*.js', 'build/client/**/*.css']
     stylus:
       default:
         files:
@@ -65,7 +70,9 @@ module.exports = (grunt) ->
         src: 'build/client/index.html'
     clean:
       client: 'build/client'
-      web: 'build/server'
+      web: 'server'
+      dist: 'dist'
+      build: 'build'
       html: 'build/client/*/**/*.html'
     filerev:
       build:
@@ -73,8 +80,6 @@ module.exports = (grunt) ->
           'build/client/**/*.js'
           'build/client/**/*.css'
         ]
-    useminPrepare:
-      html: 'build/client/index.html'
     usemin:
       html: ['build/client/**/*.html']
       js: ['build/client/**/*.js']
@@ -145,7 +150,17 @@ module.exports = (grunt) ->
       src: '**/*.js'
       dest: 'build/client'
     } ]
-  grunt.registerTask 'buildClient', [
+    ndxmin:
+      options:
+        base: 'build/client'
+        dest: 'dist'
+        ignoreExternal: false
+      all:
+        html: ['build/client/index.html']
+  grunt.registerTask 'stuff', [
+    'ndxmin'
+  ]
+  grunt.registerTask 'do_build', [
     'clean:client'
     'coffee:client'
     'jade'
@@ -158,17 +173,27 @@ module.exports = (grunt) ->
     'filerev'
     'wiredep'
     'injector'
-    'ngmin'
-    #'cssmin'
-    #'uglify'
-    #'concat'
     'usemin'
-    'file_append'
     'clean:html'
+  ]
+  grunt.registerTask 'buildClient', [
+    'do_build'
+    'file_append'
   ]
   grunt.registerTask 'buildWeb', [
     'clean:web'
     'coffee:web'
+  ]
+  grunt.registerTask 'build', [
+    'do_build'
+    'clean:dist'
+    'ndxmin'
+    'clean:build'
+  ]
+  grunt.registerTask 'serve', [
+    'build'
+    'express:dist'
+    'keepalive'
   ]
   grunt.registerTask 'default', [
     'buildClient'
