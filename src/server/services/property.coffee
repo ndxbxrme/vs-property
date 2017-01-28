@@ -21,7 +21,7 @@ module.exports = (ndx) ->
           BranchIdList: []
           PageNumber: pageNo
         .end (err, response) ->
-          if not err and response.body.Collection     
+          if not err and response.body.Collection
             for property in response.body.Collection
               property.stc = true
               property.NoRooms = 0
@@ -31,7 +31,7 @@ module.exports = (ndx) ->
                 if property.RoomCountsDescription.Receptions then property.NoRooms += property.RoomCountsDescription.Receptions
                 if property.RoomCountsDescription.Others then property.NoRooms += property.RoomCountsDescription.Others
               property.Search = "#{property.Address.Street}|#{property.Address.Town}|#{property.Address.Locality}|#{property.Address.Postcode}|#{property.Address.County}"
-              ndx.database.exec 'INSERT INTO tmpprops SELECT * FROM ?', [property], true
+              ndx.database.exec 'INSERT INTO tmpprops VALUES ?', [property], true
             if response.body.CurrentCount < response.body.PageSize
               cb?()
             else

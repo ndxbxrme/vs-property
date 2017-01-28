@@ -1,6 +1,10 @@
 'use strict'
 
+superagent = require 'superagent'
+
 module.exports = (ndx) ->
+  apiUrl = process.env.API_URL or ndx.settings.API_URL
+  apiKey = process.env.API_KEY or ndx.settings.API_KEY
   ndx.app.options '/api/search', (req, res) ->
     res.setHeader 'Access-Control-Allow-Origin', '*'
     res.setHeader 'Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept'
@@ -60,9 +64,9 @@ module.exports = (ndx) ->
       PageSize: limit
       PageNumber: Math.floor(skip / limit) + 1
       Collection: props
-  ndx.app.get '/property/:id', (req, res) ->
+  ndx.app.get '/api/property/:id', (req, res) ->
     if req.params.id
-      props = ndx.database.exec 'SELECT * FROM props WHERE RoleId=?', [req.params.id]
+      props = ndx.database.exec 'SELECT * FROM props WHERE RoleId=?', [+req.params.id]
       if props and props.length
         property = props[0]
         similar = []
