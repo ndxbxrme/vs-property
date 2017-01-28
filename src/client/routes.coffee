@@ -7,9 +7,6 @@ angular.module 'vsProperty'
     url: '/'
     templateUrl: 'routes/dashboard/dashboard.html'
     controller: 'DashboardCtrl'
-    resolve:
-      user: (auth) ->
-        auth.getPromise false
   .state 'properties',
     url: '/property'
     templateUrl: 'routes/property/properties.html'

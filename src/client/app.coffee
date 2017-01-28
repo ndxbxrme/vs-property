@@ -5,7 +5,8 @@ angular.module 'vsProperty', [
   'ui.router'
   'propertyEngine'
 ]
-.run ($rootScope, $state, $stateParams) ->
+.run ($rootScope, $state, $stateParams, auth) ->
+  auth.getPromise false
   $rootScope.$on '$stateChangeSuccess', ->
     propertyPages = [
       'overview'
