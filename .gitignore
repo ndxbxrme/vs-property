@@ -6,4 +6,5 @@ backup
 build
 env.bat
 server
+!build/server
 dist
