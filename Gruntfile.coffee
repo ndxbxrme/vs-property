@@ -24,7 +24,7 @@ module.exports = (grunt) ->
         tasks: ['buildWeb', 'express:web']
         options:
           spawn: false
-          atBegin: false
+          atBegin: true
     coffee:
       options:
         sourceMap: true
@@ -198,6 +198,6 @@ module.exports = (grunt) ->
   grunt.registerTask 'default', [
     'buildClient'
     'buildWeb'
-    'express:web'
+    #'express:web'
     'watch'
   ]
