@@ -13,6 +13,7 @@ ndx = require 'ndx-server'
 .use 'ndx-socket'
 .use 'ndx-keep-awake'
 .use 'ndx-database-backup'
+.use 'ndx-auth'
 .use require './services/dezrez'
 .use require './services/property'
 .use (ndx) ->
