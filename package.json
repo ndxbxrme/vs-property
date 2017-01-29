@@ -46,7 +46,7 @@
     "ndx-passport": "^0.1.2",
     "ndx-passport-facebook": "0.0.1",
     "ndx-passport-twitter": "0.0.3",
-    "ndx-server": "^0.2.5",
+    "ndx-server": "^0.2.8",
     "ndx-socket": "0.0.2",
     "ndx-static-routes": "0.0.8",
     "ndx-superadmin": "0.0.3",

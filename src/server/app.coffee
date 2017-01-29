@@ -4,7 +4,6 @@ ndx = require 'ndx-server'
 .config
   database: 'vs'
   tables: ['users', 'props', 'tmpprops']
-  host: 'localhost:3000'
   localStorage: './data'
 .use 'ndx-passport'
 .use 'ndx-passport-twitter'
