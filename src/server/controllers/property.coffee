@@ -84,8 +84,10 @@ module.exports = (ndx) ->
             response.body.similar = similar
           res.json response.body
       else
-        res.json
+        throw
+          status: 200
           error: 'no property found'
     else
-      res.json
+      throw
+        status: 200
         error: 'no id'

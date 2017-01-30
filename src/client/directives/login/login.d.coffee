@@ -23,7 +23,8 @@ angular.module 'vsProperty'
             auth.getPromise()
             .then ->
               console.log 'i wanna redirect'
-              dezrez.refresh()
+              if auth.getDezrezUser()
+                dezrez.refresh()
               $location.path '/loggedin'
         , ->
           scope.submitted = false
@@ -40,7 +41,8 @@ angular.module 'vsProperty'
           else
             auth.getPromise()
             .then ->
-              dezrez.refresh()
+              if auth.getDezrezUser()
+                dezrez.refresh()
               $location.path '/loggedin'
         , ->
           scope.submitted = false

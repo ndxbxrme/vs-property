@@ -1,5 +1,5 @@
 angular.module 'vsProperty'
-.directive 'dezrez', (auth, alert, $http, $location) ->
+.directive 'dezrez', (auth, dezrez, alert, $http, $location) ->
   restrict: 'AE'
   templateUrl: 'directives/dezrez/dezrez.html'
   replace: true
@@ -17,6 +17,7 @@ angular.module 'vsProperty'
       auth.getDezrezPromise scope.dezrezEmail
       .then ->
         alert.log 'Successfully connected Dezrez account'
+        dezrez.refresh()
       , ->
         alert.log 'Could not find Dezrez user'
       

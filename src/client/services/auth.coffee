@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'vsProperty'
-.factory 'auth', ($http, $q, $timeout, $location) ->
+.factory 'auth', ($http, $q, $timeout, $location, dezrez) ->
   user = null
   potentialUsers = []
   loading = false
@@ -44,6 +44,8 @@ angular.module 'vsProperty'
         if data and data.data isnt 'error'
           user = data.data
           getDezrezPromise defer, needsDezrez
+          if user.dezrez and not dezrez.loading('all')
+            dezrez.refresh()
         else 
           loading = false
           user = null

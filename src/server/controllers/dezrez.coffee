@@ -24,14 +24,12 @@ module.exports = (ndx) ->
       if req.user
         next()
       else
-        res.json
-          error: 'not authorized'
+        throw ndx.UNAUTHORIZED
     ndx.authorizeDezrez = (req, res, next) ->
       if req.user and req.user.dezrez
         next()
       else
-        res.json
-          error: 'not authorized'
+        throw ndx.UNAUTHORIZED
       
     ndx.app.post '/api/dezrez/email', ndx.authorize,  (req, res) ->
       findByEmail req.body.email, req.user._id, (data) ->
@@ -47,16 +45,14 @@ module.exports = (ndx) ->
         if not err
           res.json body
         else
-          res.json
-            error: err
+          throw err
     ndx.app.get '/api/dezrez/property/list/:type', ndx.authorizeDezrez, (req, res) ->
       type = req.params.type
       ndx.dezrez.get 'people/{id}/' + type, pageSize, id:req.user.dezrez.Id, (err, body) ->
         if not err
           res.json body
         else
-          res.json
-            error: err
+          throw err
     ndx.app.get '/api/dezrez/role/:type', ndx.authorizeDezrez, (req, res) ->
       type = req.params.type
       roleIds = []

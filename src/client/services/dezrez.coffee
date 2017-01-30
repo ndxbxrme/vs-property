@@ -24,7 +24,7 @@ angular.module 'vsProperty'
     newProp
   fetchPropertyDetails = (property) ->
     property.loading = true
-    $http.get 'http://vitalspace.co.uk:3000/property/3775830'# + property.id
+    $http.get '/api/property/3775830'# + property.id
     .then (response) ->
       property.loading = false
       if response.data and not response.data.error
@@ -103,7 +103,6 @@ angular.module 'vsProperty'
       loading.letting = false
     fetchViewings()
     fetchOffers()
-  refresh()
   getProperties: ->
     properties
   getProperty: (id) ->
