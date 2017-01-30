@@ -16,17 +16,13 @@ angular.module 'vsProperty'
           email: scope.email
           password: scope.password
         .then (response) ->
-          if response.data.error
-            scope.message = response.data.message[0]
-            scope.submitted = false
-          else
-            auth.getPromise()
-            .then ->
-              console.log 'i wanna redirect'
-              if auth.getDezrezUser()
-                dezrez.refresh()
-              $location.path '/loggedin'
-        , ->
+          auth.getPromise()
+          .then ->
+            if auth.getDezrezUser()
+              dezrez.refresh()
+            $location.path '/loggedin'
+        , (err) ->
+          scope.message = err.data
           scope.submitted = false
     scope.signup = ->
       scope.submitted = true
@@ -35,14 +31,11 @@ angular.module 'vsProperty'
           email: scope.email
           password: scope.password
         .then (response) ->
-          if response.data.error
-            scope.message = response.data.message[0]
-            scope.submitted = false
-          else
-            auth.getPromise()
-            .then ->
-              if auth.getDezrezUser()
-                dezrez.refresh()
-              $location.path '/loggedin'
-        , ->
-          scope.submitted = false
+          auth.getPromise()
+          .then ->
+            if auth.getDezrezUser()
+              dezrez.refresh()
+            $location.path '/loggedin'
+        , (err) ->
+          scope.message = err.data
+          scope.submitted = false 
