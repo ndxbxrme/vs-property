@@ -86,8 +86,8 @@ module.exports = (ndx) ->
       else
         throw
           status: 200
-          error: 'no property found'
+          message: 'no property found'
     else
       throw
         status: 200
-        error: 'no id'
+        message: 'no id'

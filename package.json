@@ -40,20 +40,20 @@
   },
   "dependencies": {
     "async": "^2.1.4",
-    "ndx-auth": "0.0.3",
-    "ndx-connect": "0.0.2",
-    "ndx-database-backup": "0.0.5",
+    "ndx-auth": "0.0.4",
+    "ndx-connect": "0.0.3",
+    "ndx-database-backup": "0.0.6",
     "ndx-keep-awake": "0.0.3",
     "ndx-memory-check": "0.0.3",
-    "ndx-passport": "^0.1.4",
+    "ndx-passport": "^0.1.5",
     "ndx-passport-facebook": "0.0.2",
     "ndx-passport-twitter": "0.0.4",
-    "ndx-server": "^0.2.18",
+    "ndx-server": "^0.2.19",
     "ndx-socket": "0.0.3",
     "ndx-static-routes": "0.0.9",
     "ndx-superadmin": "0.0.4",
     "ndx-sync": "0.0.2",
-    "ndx-user-roles": "0.0.5",
+    "ndx-user-roles": "0.0.6",
     "superagent": "^3.3.2"
   }
 }
