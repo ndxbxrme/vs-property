@@ -30,6 +30,17 @@ angular.module 'vsProperty'
       if response.data and not response.data.error
         property.details = response.data
         property.error = false
+        property.loadingEvents = true
+        $http.get "/api/dezrez/property/#{property.id}/events"
+        .then (response) ->
+          if response.data and response.data.Collection and response.data.Collection.length
+            property.mailouts = 0
+            for event in response.data.Collection
+              if event.EventType.Name is 'Mailout'
+                property.mailouts += event.Properties.length
+          property.loadingEvents = false
+        ,
+          property.loadingEvents = false
       else
         property.error = true
     , ->
@@ -54,12 +65,17 @@ angular.module 'vsProperty'
               if group.Type.Name isnt 'Owner'
                 for person in group.AttendingPeople
                   if not viewing.MainContact
-                    viewing.MainContact = person.ContactName
+                    viewing.MainContact =
+                      name: person.ContactName
+                      email: person.PrimaryEmail
+                      sortname: person.LastName + person.FirstName
                   else
-                    viewing.AccompaniedBy.push person.ContactName
+                    viewing.AccompaniedBy.push 
+                      name: person.ContactName
+                      email: person.PrimaryEmail
             if openIds.indexOf(viewing.Id) isnt -1
               viewing.open = true
-            prop = getProperty viewing.PropertyId
+            prop = getProperty viewing.MarketingRoleId
             prop.viewings.push viewing
       , ->
         loading.viewings = false
@@ -75,7 +91,7 @@ angular.module 'vsProperty'
             property.offers = []
           for offer in response.data
             offer.date = new Date(offer.DateTime).valueOf()
-            prop = getProperty offer.Property.Id
+            prop = getProperty offer.MarketingRoleId
             prop.offers.push offer
             offers.push offer
       , ->
@@ -88,7 +104,7 @@ angular.module 'vsProperty'
       loading.selling = false
       if response.data and not response.data.error
         for property in response.data.Collection
-          prop = getProperty property.PropertyId
+          prop = getProperty property.Id
           prop.type = 'selling'
     , ->
       loading.selling = false
@@ -97,7 +113,7 @@ angular.module 'vsProperty'
       loading.letting = false
       if response.data and not response.data.error
         for property in response.data.Collection
-          prop = getProperty property.PropertyId
+          prop = getProperty property.Id
           prop.type = 'letting'
     , ->
       loading.letting = false

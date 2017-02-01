@@ -1,21 +1,2 @@
-.properties
-  .property
-    .property-item
-      display flex
-      .property-image
-        width 12em
-        height 8em
-        background #eee
-        background-position center
-        background-size cover
-        margin-right 2rem
-        box-shadow 0 2px 2px rgba(0,0,0,0.5)
-      .property-details
-        flex 1
-        h2, h3
-          margin 0
-          padding 0
-      .property-controls
-        p
-          padding 0
+
       

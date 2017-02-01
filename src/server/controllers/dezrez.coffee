@@ -45,6 +45,12 @@ module.exports = (ndx) ->
         if not err
           res.json body
         else
+          throw err 
+    ndx.app.get '/api/dezrez/property/:id/events', ndx.authorizeDezrez, (req, res) ->
+      ndx.dezrez.get 'role/{id}/Events', pageSize, id:req.params.id, (err, body) ->
+        if not err
+          res.json body
+        else
           throw err
     ndx.app.get '/api/dezrez/property/list/:type', ndx.authorizeDezrez, (req, res) ->
       type = req.params.type

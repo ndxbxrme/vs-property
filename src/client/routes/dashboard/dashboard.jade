@@ -1,2 +1,22 @@
 .dashboard(ng-show='auth.getDezrezUser()')
   h2 Dashboard, {{auth.getUser().dezrez.ContactName}}
+  .property(ng-repeat='property in getProperties()')
+    a(href='/3775830/overview', ng-hide='property.error || property.loading')
+      .property-item
+        .property-image(style='background-image: url({{property.details.Images[0].Url}})')
+        .property-status
+          h3 My Status
+          .item
+            label Address:
+            h4 {{property.details.Address.Number}} {{property.details.Address.Street }}, {{property.details.Address.Town}}
+          .item
+            label Property Status
+            h4 {{property.details.RoleStatus.DisplayName}}
+        .property-marketing
+          h3 Marketing
+          .item(ng-show='!property.loadingEvents')
+            label Mail outs:
+            h4 {{property.mailouts}}
+          .item(ng-show='!loading("all")')
+            label Viewings:
+            h4 {{property.viewings.length}}

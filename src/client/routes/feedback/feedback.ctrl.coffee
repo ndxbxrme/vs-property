@@ -2,6 +2,7 @@
 
 angular.module 'vsProperty'
 .controller 'FeedbackCtrl', ($scope, dezrez) ->
+  $scope.sort = '!date'
   dezrez.fetchViewings()
   $scope.getProperties = dezrez.getProperties
   $scope.loading = dezrez.loading

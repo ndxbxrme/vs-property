@@ -9,14 +9,17 @@
     table(ng-show='property.viewings.length')
       thead
         tr
-          th Main contact
-          th Date
-          th Time
+          th(ng-click='setSort("MainContact.sortname")', ng-class='getSortClass("MainContact.sortname")') Main contact
+          th(ng-click='setSort("date")', ng-class='getSortClass("date")') Date
+          th(ng-click='setSort("date")', ng-class='getSortClass("date")') Time
           th Accompanied by
-          th.squish Feedback status
-      tbody(ng-repeat='viewing in property.viewings | orderBy: "StartDate"') 
+          th.squish(ng-click='setSort("Feedback.length")', ng-class='getSortClass("Feedback.length")') Feedback status
+      tbody(ng-repeat='viewing in property.viewings | orderBy: sort') 
         tr(ng-click='toggle(viewing)', ng-class='{open:viewing.open, "has-feedback":viewing.Feedback.length}')
-          td {{viewing.MainContact}}
+          td
+            .person
+              img(gravatar-src='viewing.MainContact.email') 
+              span {{viewing.MainContact.name}}
           td 
             nobr {{viewing.StartDate | date:'mediumDate'}}
           td 

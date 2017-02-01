@@ -9,19 +9,27 @@
     table(ng-show='property.viewings.length')
       thead
         tr
-          th Main contact
-          th Date
-          th Time
-          th Viewing status
+          th(ng-click='setSort("MainContact.sortname")', ng-class='getSortClass("MainContact.sortname")') Main contact
+          th(ng-click='setSort("date")', ng-class='getSortClass("date")') Date
+          th(ng-click='setSort("date")', ng-class='getSortClass("date")') Time
+          th(ng-click='setSort("EventStatus.Name")', ng-class='getSortClass("EventStatus.Name")') Viewing status
           th Accompanied by
       tbody(ng-repeat='viewing in property.viewings | orderBy: "!date"') 
         tr
-          td {{viewing.MainContact}}
+          td 
+            .person
+              img(gravatar-src='viewing.MainContact.email') 
+              span {{viewing.MainContact.name}}
           td 
             nobr {{viewing.StartDate | date:'mediumDate'}}
           td 
             nobr {{viewing.StartDate | date:'shortTime'}}
           td {{viewing.EventStatus.Name}}
           td
-            div(ng-repeat='person in viewing.AccompaniedBy') {{person}}
+            .person(ng-repeat='person in viewing.Negotiators') 
+              img(gravatar-src='person.PrimaryEmail.Value') 
+              span {{person.ContactName}}
+            .person(ng-repeat='person in viewing.AccompaniedBy')  
+              img(gravatar-src='person.email') 
+              span {{person.name}}
   h3(ng-show='!loading("properties") && !getProperties().length') No properties to show
