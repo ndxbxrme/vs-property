@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "async": "^2.1.4",
+    "grunt": "^1.0.1",
     "ndx-auth": "0.0.4",
     "ndx-connect": "0.0.3",
     "ndx-database-backup": "0.0.6",

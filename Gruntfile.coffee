@@ -188,6 +188,7 @@ module.exports = (grunt) ->
   ]
   grunt.registerTask 'build', [
     'do_build'
+    'buildWeb'
     'clean:dist'
     'ndxmin'
     'clean:build'

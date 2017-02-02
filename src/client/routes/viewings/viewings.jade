@@ -14,7 +14,7 @@
           th(ng-click='setSort("date")', ng-class='getSortClass("date")') Time
           th(ng-click='setSort("EventStatus.Name")', ng-class='getSortClass("EventStatus.Name")') Viewing status
           th Accompanied by
-      tbody(ng-repeat='viewing in property.viewings | orderBy: "!date"') 
+      tbody(ng-repeat='viewing in property.viewings | orderBy: sort') 
         tr
           td 
             .person

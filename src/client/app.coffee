@@ -28,14 +28,14 @@ angular.module 'vsProperty', [
     root = Object.getPrototypeOf $rootScope
     root.sort = ''
     root.setSort = (field) ->
-      console.log 'setting sort'
       if @sort.indexOf(field) is -1
         @sort = field
       else
-        if @sort.indexOf('!') is 0
+        if @sort.indexOf('-') is 0
           @sort = field
         else
-          @sort = '!' + field
+          @sort = '-' + field
     root.getSortClass = (field) ->
+      "has-sort": true
       sorting: @sort.indexOf(field) isnt -1
       desc: @sort.indexOf('!') is 0
