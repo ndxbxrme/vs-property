@@ -67,5 +67,5 @@ module.exports = (ndx) ->
           tables = ndx.database.getDb() 
           tables.props.data = tables.tmpprops.data
           tables.tmpprops.data = []
-    setInterval fetchProperties, 5 * 60 * 1000
+    setInterval fetchProperties, 10 * 60 * 1000
     fetchProperties()

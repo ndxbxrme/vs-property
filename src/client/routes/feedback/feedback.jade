@@ -25,7 +25,12 @@
           td 
             nobr {{viewing.StartDate | date:'shortTime'}}
           td
-            div(ng-repeat='person in viewing.AccompaniedBy') {{person}}
+            .person(ng-repeat='person in viewing.Negotiators') 
+              img(gravatar-src='person.PrimaryEmail.Value') 
+              span {{person.ContactName}}
+            .person(ng-repeat='person in viewing.AccompaniedBy')  
+              img(gravatar-src='person.email') 
+              span {{person.name}}
           td.status.squish 
             div(ng-show='viewing.Feedback.length')
               div(ng-hide='viewing.open') Feedback obtained ▽

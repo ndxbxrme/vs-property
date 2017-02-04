@@ -5,6 +5,10 @@ ndx = require 'ndx-server'
   database: 'vs'
   tables: ['users', 'props', 'tmpprops']
   localStorage: './data'
+  publicUser:
+    _id: true
+    dezrez:
+      Id: true
 .use 'ndx-passport'
 .use 'ndx-passport-twitter'
 .use 'ndx-passport-facebook'
