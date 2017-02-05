@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'vsProperty'
-.directive 'propertyStatusBar', ($state, $timeout, dezrez) ->
+.directive 'propertyStatusBar', ($state, $timeout, $rootScope, dezrez) ->
   restrict: 'AE'
   templateUrl: 'directives/property-status-bar/property-status-bar.html'
   replace: true
@@ -12,6 +12,8 @@ angular.module 'vsProperty'
       if n
         $timeout ->
           if $state and $state.params.propertyID
-            scope.property = dezrez.getProperty $state.params.propertyID
+            scope.property = dezrez.getProperty 6606003# $state.params.propertyID
         , 1
-    
+    $rootScope.$on '$stateChangeSuccess', ->
+      if $state and $state.params.propertyID
+        scope.property = dezrez.getProperty 6606003#$state.params.propertyID

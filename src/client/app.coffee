@@ -25,17 +25,17 @@ angular.module 'vsProperty', [
       'taxbands'
     ]
     $rootScope.propertyPage = propertyPages.indexOf($state.current.name) isnt -1
-    root = Object.getPrototypeOf $rootScope
-    root.sort = ''
-    root.setSort = (field) ->
-      if @sort.indexOf(field) is -1
+  root = Object.getPrototypeOf $rootScope
+  root.sort = ''
+  root.setSort = (field) ->
+    if @sort.indexOf(field) is -1
+      @sort = field
+    else
+      if @sort.indexOf('-') is 0
         @sort = field
       else
-        if @sort.indexOf('-') is 0
-          @sort = field
-        else
-          @sort = '-' + field
-    root.getSortClass = (field) ->
-      "has-sort": true
-      sorting: @sort.indexOf(field) isnt -1
-      desc: @sort.indexOf('!') is 0
+        @sort = '-' + field
+  root.getSortClass = (field) ->
+    "has-sort": true
+    sorting: @sort.indexOf(field) isnt -1
+    desc: @sort.indexOf('!') is 0
