@@ -3,8 +3,9 @@
     .branding
       a.logo(href="/")
         img.logo(src="public/img/VitalSpaceLogo-2016.svg")
-      .user
-        a(href='/profile') {{getDezrezUser().dezrez.ContactName}}
+    .user
+      a(href='/api/logout') {{getDezrezUser().dezrez.ContactName}} 
+        img.logo(src="public/img/icons/logout.svg")
     nav.main-menu
       ul.menu
         li(ng-class="{selected:isSelected('dashboard')}")

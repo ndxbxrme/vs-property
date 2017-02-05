@@ -30,13 +30,12 @@ html
     // endbower 
     // injector:css 
     // endinjector 
-  body(ng-app='vsProperty')
+  body(ng-app='vsProperty').property-hub
     header
     .container.body
       login
       dezrez
       property-menu(ng-hide='!propertyPage')
-      property-status-bar(ng-show='propertyPage')
       property-header
       .view(ui-view='')
     footer

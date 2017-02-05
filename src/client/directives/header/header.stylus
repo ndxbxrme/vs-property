@@ -4,6 +4,8 @@
   color white
   padding 0
   height 72px
+  .container
+    position relative
   h1
     padding 1rem 0 0 0.5rem
   a
@@ -15,9 +17,20 @@
     display flex
     align-items center
     justify-content space-between
-    .user
-      a
-        color #fff
+  .user
+    position absolute
+    top 7px
+    right 15px
+    a
+      color #fff
+      display flex
+      &:hover
+        color #464e53
+      img
+        width 15px
+        display inline-block
+        margin-left 5px
+        
 
   nav.main-menu ul.menu
     top 20px
