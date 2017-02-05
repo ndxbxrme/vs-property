@@ -7,6 +7,7 @@ ndx = require 'ndx-server'
   localStorage: './data'
   publicUser:
     _id: true
+    local: true
     dezrez:
       Id: true
       ContactName: true
