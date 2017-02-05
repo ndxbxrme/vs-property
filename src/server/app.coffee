@@ -9,6 +9,7 @@ ndx = require 'ndx-server'
     _id: true
     dezrez:
       Id: true
+      ContactName: true
 .use 'ndx-passport'
 .use 'ndx-passport-twitter'
 .use 'ndx-passport-facebook'
