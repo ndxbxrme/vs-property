@@ -5,14 +5,20 @@
         img.logo(src="public/img/VitalSpaceLogo-2016.svg")
       .user
         a(href='/profile') {{getDezrezUser().dezrez.ContactName}}
-    ul.menu
-      li(ng-class="{selected:isSelected('dashboard')}")
-        a(href='/') Dashboard
-      li(ng-class="{selected:propertyPage||isSelected('properties')}")
-        a(href='/property') My Property
-      li(ng-class="{selected:isSelected('viewings')}")
-        a(href='/viewings') Viewings
-      li(ng-class="{selected:isSelected('feedback')}")
-        a(href='/feedback') Feedback
-      li(ng-class="{selected:isSelected('offers')}")
-        a(href='/offers') Offers
+    nav.main-menu
+      ul.menu
+        li(ng-class="{selected:isSelected('dashboard')}")
+          a(href='/') 
+            span Dashboard
+        li(ng-class="{selected:propertyPage||isSelected('properties')}")
+          a(href='/property') 
+            span Property
+        li(ng-class="{selected:isSelected('viewings')}")
+          a(href='/viewings') 
+            span Viewings
+        li(ng-class="{selected:isSelected('feedback')}")
+          a(href='/feedback') 
+            span Feedback
+        li(ng-class="{selected:isSelected('offers')}")
+          a(href='/offers') 
+            span Offers
