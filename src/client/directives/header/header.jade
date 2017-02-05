@@ -6,7 +6,7 @@
     .user
       a(href='/api/logout', target='_self') {{getDezrezUser().dezrez.ContactName}} 
         img.logo(src="public/img/icons/logout.svg")
-    nav.main-menu
+    nav.main-menu(ng-show='getDezrezUser()')
       ul.menu
         li(ng-class="{selected:isSelected('dashboard')}")
           a(href='/') 
