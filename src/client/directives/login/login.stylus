@@ -6,5 +6,16 @@
     text-align center
     input
       margin-bottom 0.7rem
+    input[type=text], input[type=email], input[type=password]
+        width 320px
+        padding 10px
     .button
-      padding 0 1em
+      padding 5px 30px
+      width 135px
+      color white
+      &.twitter
+        background #55acee
+      &.facebook
+        background #3b5998
+      &:hover
+        background #464e53

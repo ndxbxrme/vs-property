@@ -11,26 +11,37 @@ body
   table
     width 100%
     font-size 1em
+    border-left: 0;
+    border-right: 0;
     .squish
       width 1%
       white-space nowrap
     th
-      padding 1rem
+      padding 15px 10px
       background #eee
       &.has-sort
         cursor pointer
+        &:after
+          float right
+          font-family FontAwesome
+          content '\f0d7'
       &.sorting
-        text-shadow 0px 0px 1px #999
+        font-family ProximaNova-Regular, sans-serif
+        &:after
+          content '\f0d8'
     td
-      padding 1rem
+      padding 15px 10px
       border-bottom 1px solid #eee
       vertical-align top
       .person
         display flex
         align-items center
+        color #464e53
         img
           min-width 16px
           margin-right 1rem
+    tr
+      border-bottom 1px solid #eee
       
 .properties, .dashboard
   .property

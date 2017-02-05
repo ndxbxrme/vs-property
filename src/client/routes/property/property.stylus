@@ -2,3 +2,7 @@
   .property-menu ul li
     &.maps-menu, &.schools-menu, &.transport-menu, &.council-tax-menu
       display none
+  .prop-similar 
+    display none
+  .cta
+    display none

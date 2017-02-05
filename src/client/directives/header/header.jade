@@ -4,7 +4,7 @@
       a.logo(href="/")
         img.logo(src="public/img/VitalSpaceLogo-2016.svg")
     .user
-      a(href='/api/logout') {{getDezrezUser().dezrez.ContactName}} 
+      a(href='/api/logout', target='_self') {{getDezrezUser().dezrez.ContactName}} 
         img.logo(src="public/img/icons/logout.svg")
     nav.main-menu
       ul.menu
