@@ -65,7 +65,23 @@ body
           color #333
           white-space nowrap
           
-        
+ .dashboard
+  .property
+    .property-item
+      background #f1f1f1
+      padding 10px
+      border 1px solid #ccc
+      .property-image
+        width 9em
+        height 6em
+      .property-status, .property-marketing
+        margin-top 8px;
+        h4
+          margin 5px 0
+          font-size: 2rem
+        label
+          font-size: 2rem
+          line-height: 2.2rem
 
 //vitalspace overrides
 .property-menu

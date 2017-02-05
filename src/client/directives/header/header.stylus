@@ -3,13 +3,14 @@
   background vs-orange
   color white
   padding 0
+  height 72px
   h1
     padding 1rem 0 0 0.5rem
   a
     padding 20px 0
     display block
     img
-      width 250px
+      width 195px
   .branding
     display flex
     align-items center
@@ -17,19 +18,7 @@
     .user
       a
         color #fff
-  .menu
-    list-style-type none
-    display flex
-    margin 0
-    padding 0
-    li
-      flex 1
-      a
-        color #fff
-        text-decoration none
-        display block
-        padding 0.5rem
-      &:hover
-        background rgba(255,255,255,0.2)
-      &.selected
-        background rgba(255,255,255,0.3)
+
+  nav.main-menu ul.menu
+    top 20px
+    margin-left -266px
