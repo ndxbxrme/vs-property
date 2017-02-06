@@ -11,7 +11,7 @@ angular.module 'vsProperty'
   offers = []
   getProperty = (id) ->
     for property in properties
-      if property.id is id
+      if +property.id is +id
         return property
     newProp = 
       id: id
@@ -24,7 +24,7 @@ angular.module 'vsProperty'
     newProp
   fetchPropertyDetails = (property) ->
     property.loading = true
-    $http.get '/api/property/3775830'# + property.id
+    $http.get '/api/property/' + property.id
     .then (response) ->
       property.loading = false
       if response.data and not response.data.error

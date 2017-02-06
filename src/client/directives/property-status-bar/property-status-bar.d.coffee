@@ -12,8 +12,8 @@ angular.module 'vsProperty'
       if n
         $timeout ->
           if $state and $state.params.propertyID
-            scope.property = dezrez.getProperty 6606003# $state.params.propertyID
+            scope.property = dezrez.getProperty $state.params.propertyID
         , 1
     $rootScope.$on '$stateChangeSuccess', ->
       if $state and $state.params.propertyID
-        scope.property = dezrez.getProperty 6606003#$state.params.propertyID
+        scope.property = dezrez.getProperty $state.params.propertyID

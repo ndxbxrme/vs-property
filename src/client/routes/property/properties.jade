@@ -1,7 +1,7 @@
 .properties
   h2 My property
   .property(ng-repeat='property in getProperties()')
-    a(href='/3775830/overview', ng-hide='property.error || property.loading')
+    a(href='/{{property.id}}/overview', ng-hide='property.error || property.loading')
       .property-item
         .property-image(style='background-image: url({{property.details.Images[0].Url}})')
         .property-details

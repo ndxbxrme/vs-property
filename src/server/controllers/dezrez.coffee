@@ -14,6 +14,7 @@ module.exports = (ndx) ->
       ndx.dezrez.get 'people/findbyemail', 
         emailAddress:email
       , (err, body) ->
+        console.log err
         if not err and body and body.length
           if body.length is 1
             updateUserDezrez body[0], userId
@@ -40,25 +41,25 @@ module.exports = (ndx) ->
     ndx.app.post '/api/dezrez/update', ndx.authorize, (req, res) ->
       updateUserDezrez req.body.dezrez, req.user._id
       res.end 'OK'
-    ndx.app.get '/api/dezrez/property/:id', ndx.authorize, (req, res) ->
+    ndx.app.get '/api/dezrez/property/:id', ndx.authorize, (req, res, next) ->
       ndx.dezrez.get 'property/{id}', null, id:req.params.id, (err, body) ->
         if not err
           res.json body
         else
-          throw err 
-    ndx.app.get '/api/dezrez/property/:id/events', ndx.authorizeDezrez, (req, res) ->
+          next err 
+    ndx.app.get '/api/dezrez/property/:id/events', ndx.authorizeDezrez, (req, res, next) ->
       ndx.dezrez.get 'role/{id}/Events', pageSize, id:req.params.id, (err, body) ->
         if not err
           res.json body
         else
-          throw err
-    ndx.app.get '/api/dezrez/property/list/:type', ndx.authorizeDezrez, (req, res) ->
+          next err
+    ndx.app.get '/api/dezrez/property/list/:type', ndx.authorizeDezrez, (req, res, next) ->
       type = req.params.type
       ndx.dezrez.get 'people/{id}/' + type, pageSize, id:req.user.dezrez.Id, (err, body) ->
         if not err
           res.json body
         else
-          throw err
+          next err
     ndx.app.get '/api/dezrez/role/:type', ndx.authorizeDezrez, (req, res) ->
       type = req.params.type
       roleIds = []

@@ -11,7 +11,7 @@ module.exports = (ndx) ->
       live:
         auth: 'https://auth.dezrez.com/Dezrez.Core.Api/oauth/token/'
         api: 'https://api.dezrez.com/api/'
-    urls = envUrls[process.env.ENV or 'dev']
+    urls = envUrls[process.env.NODE_ENV or 'dev']
     accessToken = null
     tokenExpires = 0
     refreshToken = (cb) ->
@@ -22,6 +22,7 @@ module.exports = (ndx) ->
         scopes = 'event_read event_write people_read people_write property_read property_write impersonate_web_user'
         superagent.post urls.auth
         .set 'Authorization', 'Basic ' + authCode
+        .set 'Rezi-Api-Version', '1.0'
         .send
           grant_type: grantType
           scope: scopes
