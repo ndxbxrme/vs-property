@@ -38,4 +38,4 @@ angular.module 'vsProperty', [
   root.getSortClass = (field) ->
     "has-sort": true
     sorting: @sort.indexOf(field) isnt -1
-    desc: @sort.indexOf('!') is 0
+    desc: @sort.indexOf('-') is 0

@@ -21,14 +21,17 @@ body
       background #eee
       &.has-sort
         cursor pointer
-        &:after
-          float right
-          font-family FontAwesome
-          content '\f0d7'
       &.sorting
         font-family ProximaNova-Regular, sans-serif
         &:after
+          float right
+          font-family FontAwesome
           content '\f0d8'
+        &.desc
+          &:after
+            float right
+            font-family FontAwesome
+            content '\f0d7'
     td
       padding 15px 10px
       border-bottom 1px solid #eee
