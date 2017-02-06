@@ -8,7 +8,7 @@ module.exports = (ndx) ->
       dev:
         auth: 'https://dezrez-core-auth-uat.dezrez.com/Dezrez.Core.Api/oauth/token/'
         api: 'https://core-api-uat.dezrez.com/api/'
-      live:
+      production:
         auth: 'https://auth.dezrez.com/Dezrez.Core.Api/oauth/token/'
         api: 'https://api.dezrez.com/api/'
     urls = envUrls[process.env.NODE_ENV or 'dev']
