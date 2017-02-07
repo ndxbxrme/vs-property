@@ -29,7 +29,7 @@
     "fancybox": "~2.1.6",
     "headjs": "~1.0.3",
     "humane-js": "humane#~3.2.2",
-    "ngmap": "1.15.4"
+    "ngmap": "^1.17.8"
   },
   "resolutions": {
     "angular": "~1.4.14"

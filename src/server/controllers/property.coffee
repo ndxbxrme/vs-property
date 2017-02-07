@@ -5,14 +5,11 @@ superagent = require 'superagent'
 module.exports = (ndx) ->
   apiUrl = process.env.API_URL or ndx.settings.API_URL
   apiKey = process.env.API_KEY or ndx.settings.API_KEY
-  ndx.app.options '/api/search', (req, res) ->
+  ndx.app.use (req, res, next) ->
     res.setHeader 'Access-Control-Allow-Origin', '*'
     res.setHeader 'Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept'
-    res.end()
-  ndx.app.options '/api/property/:id', (req, res) ->
-    res.setHeader 'Access-Control-Allow-Origin', '*'
-    res.setHeader 'Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept'
-    res.end()
+    res.setHeader 'Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE'
+    next()
   ndx.app.post '/api/search', (req, res) ->
     whereProps = []
     whereSql = ' true=true '

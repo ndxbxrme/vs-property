@@ -1,7 +1,7 @@
 .viewings
   h2 Viewings
   div(ng-repeat='property in getProperties()') 
-    h3(ng-hide='property.error || property.loading') {{property.details.Address.Number}} {{property.details.Address.Street }}, {{property.details.Address.Town}}
+    h3(ng-hide='property.error || property.loading') {{property.Address.Number}} {{property.Address.Street }}, {{property.Address.Town}}
     h3(ng-show='property.error') Error fetching property details
     h3(ng-show='property.loading') Fetching property details
     p(ng-show='loading("viewings") && !property.viewings.length') Loading Viewings

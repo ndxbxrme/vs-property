@@ -5,8 +5,8 @@
       .property-item
         .property-image(style='background-image: url({{property.details.Images[0].Url}})')
         .property-details
-          h2 {{property.details.Address.Number}} {{property.details.Address.Street }}, {{property.details.Address.Town}}
-          h3 {{property.details.Price.PriceValue | currency:'£':0}}
+          h2 {{property.Address.Number}} {{property.Address.Street }}, {{property.Address.Town}}
+          h3 {{property.Price.PriceValue | currency:'£':0}}
           p(ng-show='!loading("all") || property.viewings.length || property.offers.length')
             a(href='/viewings') Viewings: {{property.viewings.length}}
             | , 

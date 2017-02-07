@@ -56,7 +56,6 @@ module.exports = (ndx) ->
         else
           next err
     ndx.app.get '/api/dezrez/property/list/:type', ndx.authorizeDezrez, (req, res, next) ->
-      console.log 'got here'
       type = req.params.type
       ndx.dezrez.get 'people/{id}/' + type, pageSize, id:req.user.dezrez.Id, (err, body) ->
         if not err
@@ -67,7 +66,7 @@ module.exports = (ndx) ->
       type = req.params.type
       roleIds = []
       items = []
-      async.each ['selling', 'letting'], (status, callback) ->
+      async.each ['selling'], (status, callback) ->
         ndx.dezrez.get 'people/{id}/' + status, pageSize, id:req.user.dezrez.Id, (err, body) ->
           if not err
             for role in body.Collection
