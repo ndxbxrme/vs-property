@@ -9,7 +9,7 @@ angular.module 'vsProperty'
     offers: false
   properties = []
   offers = []
-  getProperty = (id) ->
+  getProperty = (id, address) ->
     for property in properties
       if +property.id is +id
         return property
@@ -19,6 +19,7 @@ angular.module 'vsProperty'
       details: {}
       viewings: []
       offers: []
+      Address: address
     fetchPropertyDetails newProp
     properties.push newProp
     newProp
@@ -104,7 +105,7 @@ angular.module 'vsProperty'
       loading.selling = false
       if response.data and not response.data.error
         for property in response.data.Collection
-          prop = getProperty property.Id
+          prop = getProperty property.Id, property.Address
           prop.type = 'selling'
     , ->
       loading.selling = false
@@ -113,7 +114,7 @@ angular.module 'vsProperty'
       loading.letting = false
       if response.data and not response.data.error
         for property in response.data.Collection
-          prop = getProperty property.Id
+          prop = getProperty property.Id, property.Address
           prop.type = 'letting'
     , ->
       loading.letting = false
