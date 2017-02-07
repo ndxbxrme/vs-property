@@ -11,10 +11,10 @@ module.exports = (ndx) ->
         userId
       ]
     findByEmail = (email, userId, callback) ->
+      console.log 'find by email:', email
       ndx.dezrez.get 'people/findbyemail', 
         emailAddress:email
       , (err, body) ->
-        console.log err
         if not err and body and body.length
           if body.length is 1
             updateUserDezrez body[0], userId
