@@ -35,3 +35,6 @@
   nav.main-menu ul.menu
     top 20px
     margin-left -266px
+
+body.property-hub #click-me
+  top 15px

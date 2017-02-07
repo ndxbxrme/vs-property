@@ -3,10 +3,10 @@
     .branding
       a.logo(href="/")
         img.logo(src="public/img/VitalSpaceLogo-2016.svg")
-    .user
+    .user.mobile-hide
       a(href='/api/logout', target='_self') {{getDezrezUser().dezrez.ContactName}} 
         img.logo(src="public/img/icons/logout.svg")
-    nav.main-menu(ng-show='getUser()')
+    nav.main-menu.mobile-hide(ng-show='getUser()')
       ul.menu
         li(ng-class="{selected:isSelected('dashboard')}")
           a(href='/') 
@@ -23,3 +23,5 @@
         li(ng-class="{selected:isSelected('offers')}")
           a(href='/offers') 
             span Offers
+    button#click-me.lines-button.x2.desktop-hide(type='button', role='button', aria-label='Toggle Navigation')
+      span.lines
