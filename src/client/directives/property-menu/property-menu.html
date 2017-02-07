@@ -55,10 +55,10 @@
                         </span>
                         <br>
                         <span>Floorplan</span></a></li>
-                    <li ui-sref-active="active"><a href="" ui-sref="maps(getPropertyUrlData())" data-toggle="tooltip" title="Maps">
+                    <li ng-show="hasDocument('Brochure')" class="brochure-menu" ui-sref-active="active" style=""><a href="" ui-sref="brochure(getPropertyUrlData())" data-toggle="tooltip" title="Brochure">
                         <span class="fa-stack fa-lg">
                             <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-map-o fa-stack-1x fa-inverse"></i>
+                            <i class="fa fa-file-pdf-o fa-stack-1x fa-inverse"></i>
                         </span>
                         <br>
                         <span>Brochure</span></a></li>
