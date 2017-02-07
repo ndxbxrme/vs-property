@@ -5,4 +5,6 @@
     display none
   .property-title
     display none
+  .description
+    padding-bottom 50px
   

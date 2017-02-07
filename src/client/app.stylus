@@ -138,3 +138,17 @@ body
 .main-page-content
   padding 0!important
   margin 0!important
+  
+// Small Screens
+.gt-240.lt-480
+  .properties, .dashboard
+    .property
+      .property-item
+        display block
+        .item
+          display block
+          margin-right 0
+        .property-image
+          display block
+          height 180px
+          width 270px

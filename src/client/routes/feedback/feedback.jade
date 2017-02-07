@@ -6,7 +6,7 @@
     h3(ng-show='property.loading') Fetching property details
     p(ng-show='loading("viewings") && !property.viewings.length') Loading Feedback
     p(ng-show='!loading("viewings") && !property.viewings.length') No Feedback
-    table(ng-show='property.viewings.length')
+    table(ng-show='property.viewings.length').table.table-responsive
       thead
         tr
           th(ng-click='setSort("MainContact.sortname")', ng-class='getSortClass("MainContact.sortname")') Main contact

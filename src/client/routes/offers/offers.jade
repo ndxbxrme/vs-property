@@ -2,7 +2,7 @@
   h2 Offers
   p(ng-show='loading("offers") && !getOffers().length') Loading offers
   p(ng-show='!loading("offers") && !getOffers().length') No offers
-  table(ng-show='getOffers().length')
+  table(ng-show='getOffers().length').table.table-responsive
     thead
       tr
         th(ng-click='setSort("Property.Address.Street")', ng-class='getSortClass("Property.Address.Street")') Property
