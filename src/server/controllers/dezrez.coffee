@@ -33,10 +33,12 @@ module.exports = (ndx) ->
         throw ndx.UNAUTHORIZED
       
     ndx.app.post '/api/dezrez/email', ndx.authorize,  (req, res) ->
-      findByEmail req.body.email, req.user._id, (data) ->
+      email = req.body.email or req.user.local?.email or req.user.facebook?.email
+      findByEmail email, req.user._id, (data) ->
         res.json data
     ndx.app.post '/api/dezrez/findbyemail', ndx.authorize, (req, res) ->
-      findByEmail req.body.email, req.user._id, (data) ->
+      email = req.body.email or req.user.local?.email or req.user.facebook?.email
+      findByEmail email, req.user._id, (data) ->
         res.json data
     ndx.app.post '/api/dezrez/update', ndx.authorize, (req, res) ->
       updateUserDezrez req.body.dezrez, req.user._id
@@ -54,6 +56,7 @@ module.exports = (ndx) ->
         else
           next err
     ndx.app.get '/api/dezrez/property/list/:type', ndx.authorizeDezrez, (req, res, next) ->
+      console.log 'got here'
       type = req.params.type
       ndx.dezrez.get 'people/{id}/' + type, pageSize, id:req.user.dezrez.Id, (err, body) ->
         if not err
