@@ -30,6 +30,7 @@ angular.module 'vsProperty'
       property.loading = false
       if response.data and not response.data.error
         property.details = response.data
+        property.Address = property.details.Address
         property.error = false
         property.loadingEvents = true
         $http.get "/api/dezrez/property/#{property.id}/events"
