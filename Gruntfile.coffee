@@ -29,7 +29,7 @@ module.exports = (grunt) ->
           atBegin: true
     coffee:
       options:
-        sourceMap: true
+        sourceMap: false
       client:
         files: [{
           expand: true
