@@ -11,6 +11,9 @@ module.exports = (ndx) ->
       production:
         auth: 'https://auth.dezrez.com/Dezrez.Core.Api/oauth/token/'
         api: 'https://api.dezrez.com/api/'
+      live:
+        auth: 'https://auth.dezrez.com/Dezrez.Core.Api/oauth/token/'
+        api: 'https://api.dezrez.com/api/'
     urls = envUrls[process.env.NODE_ENV or 'dev']
     accessToken = null
     tokenExpires = 0
