@@ -5,16 +5,27 @@
       .property-item
         .property-image(style='background-image: url({{property.details.Images[0].Url}})')
         .property-details
-          h2 {{property.Address.Number}} {{property.Address.Street }}, {{property.Address.Town}}
-          h3 {{property.Price.PriceValue | currency:'£':0}}
-          p(ng-show='!loading("all") || property.viewings.length || property.offers.length')
-            a(href='/viewings') Viewings: {{property.viewings.length}}
-            | , 
-            a(href='/feedback') Feedback: {{getFeedbackCount(property)}}
-            | , 
-            a(href='/offers') Offers: {{property.offers.length}}
+          h2 {{property.Address.Number}} {{property.Address.Street }}, {{property.Address.Locality }}, {{property.Address.Town}}
+          p(ng-show='!loading("all") || property.viewings.length || property.offers.length').hidden
+            ul
+              li               
+                a(href='/offers')
+                  i.offer 
+                  | Offers
+                  p.l-number {{property.offers.length}}
+              li
+                a(href='/viewings') 
+                  i.vs-iconstaff 
+                  | Viewings
+                  p.l-number {{property.viewings.length}} 
+              li
+                a(href='/feedback')
+                  i.guarantor 
+                  | Feedback
+                  p.l-number {{getFeedbackCount(property)}}             
         .property-controls
-          a(href='') View Details
+          h3 {{property.details.Price.PriceValue | currency:'£':0}}
+          a(href='').medium.orange.button View Details
           
     h3(ng-show='property.error') Error fetching property details
     h3(ng-show='property.loading') Fetching property details
