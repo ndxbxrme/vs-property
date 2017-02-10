@@ -56,7 +56,10 @@ module.exports = (ndx) ->
           .query query
           .send()
           .end (err, response) ->
-            doCallback err, response?.body
+            if err
+              doCallback err
+            else
+              doCallback null, response.body
         else
           return doCallback err, []
     post = (route, data, params, callback) ->
