@@ -1,4 +1,10 @@
 .properties
+  i.vs-iconhouse
+    zoom 0.3
+    vertical-align top
+    background-image url(../../public/img/icons/vs_icons.png)
+  h2 
+    margin-top 0
   .property-item
     .property-details
       li

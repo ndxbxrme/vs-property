@@ -1,7 +1,12 @@
 .viewings
-  h2 Viewings
+  a(href='/').backlink 
+    i.fa.fa-long-arrow-left(aria-hidden='true')  
+    |  Back to Dashboard
+  h2 
+    i.vs-iconstaff
+    |  Viewings
   div(ng-repeat='property in getProperties()') 
-    h3(ng-hide='property.error || property.loading') {{property.Address.Number}} {{property.Address.Street }}, {{property.Address.Town}}
+    h3(ng-hide='property.error || property.loading') {{property.Address.Number}} {{property.Address.Street }}, {{property.Address.Locality }}, {{property.Address.Town}}
     h3(ng-show='property.error') Error fetching property details
     h3(ng-show='property.loading') Fetching property details
     p(ng-show='loading("viewings") && !property.viewings.length') Loading Viewings

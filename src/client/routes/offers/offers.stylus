@@ -1,0 +1,7 @@
+.offers
+  i.offer
+    zoom 0.3
+    vertical-align top
+    background-image url(../../public/img/icons/vs-icons2.png)
+  h2 
+    margin-top 0

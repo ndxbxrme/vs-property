@@ -1,5 +1,10 @@
 .properties
-  h2 My property
+  a(href='/').backlink 
+    i.fa.fa-long-arrow-left(aria-hidden='true')  
+    |  Back to Dashboard
+  h2
+    i.vs-iconhouse
+    |  My property
   .property(ng-repeat='property in getProperties()')
     a(href='/{{property.id}}/overview', ng-hide='property.error || property.loading')
       .property-item
@@ -25,7 +30,7 @@
                   p.l-number {{getFeedbackCount(property)}}             
         .property-controls
           h3 {{property.details.Price.PriceValue | currency:'£':0}}
-          a(href='').medium.orange.button View Details
+          a(href='/{{property.id}}/overview').medium.orange.button View Details
           
     h3(ng-show='property.error') Error fetching property details
     h3(ng-show='property.loading') Fetching property details

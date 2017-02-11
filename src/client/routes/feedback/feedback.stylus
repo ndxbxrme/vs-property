@@ -1,5 +1,11 @@
 @import '../../variables'
 .feedback
+  i.guarantor
+    zoom 0.3
+    vertical-align top
+    background-image url(../../public/img/icons/icons3.png)
+  h2 
+    margin-top 0
   .feedback-list, .feedback-header
     display flex
     justify-content center
@@ -8,17 +14,21 @@
   table
     tr.has-feedback
       cursor pointer
+      &.open 
+        background rgba(241, 91, 37, 0.3)
     td.status 
       color vs-orange
     tr.open
       td
         border-bottom 1px solid rgba(0,0,0,0)
     tr.popout
-      transition all 0.4s cubic-bezier(0, 1, 0.5, 1)
+      transition all 0.4s ease-in-out
+      height 100%
       &.ng-hide
-        opacity 0
+        height 0
       td
-        padding 0
+        padding 0 20px
+        background #f1f1f1
       .feedback-header
         margin 1em 0
         padding 0
@@ -26,7 +36,7 @@
       .feedback-item
         margin-bottom 1em
         background #fefefe
-        padding: 0 20px;
+        padding 20px
       p
         padding 0
-        margin 0
+        margin 0  
