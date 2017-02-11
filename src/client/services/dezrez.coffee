@@ -94,6 +94,7 @@ angular.module 'vsProperty'
           for offer in response.data
             offer.date = new Date(offer.DateTime).valueOf()
             prop = getProperty offer.MarketingRoleId
+            offer.prop = prop
             prop.offers.push offer
             offers.push offer
       , ->
