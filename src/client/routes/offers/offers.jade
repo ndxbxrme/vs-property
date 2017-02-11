@@ -6,7 +6,9 @@
     i.offer
     |  Offers
   p(ng-show='loading("offers") && !getOffers().length') Loading offers
-  p(ng-show='!loading("offers") && !getOffers().length') No offers
+  h3(ng-show='!loading("offers") && !getOffers().length') 
+    img(src='public/img/vs-man.png')
+    |  You have not yet received any offers
   table(ng-show='getOffers().length').table.table-responsive
     thead
       tr

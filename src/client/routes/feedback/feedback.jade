@@ -38,8 +38,8 @@
               span {{person.name}}
           td.status.squish 
             div(ng-show='viewing.Feedback.length')
-              div(ng-hide='viewing.open') Feedback obtained ▽
-              div(ng-show='viewing.open') Feedback obtained △
+              div(ng-hide='viewing.open') View Feedback
+              div(ng-show='viewing.open') Close Feedback
             div(ng-hide='viewing.Feedback.length') Feedback not yet taken
         tr.popout(ng-show='viewing.open')
           td(colspan='5')
