@@ -5,7 +5,7 @@
   h2 
     i.guarantor
     |  Feedback
-  div(ng-repeat='property in getProperties()') 
+  div(ng-repeat='property in getProperties()' ng-show='property.details') 
     h3(ng-hide='property.error || property.loading') {{property.Address.Number}} {{property.Address.Street }}, {{property.Address.Locality }}, {{property.Address.Town}}
     h3(ng-show='property.error') Error fetching property details
     h3(ng-show='property.loading') Fetching property details
