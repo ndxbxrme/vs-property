@@ -4,6 +4,7 @@
   color white
   padding 0
   height 72px
+  z-index 20
   .container
     position relative
   h1

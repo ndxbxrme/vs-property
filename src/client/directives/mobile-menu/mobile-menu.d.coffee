@@ -1,18 +1,11 @@
 'use strict'
 
 angular.module 'vsProperty'
-.directive 'header', ($state, auth) ->
+.directive 'mobileMenu', ($state) ->
   restrict: 'AE'
-  templateUrl: 'directives/header/header.html'
+  templateUrl: 'directives/mobile-menu/mobile-menu.html'
   replace: true
-  link: (scope, elem) ->
-    scope.getUser = auth.getDezrezUser
-    scope.getDezrezUser = ->
-      user = auth.getDezrezUser()
-      if not user
-        return dezrez: ContactName: 'My VitalSpace'
-      else
-        return user
+  link: (scope) ->
     scope.isSelected = (route) ->
       if $state and $state.current
         if Object.prototype.toString.call(route) is '[object Array]'

@@ -23,5 +23,5 @@
         li(ng-class="{selected:isSelected('offers')}")
           a(href='/offers') 
             span Offers
-    button#click-me.lines-button.x2.desktop-hide(type='button', role='button', aria-label='Toggle Navigation')
+    button#click-me.lines-button.x2.desktop-hide(type='button', role='button', aria-label='Toggle Navigation', ng-click='mobileMenuOut=!mobileMenuOut; $event.stopPropagation()')
       span.lines
