@@ -25,6 +25,9 @@ body
         color white
         padding 15px 20px 10px 20px
         display block
+        img
+          display inline-block
+          width 10px
       &.selected, &:hover
         background #eee
         a
