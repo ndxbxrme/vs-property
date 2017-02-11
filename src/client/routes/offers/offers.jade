@@ -18,7 +18,7 @@
         th(ng-click='setSort("date")', ng-class='getSortClass("date")') Date
         th(ng-click='setSort("date")', ng-class='getSortClass("date")') Time
         th(ng-click='setSort("Response.ResponseType.Name")', ng-class='getSortClass("Response.ResponseType.Name")') Status
-    tbody(ng-repeat='offer in getOffers() | orderBy:sort') 
+    tbody(ng-repeat='offer in getOffers() | orderBy:sort', ng-hide='!property.details.Address') 
       tr
         td {{offer.Property.Address.Number}} {{offer.Property.Address.Street}}, {{offer.Property.Address.Locality}}, {{offer.Property.Address.Town}}
         td {{offer.ApplicantGroup.PrimaryMember.ContactName}}
