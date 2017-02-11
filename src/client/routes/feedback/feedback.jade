@@ -41,13 +41,14 @@
               div(ng-hide='viewing.open') Feedback obtained ▽
               div(ng-show='viewing.open') Feedback obtained △
             div(ng-hide='viewing.Feedback.length') Feedback not yet taken
-        tr.popout(ng-show='viewing.open')
+        tr.popout
           td(colspan='5')
-            .feedback-header
-              .feedback-title 
-                h4 Viewing Feedback
-            .feedback-list
-              .feedback-item(ng-repeat='feedback in viewing.Feedback')
-                h6 {{feedback.DateTime | date:'mediumDate'}}, {{feedback.DateTime | date:'shortTime'}}
-                p {{feedback.Feedback}}
-  h3(ng-show='!loading("properties") && !getProperties().length') No properties to show
+            .feedback-container(ng-show='viewing.open')
+              .feedback-header
+                .feedback-title 
+                  h4 Viewing Feedback
+              .feedback-list
+                .feedback-item(ng-repeat='feedback in viewing.Feedback')
+                  h6 {{feedback.DateTime | date:'mediumDate'}}, {{feedback.DateTime | date:'shortTime'}}
+                  p {{feedback.Feedback}}
+    h3(ng-show='!loading("properties") && !getProperties().length') No properties to show
