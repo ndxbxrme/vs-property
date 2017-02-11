@@ -10,10 +10,27 @@ body
     transition 0.4s
     z-index 10
     background #fff
-    box-shadow 0 0 6px #000
     &.mobile-menu-out
       transform translateX(-200px)
-    
+  .mobile-menu
+    top 71px
+    width 180px
+    bottom 0
+    background vs-grey
+    ul li
+      border-bottom 1px solid #525252
+      a 
+        font-size 1.6rem
+        text-transform uppercase
+        color white
+        padding 15px 20px 10px 20px
+        display block
+      &.selected, &:hover
+        background #eee
+        a
+          color vs-orange
+        
+      
 .viewings, .feedback, .offers
   table
     width 100%
@@ -147,7 +164,15 @@ body
   margin 0!important
   
 // Small Screens
+.gt-1280 
+  .mobile-menu
+    display none
+.lt-800
+  box-shadow 0 0 6px #000
+  .body
+    overflow-x scroll
 .gt-240.lt-480
+  body .body
   .properties, .dashboard
     .property
       .property-item
@@ -159,6 +184,9 @@ body
           display block
           height 180px
           width 270px
+          margin-bottom: 20px;
+        .property-controls .button
+          float none
           
 a.backlink
   display block
