@@ -12,27 +12,6 @@ body
     background #fff
     &.mobile-menu-out
       transform translateX(-200px)
-  .mobile-menu
-    top 71px
-    width 180px
-    bottom 0
-    background vs-grey
-    ul li
-      border-bottom 1px solid #525252
-      a 
-        font-size 1.6rem
-        text-transform uppercase
-        color white
-        padding 15px 20px 10px 20px
-        display block
-        img
-          display inline-block
-          width 10px
-      &.selected, &:hover
-        background #eee
-        a
-          color vs-orange
-        
       
 .viewings, .feedback, .offers
   table
