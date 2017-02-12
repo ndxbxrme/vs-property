@@ -147,7 +147,9 @@ body
   margin 0!important
   
 // Small Screens
-.gt-1280 
+.gt-1024 
+  body
+    background #fff!important
   .mobile-menu
     display none
 .lt-800
