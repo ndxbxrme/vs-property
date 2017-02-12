@@ -32,6 +32,7 @@ html
     // endinjector 
   body(ng-app='vsProperty', ng-click='mobileMenuOut=false').property-hub
     header
+    mobile-menu
     .container.body(ng-class='{"mobile-menu-out":mobileMenuOut}')
       login
       dezrez
@@ -39,7 +40,6 @@ html
       property-header
       property-status-bar(ng-hide='!propertyPage')
       .view(ui-view='')
-    mobile-menu
     footer
     // bower:js 
     // endbower 

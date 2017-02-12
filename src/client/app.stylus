@@ -4,14 +4,15 @@ body
   margin 0
   display flex
   flex-direction column
-  background #ddd
+  background vs-grey!important
   .body
     flex 1
     transition 0.4s
     z-index 10
     background #fff
+    transform translateX(0px)
     &.mobile-menu-out
-      transform translateX(-200px)
+      transform translateX(-180px)
       
 .viewings, .feedback, .offers
   table
