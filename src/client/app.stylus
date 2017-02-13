@@ -4,7 +4,7 @@ body
   margin 0
   display flex
   flex-direction column
-  background vs-grey!important
+  background #fff!important
   .body
     flex 1
     transition 0.4s
@@ -147,9 +147,10 @@ body
   margin 0!important
   
 // Small Screens
-.gt-1024 
+.lt-1024
   body
-    background #fff!important
+    background vs-grey!important
+.gt-1024 
   .mobile-menu
     display none
 .lt-800

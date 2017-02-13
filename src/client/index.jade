@@ -33,13 +33,14 @@ html
   body(ng-app='vsProperty', ng-click='mobileMenuOut=false').property-hub
     header
     mobile-menu
-    .container.body(ng-class='{"mobile-menu-out":mobileMenuOut}')
-      login
-      dezrez
-      property-menu(ng-hide='!propertyPage')
-      property-header
-      property-status-bar(ng-hide='!propertyPage')
-      .view(ui-view='')
+    .body(ng-class='{"mobile-menu-out":mobileMenuOut}')
+      .container
+        login
+        dezrez
+        property-menu(ng-hide='!propertyPage')
+        property-header
+        property-status-bar(ng-hide='!propertyPage')
+        .view(ui-view='')
     footer
     // bower:js 
     // endbower 
