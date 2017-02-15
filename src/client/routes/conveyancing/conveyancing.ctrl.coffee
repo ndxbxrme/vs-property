@@ -1,4 +1,5 @@
 'use strict'
 
 angular.module 'vsProperty'
-.controller 'ConveyancingCtrl', ($scope, $http) ->
+.controller 'ConveyancingCtrl', ($scope) ->
+  $('#whytEmbed').detach().appendTo('#whytPlaceholder')
