@@ -35,6 +35,20 @@ angular.module 'vsProperty'
     resolve:
       user: (auth) ->
         auth.getPromise true
+  .state 'mortgages',
+    url: '/mortgages'
+    templateUrl: 'routes/mortgages/mortgages.html'
+    controller: 'MortgagesCtrl'
+    resolve:
+      user: (auth) ->
+        auth.getPromise true
+  .state 'conveyancing',
+    url: '/conveyancing'
+    templateUrl: 'routes/conveyancing/conveyancing.html'
+    controller: 'ConveyancingCtrl'
+    resolve:
+      user: (auth) ->
+        auth.getPromise true
   .state 'profile',
     url: '/profile',
     templateUrl: 'routes/profile/profile.html'
