@@ -36,6 +36,9 @@ module.exports = (ndx) ->
     if req.body.RoleType
       whereSql += ' AND RoleType->SystemName = ? '
       whereProps.push req.body.RoleType
+    if req.body.RoleStatus
+      whereSql += ' AND RoleStatus->SystemName = ? '
+      whereProps.push req.body.RoleStatus
     if req.body.Search
       whereSql += " AND SearchField LIKE '%#{req.body.Search.replace("'", '')}%' "
     sortby = 'Price->PriceValue'
