@@ -75,6 +75,7 @@ module.exports = (grunt) ->
       web: 'server'
       dist: 'dist'
       build: 'build'
+      tmp: '.tmp'
       html: 'build/client/*/**/*.html'
     filerev:
       build:
@@ -110,6 +111,15 @@ module.exports = (grunt) ->
           dest: 'build/client'
           src: [
             '*/**/*.html'
+          ]
+        }]
+      dist:
+        files: [{
+          expand: true
+          cwd: '.tmp'
+          dest: 'dist'
+          src: [
+            '**/*.*'
           ]
         }]
     curl:
@@ -155,7 +165,7 @@ module.exports = (grunt) ->
     ndxmin:
       options:
         base: 'build/client'
-        dest: 'dist'
+        dest: '.tmp'
         ignoreExternal: false
       all:
         html: ['build/client/index.html']
@@ -189,8 +199,10 @@ module.exports = (grunt) ->
   grunt.registerTask 'build', [
     'do_build'
     'buildWeb'
-    'clean:dist'
     'ndxmin'
+    'clean:dist'
+    'copy:dist'
+    'clean:tmp'
     'clean:build'
   ]
   grunt.registerTask 'serve', [
