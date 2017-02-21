@@ -55,7 +55,7 @@
     "ndx-static-routes": "0.0.9",
     "ndx-superadmin": "0.0.4",
     "ndx-sync": "0.0.2",
-    "ndx-user-roles": "0.0.6",
+    "ndx-user-roles": "^0.1.2",
     "superagent": "^3.3.2"
   }
 }
