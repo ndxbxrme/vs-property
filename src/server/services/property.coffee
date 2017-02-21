@@ -33,11 +33,12 @@ module.exports = (ndx) ->
               property.SearchField = "#{property.Address.Street}|#{property.Address.Town}|#{property.Address.Locality}|#{property.Address.Postcode}|#{property.Address.County}"
               ndx.database.exec 'INSERT INTO tmpprops VALUES ?', [property], true
             if response.body.CurrentCount < response.body.PageSize
-              cb?()
+              return cb?()
             else
-              fetchStcProperties pageNo + 1, cb
+              return fetchStcProperties pageNo + 1, cb
           else
-            cb? err
+            return cb? err
+        return
       fetchNonStcProperties = (pageNo, cb) ->
         superagent.post "#{apiUrl}search?APIKey=#{apiKey}"
         .set('Rezi-Api-Version', '1.0')
@@ -56,16 +57,19 @@ module.exports = (ndx) ->
             for property in response.body.Collection
               ndx.database.exec 'UPDATE tmpprops SET stc=false WHERE RoleId = ?', [property.RoleId], true
             if response.body.CurrentCount < response.body.PageSize
-              cb?()
+              return cb?()
             else
-              fetchNonStcProperties pageNo + 1, cb
+              return fetchNonStcProperties pageNo + 1, cb
           else
-            cb? err
+            return cb? err
+        return
       ndx.database.exec 'DELETE FROM tmpprops', null, true
       fetchStcProperties 1, ->
         fetchNonStcProperties 1, ->
           tables = ndx.database.getDb() 
           tables.props.data = tables.tmpprops.data
           tables.tmpprops.data = []
+          return
+        return
     setInterval fetchProperties, 10 * 60 * 1000
     fetchProperties()
