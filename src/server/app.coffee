@@ -28,7 +28,7 @@ ndx = require 'ndx-server'
   heapdump = require 'heapdump'
   ndx.app.get '/heapdump', (req, res, next) ->
     filename = Date.now() + '.heapsnapshot'
-    heapdump.writeSnapshot './heapdump/' + filename, (err, fn) ->
+    heapdump.writeSnapshot 'heapdump/' + filename, (err, fn) ->
       res.setHeader 'Content-disposition', 'attachment; filename=' + filename
       res.sendFile filename, root: './heapdump'
 .use 'ndx-passport'
