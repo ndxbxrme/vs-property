@@ -7,8 +7,8 @@ module.exports = (ndx) ->
   apiKey = process.env.API_KEY or ndx.settings.API_KEY
   ndx.app.use (req, res, next) ->
     res.setHeader 'Access-Control-Allow-Origin', '*'
-    res.setHeader 'Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept'
-    res.setHeader 'Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE'
+    res.setHeader 'Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+    res.setHeader 'Access-Control-Allow-Methods', 'GET,POST'
     next()
   ndx.app.post '/api/search', (req, res) ->
     whereProps = []
