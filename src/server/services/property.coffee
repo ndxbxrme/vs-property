@@ -47,5 +47,5 @@ module.exports = (ndx) ->
         tables.tmpprops.data = []
         return
       return
-    setInterval doFetchProperties, 1 * 60 * 1000
+    setInterval doFetchProperties, 5 * 60 * 1000
     doFetchProperties()
