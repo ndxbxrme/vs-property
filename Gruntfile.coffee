@@ -7,9 +7,11 @@ module.exports = (grunt) ->
       web:
         options:
           script: 'server/app.js'
+          opts: ['--expose-gc']
       dist:
         options:
           script: 'server/app.js'
+          opts: ['--expose-gc']
           node_env: 'production'
           port: 3001
     watch:
