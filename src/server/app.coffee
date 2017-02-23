@@ -18,19 +18,7 @@ ndx = require 'ndx-server'
     console.log '*****************************'
     console.log 'ENVIRONMENT VARIABLES NOT SET'
     console.log '*****************************'
-.use (ndx) ->
-  ndx.app.use (req, res, next) ->
-    res.setHeader 'Access-Control-Allow-Origin', '*'
-    res.setHeader 'Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-    res.setHeader 'Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE'
-    next()
-.use (ndx) ->
-  heapdump = require 'heapdump'
-  ndx.app.get '/heapdump', (req, res, next) ->
-    filename = Date.now() + '.heapsnapshot'
-    heapdump.writeSnapshot 'heapdump/' + filename, (err, fn) ->
-      res.setHeader 'Content-disposition', 'attachment; filename=' + filename
-      res.sendFile filename, root: './heapdump'
+.use 'ndx-cors'
 .use 'ndx-passport'
 .use 'ndx-passport-twitter'
 .use 'ndx-passport-facebook'
