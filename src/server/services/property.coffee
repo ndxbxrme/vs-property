@@ -21,6 +21,7 @@ module.exports = (ndx) ->
         PageNumber: pageNo
       .end (err, response) ->
         if not err and response.body.Collection
+          console.log 'collection length', response.body.Collection.length
           for property in response.body.Collection
             property.stc = property.RoleStatus.SystemName is 'OfferAccepted'
             property.NoRooms = 0
