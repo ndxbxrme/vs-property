@@ -39,7 +39,6 @@ module.exports = (ndx) ->
           return cb? err
       return
     doFetchProperties = ->
-      console.log 'fetching properties'
       fetchProperties 1, ->
         tables = ndx.database.getDb() 
         if tables.tmpprops.data.length
