@@ -5,6 +5,7 @@ ndx = require 'ndx-server'
   database: 'vs'
   tables: ['users', 'props', 'tmpprops']
   localStorage: './data'
+  maxSqlCacheSize: 50
   publicUser:
     _id: true
     local: true
