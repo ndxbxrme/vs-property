@@ -51,7 +51,7 @@
     "ndx-passport": "^0.2.0",
     "ndx-passport-facebook": "^0.1.0",
     "ndx-passport-twitter": "^0.1.0",
-    "ndx-profiler": "0.0.14",
+    "ndx-profiler": "0.0.15",
     "ndx-server": "^0.4.4",
     "ndx-socket": "0.0.3",
     "ndx-static-routes": "0.0.9",
