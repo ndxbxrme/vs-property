@@ -13,6 +13,8 @@ body
     transform translateX(0px)
     &.mobile-menu-out
       transform translateX(-180px)
+  .view
+    padding-bottom 5rem
       
 .viewings, .feedback, .offers
   table
