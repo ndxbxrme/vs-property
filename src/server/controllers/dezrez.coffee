@@ -11,7 +11,6 @@ module.exports = (ndx) ->
         userId
       ]
     findByEmail = (email, userId, callback) ->
-      console.log 'find by email:', email
       ndx.dezrez.get 'people/findbyemail', 
         emailAddress:email
       , (err, body) ->
@@ -21,29 +20,24 @@ module.exports = (ndx) ->
           callback body
         else
           callback error:'error'
-    ndx.authorize = (req, res, next) ->
-      if req.user
-        next()
-      else
-        throw ndx.UNAUTHORIZED
     ndx.authorizeDezrez = (req, res, next) ->
-      if req.user and req.user.dezrez
+      if ndx.user and ndx.user.dezrez
         next()
       else
         throw ndx.UNAUTHORIZED
       
-    ndx.app.post '/api/dezrez/email', ndx.authorize,  (req, res) ->
-      email = req.body.email or req.user.local?.email or req.user.facebook?.email
-      findByEmail email, req.user._id, (data) ->
+    ndx.app.post '/api/dezrez/email', ndx.authenticate(),  (req, res) ->
+      email = req.body.email or ndx.user.local?.email or ndx.user.facebook?.email
+      findByEmail email, ndx.user._id, (data) ->
         res.json data
-    ndx.app.post '/api/dezrez/findbyemail', ndx.authorize, (req, res) ->
-      email = req.body.email or req.user.local?.email or req.user.facebook?.email
-      findByEmail email, req.user._id, (data) ->
+    ndx.app.post '/api/dezrez/findbyemail', ndx.authenticate(), (req, res) ->
+      email = req.body.email or ndx.user.local?.email or ndx.user.facebook?.email
+      findByEmail email, ndx.user._id, (data) ->
         res.json data
-    ndx.app.post '/api/dezrez/update', ndx.authorize, (req, res) ->
-      updateUserDezrez req.body.dezrez, req.user._id
+    ndx.app.post '/api/dezrez/update', ndx.authenticate(), (req, res) ->
+      updateUserDezrez req.body.dezrez, ndx.user._id
       res.end 'OK'
-    ndx.app.get '/api/dezrez/property/:id', ndx.authorize, (req, res, next) ->
+    ndx.app.get '/api/dezrez/property/:id', ndx.authenticate(), (req, res, next) ->
       ndx.dezrez.get 'property/{id}', null, id:req.params.id, (err, body) ->
         if not err
           res.json body
@@ -57,7 +51,7 @@ module.exports = (ndx) ->
           next err
     ndx.app.get '/api/dezrez/property/list/:type', ndx.authorizeDezrez, (req, res, next) ->
       type = req.params.type
-      ndx.dezrez.get 'people/{id}/' + type, pageSize, id:req.user.dezrez.Id, (err, body) ->
+      ndx.dezrez.get 'people/{id}/' + type, pageSize, id:ndx.user.dezrez.Id, (err, body) ->
         if not err
           res.json body
         else
@@ -67,7 +61,7 @@ module.exports = (ndx) ->
       roleIds = []
       items = []
       async.each ['selling'], (status, callback) ->
-        ndx.dezrez.get 'people/{id}/' + status, pageSize, id:req.user.dezrez.Id, (err, body) ->
+        ndx.dezrez.get 'people/{id}/' + status, pageSize, id:ndx.user.dezrez.Id, (err, body) ->
           if not err
             for role in body.Collection
               if roleIds.indexOf(role.Id) is -1

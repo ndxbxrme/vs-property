@@ -12,7 +12,11 @@ angular.module 'vsProperty'
         loading = false
         defer.resolve user
       else
-        $http.post '/api/dezrez/email', email:email or user.email
+        $http
+          method: 'POST'
+          url: '/api/dezrez/email'
+          data:
+            email:email or user.email
         .then (data) ->
           loading = false
           if data.data and data.data.length and data.data isnt 'error'
