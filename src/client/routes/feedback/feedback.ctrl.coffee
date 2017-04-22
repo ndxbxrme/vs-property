@@ -11,7 +11,7 @@ angular.module 'vsProperty'
       for v in property.viewings
         if v isnt viewing
           v.open = false
-        else if v.Feedback.length
+        else if v.Feedback.length or v.Notes.length
           v.open = not v.open
   $scope.$on '$destroy', ->
     for property in dezrez.getProperties()

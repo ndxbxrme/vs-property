@@ -18,8 +18,9 @@
         th(ng-click='setSort("date")', ng-class='getSortClass("date")') Date
         th(ng-click='setSort("date")', ng-class='getSortClass("date")') Time
         th(ng-click='setSort("Response.ResponseType.Name")', ng-class='getSortClass("Response.ResponseType.Name")') Status
+        th.squish(ng-click='setSort("Notes.length")', ng-class='getSortClass("Notes.length")') Notes
     tbody(ng-repeat='offer in getOffers() | orderBy:sort') 
-      tr
+      tr(ng-click='toggle(offer)', ng-class='{open:offer.open, "has-notes":offer.Notes.length}')
         td {{offer.Property.Address.Number}} {{offer.Property.Address.Street}}, {{offer.Property.Address.Locality}}, {{offer.Property.Address.Town}}
         td {{offer.ApplicantGroup.PrimaryMember.ContactName}}
         td {{offer.Value | currency:'£':0}}
@@ -28,3 +29,20 @@
         td 
           nobr {{offer.DateTime | date:'shortTime'}}
         td {{offer.Response.ResponseType.Name}}
+        td.status.squish
+          div(ng-show='offer.Notes.length')
+            div(ng-hide='offer.open') View Notes
+            div(ng-show='offer.open') Close Notes
+          div(ng-hide='offer.Notes.length') No Notes
+      tr.popout
+        td(colspan='7')
+          .notes-container(ng-show='offer.open')
+            .offer-notes(ng-show='offer.Notes.length')
+              .notes-header
+                .notes-title 
+                  h4 Notes about this offer
+              .notes-list
+                .notes-item(ng-repeat='note in offer.Notes')
+                  h6 {{note.DateTime | date:'mediumDate'}}, {{note.DateTime | date:'shortTime'}}
+                  p {{note.notes}}
+        

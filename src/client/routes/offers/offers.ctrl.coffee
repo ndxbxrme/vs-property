@@ -11,4 +11,11 @@ angular.module 'vsProperty'
       if not offers[i].prop.details.Address
         offers.splice i, 1
     offers
+  $scope.toggle = (offer) ->
+    for property in dezrez.getProperties()
+      for o in $scope.getOffers()
+        if o isnt offer
+          o.open = false
+        else if o.Notes.length
+          o.open = not o.open
   $scope.loading = dezrez.loading

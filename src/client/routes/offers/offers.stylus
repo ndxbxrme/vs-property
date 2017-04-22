@@ -1,3 +1,4 @@
+@import '../../variables'
 .offers
   i.offer
     zoom 0.3
@@ -12,3 +13,5 @@
       display block
       width 150px
       margin 0 auto 20px auto
+  table
+    vs-table()

@@ -11,16 +11,18 @@
     h3(ng-show='property.loading') Fetching property details
     p(ng-show='loading("viewings") && !property.viewings.length') Loading Feedback
     p(ng-show='!loading("viewings") && !property.viewings.length') No Feedback
-    table(ng-show='property.viewings.length').table.table-responsive
+    p(ng-show='!loading("viewings") && !viewings.length') No viewings completed
+    table(ng-show='viewings.length').table.table-responsive
       thead
         tr
           th(ng-click='setSort("MainContact.sortname")', ng-class='getSortClass("MainContact.sortname")') Main contact
           th(ng-click='setSort("date")', ng-class='getSortClass("date")') Date
           th(ng-click='setSort("date")', ng-class='getSortClass("date")') Time
           th Accompanied by
+          th.squish
           th.squish(ng-click='setSort("Feedback.length")', ng-class='getSortClass("Feedback.length")') Feedback status
-      tbody(ng-repeat='viewing in property.viewings | orderBy: sort') 
-        tr(ng-click='toggle(viewing)', ng-class='{open:viewing.open, "has-feedback":viewing.Feedback.length}')
+      tbody(ng-repeat='viewing in viewings = ( property.viewings ) | orderBy: sort') 
+        tr(ng-click='toggle(viewing)', ng-class='{open:viewing.open, "has-feedback":viewing.Feedback.length||viewing.Notes.length}')
           td
             .person
               img(gravatar-src='viewing.MainContact.email') 
@@ -36,19 +38,30 @@
             .person(ng-repeat='person in viewing.AccompaniedBy')  
               img(gravatar-src='person.email') 
               span {{person.name}}
+          td
+            span(ng-show='viewing.Notes.length') Notes
           td.status.squish 
             div(ng-show='viewing.Feedback.length')
               div(ng-hide='viewing.open') View Feedback
               div(ng-show='viewing.open') Close Feedback
-            div(ng-hide='viewing.Feedback.length') Feedback not yet taken
+            div(ng-hide='viewing.Feedback.length') Awaiting feedback
         tr.popout
-          td(colspan='5')
+          td(colspan='6')
             .feedback-container(ng-show='viewing.open')
-              .feedback-header
-                .feedback-title 
-                  h4 Viewing Feedback
-              .feedback-list
-                .feedback-item(ng-repeat='feedback in viewing.Feedback')
-                  h6 {{feedback.DateTime | date:'mediumDate'}}, {{feedback.DateTime | date:'shortTime'}}
-                  p {{feedback.Feedback}}
+              .viewing-feedback(ng-show='viewing.Feedback.length')
+                .feedback-header
+                  .feedback-title 
+                    h4 Viewing Feedback
+                .feedback-list
+                  .feedback-item(ng-repeat='feedback in viewing.Feedback')
+                    h6 {{feedback.DateTime | date:'mediumDate'}}, {{feedback.DateTime | date:'shortTime'}}
+                    p {{feedback.Feedback}}
+              .feedback-request(ng-show='viewing.Notes.length')
+                .feedback-header
+                  .feedback-title 
+                    h4 Feedback Request
+                .feedback-list
+                  .feedback-item(ng-repeat='note in viewing.Notes')
+                    h6 {{note.DateAdded | date:'mediumDate'}}, {{note.DateAdded | date:'shortTime'}}
+                    p {{note.Note}}
     h3(ng-show='!loading("properties") && !getProperties().length') No properties to show
