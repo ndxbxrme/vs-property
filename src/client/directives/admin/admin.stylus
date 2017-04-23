@@ -1,0 +1,14 @@
+@import '../../variables'
+
+.admin
+  .myrow
+    width 100%
+    display flex
+    justify-content space-between
+    align-items center
+  td
+    a.property
+      display block
+    label
+      display none
+  collapse-table()

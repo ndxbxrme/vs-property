@@ -1,6 +1,7 @@
 module.exports = (grunt) ->
   require('load-grunt-tasks') grunt
   require('grunt-ndxmin') grunt
+  bower = require('./bower.json')
   grunt.initConfig
     express:
       options: {}
@@ -171,6 +172,11 @@ module.exports = (grunt) ->
         ignoreExternal: false
       all:
         html: ['build/client/index.html']
+    'ndx-script-inject':
+      options:
+        sockets: bower.dependencies['ndx-socket']
+      all:
+        html: ['build/client/index.html']
   grunt.registerTask 'stuff', [
     'ndxmin'
   ]
@@ -185,8 +191,7 @@ module.exports = (grunt) ->
     'curl-dir:remote-css'
     'ngtemplates'
     'filerev'
-    'wiredep'
-    'injector'
+    'ndx-script-inject'
     'usemin'
     'clean:html'
   ]

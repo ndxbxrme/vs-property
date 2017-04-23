@@ -6,7 +6,7 @@ angular.module 'vsProperty'
   potentialUsers = []
   loading = false
   getDezrezPromise = (defer, needsDezrez, email) ->
-    if not potentialUsers.length
+    if not potentialUsers.length and not checkRoles(['superadmin', 'admin'])
       loading = true
       if user.dezrez and user.dezrez.Id
         loading = false
@@ -48,7 +48,7 @@ angular.module 'vsProperty'
         if data and data.data isnt 'error'
           user = data.data
           getDezrezPromise defer, needsDezrez
-          if user.dezrez and not dezrez.loading('all')
+          if user.dezrez and user.dezrez.Id and not dezrez.loading('all')
             dezrez.refresh()
         else 
           loading = false
@@ -59,6 +59,43 @@ angular.module 'vsProperty'
         user = null
         defer.reject {}
     defer.promise
+  hasRole = (role) ->
+    getKey = (root, key) ->
+      root[key]
+    keys = role.split /\./g
+    allgood = false
+    if user.roles
+      root = user.roles
+      for key in keys
+        root = getKey root, key
+        if root
+          allgood = true
+        else
+          allgood = false
+          break
+    allgood
+  checkRoles = (role, isAnd) ->
+    rolesToCheck = []
+    getRole = (role) ->
+      type = Object.prototype.toString.call role
+      if type is '[object Array]'
+        for r in role
+          getRole r
+      else if type is '[object Function]'
+        r = role req
+        getRole r
+      else if type is '[object String]'
+        if rolesToCheck.indexOf(role) is -1
+          rolesToCheck.push role
+    getRole role
+    truth = if isAnd then true else false
+    for r in rolesToCheck
+      if isAnd
+        truth = truth and hasRole(r)
+      else
+        truth = truth or hasRole(r)
+    truth
+    
   getPromise: (needsDezrez) ->
     defer = $q.defer()
     getUserPromise needsDezrez
@@ -72,10 +109,13 @@ angular.module 'vsProperty'
     defer = $q.defer()
     getDezrezPromise defer, true, email
     defer.promise
+  checkRoles: (role) ->
+    if user
+      checkRoles role
   getUser: ->
     user
   getDezrezUser: ->
-    if user and user.dezrez then user else null
+    if user and user.dezrez and user.dezrez.Id then user else null
   getPotentialUsers: ->
     potentialUsers
   clearPotentialUsers: ->

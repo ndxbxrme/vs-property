@@ -1,0 +1,25 @@
+.admin
+  .myrow
+    h1 Admin
+    .controls
+      input(type='text', ng-model='search', placeholder='Search')
+  table.user-list
+    thead
+      th(ng-click="setSort('local.email')", ng-class="getSortClass('local.email')") Email
+      th Properties
+      th(ng-click="setSort('lastLogin')", ng-class="getSortClass('lastLogin')") Last login
+      th(ng-click="setSort('lastRefresh')", ng-class="getSortClass('lastRefresh')") Last activity
+      th.squish
+    tr.user(ng-repeat='user in myusers = (users.items | filter:search | orderBy:sort) | limitTo:limit:limit*(page-1)')
+      td {{ user.local.email || user.email }}
+      td
+        a.property(href='http://vitalspace.co.uk/property/#/true/true/5449003/overview', ng-repeat='property in user.properties', target='_self') {{ property.address }}
+      td.half
+        label Last login
+        | {{ user.lastLogin | date:'mediumDate' }}, {{ user.lastLogin | date:'mediumTime' }}
+      td.half
+        label Last activity
+        | {{ user.lastRefresh | date:'mediumDate' }}, {{ user.lastRefresh | date:'mediumTime' }}
+      td
+        a(href='', ng-click='delete(user)') Delete
+  pagination.pagination-sm.pagination(total='myusers.length', ng-model='page', page-size='limit', show-first-last='true')

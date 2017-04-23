@@ -1,4 +1,4 @@
-.dezrez(ng-show='auth.getUser() && !auth.getDezrezUser()')
+.dezrez(ng-show='auth.getUser() && !auth.checkRoles(["superadmin","admin"]) && !auth.getDezrezUser()')
   div(ng-show='auth.loading()') Contacting DezRez
   div(ng-hide='auth.loading()')
     .dezrez-email(ng-show='!auth.getPotentialUsers().length')

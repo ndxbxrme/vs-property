@@ -27,20 +27,23 @@
             .person
               img(gravatar-src='viewing.MainContact.email') 
               span {{viewing.MainContact.name}}
-          td 
+          td.half
+            label Date
             nobr {{viewing.StartDate | date:'mediumDate'}}
-          td 
+          td.half
+            label Time
             nobr {{viewing.StartDate | date:'shortTime'}}
           td
+            label Accompanied by
             .person(ng-repeat='person in viewing.Negotiators') 
               img(gravatar-src='person.PrimaryEmail.Value') 
               span {{person.ContactName}}
             .person(ng-repeat='person in viewing.AccompaniedBy')  
               img(gravatar-src='person.email') 
               span {{person.name}}
-          td
+          td.half
             span(ng-show='viewing.Notes.length') Notes
-          td.status.squish 
+          td.status.squish.half 
             div(ng-show='viewing.Feedback.length')
               div(ng-hide='viewing.open') View Feedback
               div(ng-show='viewing.open') Close Feedback

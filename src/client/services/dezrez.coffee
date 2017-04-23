@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'vsProperty'
-.factory 'dezrez', ($http) ->
+.factory 'dezrez', ($http, $timeout, env) ->
   loading =
     selling: false
     letting: false
@@ -21,8 +21,18 @@ angular.module 'vsProperty'
       offers: []
       Address: address
     fetchPropertyDetails newProp
+    fetchConveyancingDetails newProp
     properties.push newProp
     newProp
+  fetchConveyancingDetails = (property) ->
+    $http
+      method: 'GET'
+      url: "#{env.CONVEYANCING_URL}/properties/#{property.id}/progressions"
+      headers:
+        Authorization: "Bearer #{env.CONVEYANCING_TOKEN}"
+    .then (response) ->
+      if response.data and not response.data.error
+        property.progressions = response.data
   fetchPropertyDetails = (property) ->
     property.loading = true
     $http.get '/api/property/' + property.id
@@ -94,7 +104,7 @@ angular.module 'vsProperty'
           for offer in response.data
             offer.date = new Date(offer.DateTime).valueOf()
             prop = getProperty offer.MarketingRoleId
-            offer.prop = prop
+            offer.prop = JSON.parse JSON.stringify prop
             prop.offers.push offer
             offers.push offer
       , ->
@@ -109,17 +119,31 @@ angular.module 'vsProperty'
         for property in response.data.Collection
           prop = getProperty property.Id, property.Address
           prop.type = 'selling'
+      $http.get '/api/dezrez/property/list/letting'
+      .then (response) ->
+        loading.letting = false
+        if response.data and not response.data.error
+          for property in response.data.Collection
+            prop = getProperty property.Id, property.Address
+            prop.type = 'letting'
+        
+        $timeout ->
+          userProps = []
+          for prop in properties
+            if prop.details isnt 'no property found'
+              myprop = objtrans prop,
+                id: true
+                address: (property) ->
+                  "#{property.Address.Number} #{property.Address.Street }, #{property.Address.Locality }, #{property.Address.Town}"
+                image: 'details.Images[0].Url'
+              userProps.push myprop
+          $http.post '/api/dezrez/update-user-props', properties:userProps
+          .then (response) ->
+        , 1000
+      , ->
+        loading.letting = false
     , ->
       loading.selling = false
-    $http.get '/api/dezrez/property/list/letting'
-    .then (response) ->
-      loading.letting = false
-      if response.data and not response.data.error
-        for property in response.data.Collection
-          prop = getProperty property.Id, property.Address
-          prop.type = 'letting'
-    , ->
-      loading.letting = false
     fetchViewings()
     fetchOffers()
   getProperties: ->

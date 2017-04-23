@@ -5,3 +5,4 @@
     background-image url(../../public/img/icons/vs_icons.png)
   h2 
     margin-top 0
+  collapse-table()

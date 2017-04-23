@@ -36,6 +36,36 @@ vs-table()
       p
         padding 0
         margin 0  
+collapse-table()
+  table
+    label
+      display none
+  @media screen and (max-width: 800px)
+    table
+      border none
+    thead, th
+      display none
+    td, tr
+      width 100%!important
+      box-sizing border-box
+    tr
+      display flex
+      flex-wrap wrap
+      margin-bottom 2rem
+      border 1px solid #ccc
+    .half
+      width 50%!important
+    label
+      display block !important
+      font-size 1rem
+    .popout
+      border none
+      td
+        border none
 
 vs-orange = #f15b25
 vs-grey = #464e53
+vs-green = #25f15c
+vs-amber = orange
+vs-red = #f12540
+vs-lightgrey = #ccc

@@ -22,13 +22,21 @@
     tbody(ng-repeat='offer in getOffers() | orderBy:sort') 
       tr(ng-click='toggle(offer)', ng-class='{open:offer.open, "has-notes":offer.Notes.length}')
         td {{offer.Property.Address.Number}} {{offer.Property.Address.Street}}, {{offer.Property.Address.Locality}}, {{offer.Property.Address.Town}}
-        td {{offer.ApplicantGroup.PrimaryMember.ContactName}}
-        td {{offer.Value | currency:'£':0}}
         td 
+          label Applicant
+          | {{offer.ApplicantGroup.PrimaryMember.ContactName}}
+        td 
+          label Amount
+          | {{offer.Value | currency:'£':0}}
+        td.half
+          label Date
           nobr {{offer.DateTime | date:'mediumDate'}}
-        td 
+        td.half
+          label Time
           nobr {{offer.DateTime | date:'shortTime'}}
-        td {{offer.Response.ResponseType.Name}}
+        td 
+          label Status
+          | {{offer.Response.ResponseType.Name}}
         td.status.squish
           div(ng-show='offer.Notes.length')
             div(ng-hide='offer.open') View Notes
@@ -43,6 +51,6 @@
                   h4 Notes about this offer
               .notes-list
                 .notes-item(ng-repeat='note in offer.Notes')
-                  h6 {{note.DateTime | date:'mediumDate'}}, {{note.DateTime | date:'shortTime'}}
-                  p {{note.notes}}
+                  h6 {{note.DateAdded | date:'mediumDate'}}, {{note.DateAdded | date:'shortTime'}}
+                  p {{note.Note}}
         

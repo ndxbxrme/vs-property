@@ -22,15 +22,21 @@
       tbody(ng-repeat='viewing in property.viewings | orderBy: sort') 
         tr
           td 
+            label Main contact
             .person
               img(gravatar-src='viewing.MainContact.email') 
               span {{viewing.MainContact.name}}
-          td 
+          td.half 
+            label Date
             nobr {{viewing.StartDate | date:'mediumDate'}}
-          td 
+          td.half 
+            label Time
             nobr {{viewing.StartDate | date:'shortTime'}}
-          td {{viewing.EventStatus.Name}}
+          td 
+            label Viewing status
+            | {{viewing.EventStatus.Name}}
           td
+            label Accompanied by
             .person(ng-repeat='person in viewing.Negotiators') 
               img(gravatar-src='person.PrimaryEmail.Value') 
               span {{person.ContactName}}

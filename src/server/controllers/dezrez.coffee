@@ -26,6 +26,12 @@ module.exports = (ndx) ->
       else
         throw ndx.UNAUTHORIZED
       
+    ndx.app.post '/api/dezrez/update-user-props', ndx.authenticate(), (req, res) ->
+      ndx.database.update 'users',
+        properties: req.body.properties
+      ,
+        _id: ndx.user._id
+      res.end 'ok'
     ndx.app.post '/api/dezrez/email', ndx.authenticate(),  (req, res) ->
       email = req.body.email or ndx.user.local?.email or ndx.user.facebook?.email
       findByEmail email, ndx.user._id, (data) ->

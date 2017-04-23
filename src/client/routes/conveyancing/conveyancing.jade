@@ -1,8 +1,11 @@
 .conveyancing-page
-   a(href='/').backlink 
+  a(href='/').backlink 
     i.fa.fa-long-arrow-left(aria-hidden='true')  
     |  Back to Dashboard
-   h2 Conveyancing solicitors quotes
+  div(ng-repeat='property in getProperties()', ng-hide='!property.details.Address')
+    h3(ng-hide='property.error || property.loading') {{property.Address.Number}} {{property.Address.Street }}, {{property.Address.Locality }}, {{property.Address.Town}}
+    progression(ng-repeat='progression in property.progressions', data='progression')
+  h2 Conveyancing solicitors quotes
   .row
     .col-sm-6
       p

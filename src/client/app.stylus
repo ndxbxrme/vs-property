@@ -55,6 +55,7 @@ body
           margin-right 1rem
     tr
       border-bottom 1px solid #eee
+  collapse-table()
       
 .properties, .dashboard
   .property
@@ -157,8 +158,6 @@ body
     display none
 .lt-800
   box-shadow 0 0 6px #000
-  .body
-    overflow-x scroll
 .gt-240.lt-480
   body .body
   .properties, .dashboard

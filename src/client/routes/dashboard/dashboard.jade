@@ -50,3 +50,4 @@
           .item(ng-show='!loading("all")')
             label Viewings:
             h4 {{property.viewings.length}}
+admin(ng-if='auth.checkRoles(["superadmin","admin"])')

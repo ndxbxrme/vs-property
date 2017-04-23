@@ -5,6 +5,7 @@ angular.module 'vsProperty', [
   'ui.router'
   'propertyEngine'
   'ui.gravatar'
+  'ndx'
 ]
 .config (gravatarServiceProvider) ->
   gravatarServiceProvider.defaults =
