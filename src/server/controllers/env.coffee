@@ -18,7 +18,7 @@ module.exports = (ndx) ->
   }
   module.constant('env', {
     CONVEYANCING_URL: '#{process.env.CONVEYANCING_URL}',
-    CONVEYANCING_TOKEN: '#{process.env.CONVEYANCING_TOKEN}'
+    CONVEYANCING_TOKEN: '#{process.env.CONVEYANCING_TOKEN}',
     HOST: '#{process.env.HOST}'
   });
 }).call(this);
