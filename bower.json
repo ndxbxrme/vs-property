@@ -30,7 +30,6 @@
     "headjs": "~1.0.3",
     "humane-js": "humane#~3.2.2",
     "ngmap": "^1.17.8",
-    "ndx-socket": "^0.0.5",
     "ndx-scroll-top": "^0.0.11",
     "ndx-pagination": "^0.0.8",
     "objtrans": "^0.0.12",
