@@ -11,7 +11,7 @@
       th(ng-click="setSort('lastRefresh')", ng-class="getSortClass('lastRefresh')") Last activity
       th.squish
     tr.user(ng-repeat='user in myusers = (users.items | filter:search | orderBy:sort) | limitTo:limit:limit*(page-1)')
-      td {{ user.local.email || user.email }}
+      td {{ user.local.email || user.email || user.twitter.username }}
       td
         a.property(href='http://vitalspace.co.uk/property/#/true/true/5449003/overview', ng-repeat='property in user.properties', target='_self') {{ property.address }}
       td.half

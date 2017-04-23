@@ -40,7 +40,3 @@ angular.module 'vsProperty', [
     "has-sort": true
     sorting: @sort.indexOf(field) isnt -1
     desc: @sort.indexOf('-') is 0
-.factory 'socket', ($http) ->
-  socket = io.connect 'https://myproperty.vitalspace.co.uk',
-    secure: true
-  on: socket.on
