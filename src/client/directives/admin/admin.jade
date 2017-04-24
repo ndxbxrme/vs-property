@@ -2,7 +2,7 @@
   .myrow
     h1 Admin
     .controls
-      input(type='text', ng-model='search', placeholder='Search')
+      input(type='text', ng-model='search', placeholder='Search', ng-change='page=1')
   table.user-list
     thead
       th(ng-click="setSort('local.email')", ng-class="getSortClass('local.email')") Email
