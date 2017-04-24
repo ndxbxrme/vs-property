@@ -5,7 +5,7 @@
   h2 
     i.guarantor
     |  Feedback
-  div(ng-repeat='property in getProperties()' ng-hide='!property.details.Address') 
+  div.prop-single(ng-repeat='property in getProperties()' ng-hide='!property.details.Address') 
     h3(ng-hide='property.error || property.loading') {{property.Address.Number}} {{property.Address.Street }}, {{property.Address.Locality }}, {{property.Address.Town}}
     h3(ng-show='property.error') Error fetching property details
     h3(ng-show='property.loading') Fetching property details
@@ -19,7 +19,7 @@
           th(ng-click='setSort("date")', ng-class='getSortClass("date")') Date
           th(ng-click='setSort("date")', ng-class='getSortClass("date")') Time
           th Accompanied by
-          th.squish
+          th.squish Viewing notes
           th.squish(ng-click='setSort("Feedback.length")', ng-class='getSortClass("Feedback.length")') Feedback status
       tbody(ng-repeat='viewing in viewings = ( property.viewings ) | orderBy: sort') 
         tr(ng-click='toggle(viewing)', ng-class='{open:viewing.open, "has-feedback":viewing.Feedback.length||viewing.Notes.length}')
@@ -42,7 +42,8 @@
               img(gravatar-src='person.email') 
               span {{person.name}}
           td.half
-            span(ng-show='viewing.Notes.length') Notes
+            span(ng-show='viewing.Notes.length')
+              img.notes(src='public/img/icons/feedback-notes.png')
           td.status.squish.half 
             div(ng-show='viewing.Feedback.length')
               div(ng-hide='viewing.open') View Feedback

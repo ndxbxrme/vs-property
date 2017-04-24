@@ -13,3 +13,7 @@
       flex 1
   table
     vs-table()
+    img.notes
+      width 32px
+      margin 0 auto
+      display block

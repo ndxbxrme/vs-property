@@ -14,48 +14,75 @@ body
     &.mobile-menu-out
       transform translateX(-180px)
   .view
-    padding-bottom 5rem
-      
-.viewings, .feedback, .offers
-  table
-    width 100%
-    font-size 1em
-    border-left: 0;
-    border-right: 0;
-    .squish
-      width 1%
-      white-space nowrap
-    th
-      padding 15px 10px
-      background #eee
-      &.has-sort
-        cursor pointer
-      &.sorting
+    padding-bottom 5rem     
+  .viewings, .feedback, .offers
+    .prop-single
+      border 1px solid #f1f1f1
+      padding 10px 20px 0 20px
+      border-radius 10px
+      h3 
+        padding 10px 30px
+        margin -10px -20px 20px -20px
+        border-top-left-radius 10px
+        border-top-right-radius 10px
         font-family ProximaNova-Regular, sans-serif
-        &:after
-          float right
-          font-family FontAwesome
-          content '\f0d8'
-        &.desc
+        background vs-grey
+        color white
+    table
+      width 100%
+      font-size 1em
+      border 1px solid #f1f1f1
+      border-radius 10px
+      thead
+        th
+          border-color vs-orange
+          padding 20px 10px
+          font-size 1.3rem
+          font-weight bold
+          text-transform uppercase
+          font-family ProximaNova-Regular, sans-serif
+          &:first-of-type
+            border-top-left-radius 10px
+          &:last-of-type
+            border-top-right-radius 10px
+      tbody
+        border none
+        &:last-of-type
+          td
+            border none
+      .squish
+        width 1%
+        white-space nowrap
+      th
+        padding 15px 10px 10px 10px
+        background #eee
+        &.has-sort
+          cursor pointer
+        &.sorting
+          font-family ProximaNova-Regular, sans-serif
           &:after
             float right
             font-family FontAwesome
-            content '\f0d7'
-    td
-      padding 15px 10px
-      border-bottom 1px solid #eee
-      vertical-align top
-      .person
-        display flex
-        align-items center
-        color #464e53
-        margin-bottom 0.4rem
-        img
-          min-width 16px
-          margin-right 1rem
-    tr
-      border-bottom 1px solid #eee
-  collapse-table()
+            content '\f0d8'
+          &.desc
+            &:after
+              float right
+              font-family FontAwesome
+              content '\f0d7'
+      td
+        padding 15px 10px
+        border none
+        border-bottom 1px solid #f1f1f1
+        vertical-align middle
+        .person
+          display flex
+          align-items center
+          color #464e53
+          margin-bottom 0.4rem
+          img
+            min-width 16px
+            margin-right 1rem
+    collapse-table()
       
 .properties, .dashboard
   .property
@@ -63,9 +90,10 @@ body
       display flex
       justify-content space-between
       background #f1f1f1
-      padding 10px
+      padding 20px 20px 13px 20px
       border 1px solid #ccc
       margin-bottom 10px
+      border-radius 10px
       .property-image
         width 12em
         height 8em
@@ -95,6 +123,9 @@ body
           white-space nowrap
           
  .dashboard
+  .property
+    .property-item
+      padding 10px
   h2 
     margin-bottom 10px
   p
@@ -113,11 +144,13 @@ body
       display block
       margin-bottom 30px
       text-align center
+      border-radius 10px
       &:hover
         filter gray
         -webkit-filter grayscale(100%)
         transition: all 1s ease
         box-shadow none
+        background #f1f1f1
       h3 
         color #464e53
       i
