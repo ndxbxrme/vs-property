@@ -1,6 +1,6 @@
 {
   "name": "vs-property",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "main": "build/server/app.js",
   "scripts": {
@@ -33,7 +33,7 @@
     "grunt-injector": "^1.1.0",
     "grunt-keepalive": "^1.0.0",
     "grunt-ndx-script-inject": "0.0.7",
-    "grunt-ndxmin": "0.0.4",
+    "grunt-ndxmin": "0.0.5",
     "grunt-ngmin": "0.0.3",
     "grunt-usemin": "^3.1.1",
     "grunt-wiredep": "^3.0.1",
