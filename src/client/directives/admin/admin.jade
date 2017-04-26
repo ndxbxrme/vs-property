@@ -13,7 +13,7 @@
     tr.user(ng-repeat='user in myusers = (users.items | filter:search | orderBy:sort) | limitTo:limit:limit*(page-1)')
       td {{ user.local.email || user.email || user.twitter.username }}
       td
-        a.property(href='http://vitalspace.co.uk/property/#/true/true/5449003/overview', ng-repeat='property in user.properties', target='_self') {{ property.address }}
+        a.property(href='http://vitalspace.co.uk/property/#/true/true/{{property.id}}/overview', ng-repeat='property in user.properties', target='_self') {{ property.address }}
       td.half
         label Last login
         | {{ user.lastLogin | date:'mediumDate' }}, {{ user.lastLogin | date:'mediumTime' }}

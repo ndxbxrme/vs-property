@@ -2,7 +2,7 @@
   a(href='/').backlink 
     i.fa.fa-long-arrow-left(aria-hidden='true')  
     |  Back to Dashboard
-  div(ng-repeat='property in getProperties()', ng-hide='!property.details.Address')
+  div(ng-repeat='property in getProperties()', ng-hide='!property.details.Address || property.details.RoleStatus.SystemName==="InstructionToSell" || property.details.RoleStatus.SystemName==="UnderOffer"')
     h3(ng-hide='property.error || property.loading') {{property.Address.Number}} {{property.Address.Street }}, {{property.Address.Locality }}, {{property.Address.Town}}
     progression(ng-repeat='progression in property.progressions', data='progression')
   h2 Conveyancing solicitors quotes
