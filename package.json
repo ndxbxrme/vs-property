@@ -1,6 +1,6 @@
 {
   "name": "vs-property",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "",
   "main": "build/server/app.js",
   "scripts": {
@@ -45,7 +45,7 @@
     "ndx-auth": "^0.1.7",
     "ndx-connect": "0.0.6",
     "ndx-cors": "0.0.9",
-    "ndx-database-backup": "0.0.8",
+    "ndx-database-backup": "^0.1.0",
     "ndx-file-upload": "0.0.6",
     "ndx-keep-awake": "0.0.5",
     "ndx-memory-check": "0.0.5",
@@ -56,11 +56,12 @@
     "ndx-permissions": "^0.2.3",
     "ndx-profiler": "^0.1.0",
     "ndx-rest": "^0.2.2",
-    "ndx-server": "^0.9.0",
+    "ndx-server": "^0.9.1",
     "ndx-socket": "0.0.8",
     "ndx-static-routes": "0.0.12",
     "ndx-superadmin": "^0.1.4",
     "ndx-user-roles": "^0.3.7",
+    "ndxdb": "^1.7.1",
     "objtrans": "0.0.11",
     "superagent": "3.3.2"
   }
