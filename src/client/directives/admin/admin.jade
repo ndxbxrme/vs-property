@@ -10,7 +10,7 @@
       th(ng-click="setSort('lastLogin')", ng-class="getSortClass('lastLogin')") Last login
       th(ng-click="setSort('lastRefresh')", ng-class="getSortClass('lastRefresh')") Last activity
       th.squish
-    tr.user(ng-repeat='user in myusers = (users.items | filter:search | orderBy:sort) | limitTo:limit:limit*(page-1)')
+    tr.user(ng-repeat='user in myusers = (users.items | filter:search | orderBy:sort) | limitTo:limit:limit*(page-1)', ng-class='{incomplete:!user.dezrez}')
       td {{ user.local.email || user.email || user.twitter.username }}
       td
         a.property(href='http://vitalspace.co.uk/property/#/true/true/{{property.id}}/overview', ng-repeat='property in user.properties', target='_self') {{ property.address }}
