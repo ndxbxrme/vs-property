@@ -34,7 +34,7 @@ module.exports = (ndx) ->
           if response.body.CurrentCount < response.body.PageSize
             return cb?()
           else
-            return fetchProperties pageNo + 1, cb
+            return fetchProperties pageNo + 1, cb 
         else
           return cb? err
       return

@@ -1,6 +1,6 @@
 {
   "name": "vs-property",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "",
   "main": "build/server/app.js",
   "scripts": {
@@ -56,7 +56,7 @@
     "ndx-permissions": "^0.2.5",
     "ndx-profiler": "^0.1.0",
     "ndx-rest": "^0.2.7",
-    "ndx-server": "^0.9.6",
+    "ndx-server": "^0.9.7",
     "ndx-socket": "0.0.8",
     "ndx-static-routes": "0.0.12",
     "ndx-superadmin": "^0.1.4",
