@@ -21,7 +21,7 @@
           th Accompanied by
           th.squish Viewing notes
           th.squish(ng-click='setSort("Feedback.length")', ng-class='getSortClass("Feedback.length")') Feedback status
-      tbody(ng-repeat='viewing in viewings = ( property.viewings ) | orderBy: sort') 
+      tbody(ng-repeat='viewing in viewings = ( property.viewings | filter:{EventStatus:{SystemName:"!Cancelled"}} ) | orderBy: sort') 
         tr(ng-click='toggle(viewing)', ng-class='{open:viewing.open, "has-feedback":viewing.Feedback.length||viewing.Notes.length}')
           td
             .person

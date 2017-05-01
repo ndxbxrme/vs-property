@@ -13,10 +13,8 @@ angular.module 'vsProperty'
     offers
   $scope.toggle = (offer) ->
     for o in $scope.getOffers()
-      console.log 'checking', o
       if o isnt offer
         o.open = false
       else if o.Notes.length
-        console.log 'notes length'
         o.open = not o.open
   $scope.loading = dezrez.loading
