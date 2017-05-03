@@ -31,10 +31,10 @@
     "humane-js": "humane#~3.2.2",
     "ngmap": "^1.17.8",
     "ndx-scroll-top": "^0.0.11",
-    "ndx-pagination": "^0.0.8",
     "objtrans": "^0.0.12",
-    "ndx-rest": "^0.0.32",
-    "ndx-socket": "^0.0.5"
+    "ndx-rest": "^0.0.34",
+    "ndx-socket": "^0.0.6",
+    "ndx-pagination": "^0.1.0"
   },
   "resolutions": {
     "angular": "~1.4.14"
