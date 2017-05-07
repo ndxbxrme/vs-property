@@ -13,6 +13,8 @@ angular.module 'vsProperty'
         auth.clearPotentialUsers()
         auth.getUser().dezrez = user
         $location.path '/'
+      , ->
+        true
     scope.findEmail = ->
       auth.getDezrezPromise scope.dezrezEmail
       .then ->

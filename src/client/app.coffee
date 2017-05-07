@@ -7,12 +7,14 @@ angular.module 'vsProperty', [
   'ui.gravatar'
   'ndx'
 ]
-.config (gravatarServiceProvider) ->
+.config (gravatarServiceProvider, $qProvider) ->
+  $qProvider.errorOnUnhandledRejections false
   gravatarServiceProvider.defaults =
     size: 16
     "default": 'mm'
     rating: 'pg'
-.run ($rootScope, $state, $stateParams, auth) ->
+.run ($rootScope, $state, $stateParams, $http, auth) ->
+  delete $http.defaults.headers.common.Authorization
   auth.getPromise false
   $rootScope.$on '$stateChangeSuccess', ->
     propertyPages = [

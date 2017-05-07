@@ -21,6 +21,8 @@ angular.module 'vsProperty'
             if auth.getDezrezUser()
               dezrez.refresh()
             $location.path '/loggedin'
+          , ->
+            true
         , (err) ->
           scope.message = err.data
           scope.submitted = false
@@ -36,6 +38,8 @@ angular.module 'vsProperty'
             if auth.getDezrezUser()
               dezrez.refresh()
             $location.path '/loggedin'
+          , ->
+            true
         , (err) ->
           scope.message = err.data
           scope.submitted = false 

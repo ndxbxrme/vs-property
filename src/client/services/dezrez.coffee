@@ -33,6 +33,8 @@ angular.module 'vsProperty'
     .then (response) ->
       if response.data and not response.data.error
         property.progressions = response.data
+    , ->
+      true
   fetchPropertyDetails = (property) ->
     property.loading = true
     $http.get '/api/property/' + property.id
@@ -51,7 +53,7 @@ angular.module 'vsProperty'
               if event.EventType.Name is 'Mailout'
                 property.mailouts += event.Properties.length
           property.loadingEvents = false
-        ,
+        , ->
           property.loadingEvents = false
       else
         property.error = true
@@ -139,6 +141,9 @@ angular.module 'vsProperty'
               userProps.push myprop
           $http.post '/api/dezrez/update-user-props', properties:userProps
           .then (response) ->
+            true
+          , ->
+            true
         , 1000
       , ->
         loading.letting = false
