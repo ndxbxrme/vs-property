@@ -1,6 +1,6 @@
 {
   "name": "vs-property",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "",
   "main": "build/server/app.js",
   "scripts": {
@@ -46,7 +46,7 @@
     "ndx-connect": "0.0.6",
     "ndx-cors": "0.0.9",
     "ndx-database-backup": "^0.1.0",
-    "ndx-file-upload": "^0.1.4",
+    "ndx-file-upload": "^0.1.5",
     "ndx-keep-awake": "0.0.5",
     "ndx-memory-check": "0.0.5",
     "ndx-passport": "^0.4.0",
