@@ -4,3 +4,29 @@
     display block
     padding 15px
     border-bottom 1px solid #cccccc
+  .intro
+    display block
+    margin-top 50px
+    .col-sm-3
+      img 
+        width 100%
+        height auto
+    h2 
+      color #f15b25
+      font-size 2rem
+      margin-top 20px
+      margin-bottom 20px
+      padding 0 0 10px 0
+      font-weight 600
+      text-align left
+      font-family ProximaNova-Regular
+    p
+      margin-bottom 5px
+      padding 0
+      font-weight 300
+    h3
+      font-size 18px 
+      margin-top 25px 
+      color #464e53
+      font-weight 600
+      font-family ProximaNova-Regular

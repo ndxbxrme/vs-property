@@ -5,16 +5,16 @@
   div(ng-repeat='property in getProperties()', ng-hide='!property.details.Address || property.details.RoleStatus.SystemName==="InstructionToSell" || property.details.RoleStatus.SystemName==="UnderOffer"')
     h3(ng-hide='property.error || property.loading') {{property.Address.Number}} {{property.Address.Street }}, {{property.Address.Locality }}, {{property.Address.Town}}
     progression(ng-repeat='progression in property.progressions', data='progression')
-  h2 Conveyancing solicitors quotes
-  .row
-    .col-sm-6
+  row.intro
+    .col-sm-3.col-sm-offset-2
+      img(src='http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/public/img/int/Dawn.png', width='200')
+    .col-sm-5
+      h2 I'm Dawn
       p
-        | Are you are looking for a conveyancing solicitor in Urmston or Stretford and just don’t know where to start?
-      p
-        | Simply use our quick comparison tool and within minutes you will have a selection of local conveyancers to choose from. Whether it be a sale or purchase of a house or even both, we can help.
-      p
-        | All quotes are instant, completely free and no-obligation. Simply enter your details into the conveyancing quote calculator below then compare from our handpicked conveyancing panel in order of price and location and lender if required.
-      p
-        | It’s important to budget for conveyancing when buying or selling a house. Part of that budget will be for your solicitor or conveyancer to handle the legalities. Be sure to get a fixed fee, all inclusive quote.
-    .col-sm-6
-      #whytPlaceholder
+        | My role is to support and offer advice should you have any problems or concerns throughout the course of your legal transaction
+      p Please contact me if I can help
+      h3
+        img(src='http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/public/img/int/icons/vs_phone.png', width='22', style='margin-right: 5px;vertical-align:middle;')
+        | 07967 051 927 
+        img(src='http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/public/img/int/icons/vs_mail.png', width='22', style='margin-right: 5px;margin-left:10px;vertical-align:middle;')
+        |  progression@vitalspace.co.uk
