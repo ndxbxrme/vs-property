@@ -1,6 +1,6 @@
 {
   "name": "vs-property",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "",
   "main": "build/server/app.js",
   "scripts": {
@@ -49,10 +49,10 @@
     "ndx-file-upload": "^0.1.8",
     "ndx-keep-awake": "0.0.5",
     "ndx-memory-check": "0.0.5",
-    "ndx-passport": "^0.4.0",
-    "ndx-passport-facebook": "^0.2.8",
-    "ndx-passport-github": "^0.2.9",
-    "ndx-passport-twitter": "^0.2.7",
+    "ndx-passport": "^0.4.1",
+    "ndx-passport-facebook": "^0.2.9",
+    "ndx-passport-github": "^0.2.10",
+    "ndx-passport-twitter": "^0.2.8",
     "ndx-permissions": "^0.3.0",
     "ndx-profiler": "^0.1.0",
     "ndx-rest": "^0.5.0",
