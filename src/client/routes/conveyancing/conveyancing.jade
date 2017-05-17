@@ -2,19 +2,19 @@
   a(href='/').backlink 
     i.fa.fa-long-arrow-left(aria-hidden='true')  
     |  Back to Dashboard
-  div(ng-repeat='property in getProperties()', ng-hide='!property.details.Address || property.details.RoleStatus.SystemName==="InstructionToSell" || property.details.RoleStatus.SystemName==="UnderOffer"')
+  div(ng-repeat='property in getProperties()', ng-hide='!property.progressions.length || !property.details.Address || property.details.RoleStatus.SystemName==="InstructionToSell" || property.details.RoleStatus.SystemName==="UnderOffer"')
     h3(ng-hide='property.error || property.loading') {{property.Address.Number}} {{property.Address.Street }}, {{property.Address.Locality }}, {{property.Address.Town}}
     progression(ng-repeat='progression in property.progressions', data='progression')
   row.intro
     .col-sm-3.col-sm-offset-2
-      img(src='http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/public/img/int/Dawn.png', width='200')
+      img(src='/public/img/Dawn.png', width='200')
     .col-sm-5
       h2 I'm Dawn
       p
         | My role is to support and offer advice should you have any problems or concerns throughout the course of your legal transaction
       p Please contact me if I can help
       h3
-        img(src='http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/public/img/int/icons/vs_phone.png', width='22', style='margin-right: 5px;vertical-align:middle;')
+        img(src='/public/img/icons/vs_phone.png', width='22', style='margin-right: 5px;vertical-align:middle;')
         | 07967 051 927 
-        img(src='http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/public/img/int/icons/vs_mail.png', width='22', style='margin-right: 5px;margin-left:10px;vertical-align:middle;')
+        img(src='/public/img/icons/vs_mail.png', width='22', style='margin-right: 5px;margin-left:10px;vertical-align:middle;')
         |  progression@vitalspace.co.uk
