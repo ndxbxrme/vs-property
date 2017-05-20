@@ -84,9 +84,14 @@ angular.module 'vsProperty'
                       email: person.PrimaryEmail
                       sortname: person.LastName + person.FirstName
                   else
-                    viewing.AccompaniedBy.push 
-                      name: person.ContactName
-                      email: person.PrimaryEmail
+                    hasPerson = false
+                    for p in viewing.AccompaniedBy
+                      if p.name is person.ContactName
+                        hasPerson = true
+                    if not hasPerson
+                      viewing.AccompaniedBy.push 
+                        name: person.ContactName
+                        email: person.PrimaryEmail
             if openIds.indexOf(viewing.Id) isnt -1
               viewing.open = true
             prop = getProperty viewing.MarketingRoleId

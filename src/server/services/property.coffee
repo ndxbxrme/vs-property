@@ -42,7 +42,6 @@ module.exports = (ndx) ->
       fetchProperties 1, ->
         tables = ndx.database.getDb() 
         if tables.tmpprops.data.length
-          #console.log 'inserting', tables.tmpprops.data.length
           tables.props.data = tables.tmpprops.data
         tables.tmpprops.data = []
         return

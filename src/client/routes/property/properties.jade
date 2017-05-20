@@ -6,6 +6,7 @@
     i.vs-iconhouse
     |  My property
   .property(ng-repeat='property in getProperties()' ng-hide='!property.details.Address')
+    h5.loading(ng-show='property.loading') Contacting Dezrez
     a(href='/{{property.id}}/overview', ng-hide='property.error || property.loading')
       .property-item
         .property-image(style='background-image: url({{property.details.Images[0].Url}})')

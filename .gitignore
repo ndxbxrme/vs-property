@@ -17,3 +17,4 @@ cert.pem
 heapdump
 logs
 upload
+.DS_Store
