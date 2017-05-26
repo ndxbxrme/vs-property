@@ -31,8 +31,7 @@ module.exports = (ndx) ->
               if property.RoomCountsDescription.Others then property.NoRooms += property.RoomCountsDescription.Others
             property.SearchField = "#{property.Address.Street}|#{property.Address.Town}|#{property.Address.Locality}|#{property.Address.Postcode}|#{property.Address.County}"
             property.displayAddress = "#{property.Address.Number} #{property.Address.Street }, #{property.Address.Locality }, #{property.Address.Town}, #{property.Address.Postcode}"
-            ndx.database.upsert 'props', property,
-              RoleId: property.RoleId
+            ndx.database.exec 'INSERT INTO tmpprops VALUES ?', [property], true
           if response.body.CurrentCount < response.body.PageSize
             return cb?()
           else
@@ -41,6 +40,12 @@ module.exports = (ndx) ->
           return cb? err
       return
     doFetchProperties = ->
-      fetchProperties 1
+      fetchProperties 1, ->
+        tables = ndx.database.getDb() 
+        if tables.tmpprops.data.length
+          tables.props.data = tables.tmpprops.data
+        tables.tmpprops.data = []
+        return
+      return
     setInterval doFetchProperties, 5 * 60 * 1000
     doFetchProperties()
