@@ -12,5 +12,4 @@ RUN npm install -g bower grunt-cli
 RUN bower install --allow-root
 RUN grunt build
 
-EXPOSE 3000
 CMD if test -e env.sh; then . /env.sh; fi && node --expose-gc server/app.js
