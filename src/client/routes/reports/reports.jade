@@ -1,0 +1,51 @@
+.reports
+  .property(ng-repeat='property in getProperties()' ng-hide='!property.details.Address')
+    h5.loading(ng-show='property.loading') Contacting Dezrez
+    a(href='/{{property.id}}/overview', ng-hide='property.error || property.loading')
+      .property-item
+        .property-details
+          h2 {{property.Address.Number}} {{property.Address.Street }}, {{property.Address.Locality }}, {{property.Address.Town}}
+    .header
+      h2 
+        i.mortgage
+        |  Property Report
+      p Date Instructed 
+        span {{property.details.DateInstructed | date:'mediumDate'}}
+    .row.results
+      .col-md-3.col-sm-6
+        i.vs-iconsale
+        p {{property.details.DateInstructed | daysSince}}
+        p.small On Market
+      .col-md-3.col-sm-6
+        i.vs-iconstaff
+        p {{property.viewings.length}}
+        p.small Viewings Arranged
+      .col-md-3.col-sm-6
+        i.vs-iconstaff
+        p {{daysSince(property.details.DateInstructed)}} Days
+        p.small Viewings Contacted
+      .col-md-3.col-sm-6
+        i.guarantor
+        p {{daysSince(property.details.DateInstructed)}} Days
+        p.small Feedback Received
+      .col-md-3.col-sm-6
+        i.mail
+        p {{daysSince(property.details.DateInstructed)}} Days
+        p.small Mail Outs
+      .col-md-3.col-sm-6
+        i.vs-iconphoto
+        p {{daysSince(property.details.DateInstructed)}} Days
+        p.small Photographs
+      .col-md-3.col-sm-6
+        i.vs-iconvideo
+        p {{daysSince(property.details.DateInstructed)}} Days
+        p.small Video Walkthrough
+      .col-md-3.col-sm-6
+        i.offer
+        p {{daysSince(property.details.DateInstructed)}} Days
+        p.small Offers Received
+    
+    .row.rightmove-stats
+      img(src="../../public/img/rm-logo.svg" width="300")
+      p Online Stats - Updated 
+        span date

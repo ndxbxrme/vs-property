@@ -23,13 +23,13 @@
         i.offer
         h3 Offers
     .col-sm-4
+      a(href='/reports').icon-button
+        i.mortgage
+        h3 Property Report
+    .col-sm-4
       a(href='/conveyancing').icon-button
         i.vs-iconprogression
         h3 Conveyancing
-    .col-sm-4
-      a(href='/mortgages').icon-button
-        i.mortgage
-        h3 Mortgages
   
   h2 At a glance
   .property(ng-repeat='property in getProperties()')
