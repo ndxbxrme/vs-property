@@ -11,3 +11,10 @@ angular.module 'vsProperty'
     for viewing in property.viewings
       count += viewing.Feedback.length
     count
+    
+  $scope.hasDocument = (docName, property) ->
+    if property.Documents and property.Documents.length
+      for document in property.Documents
+        if document.DocumentSubType.DisplayName is docName
+          return true
+    false
