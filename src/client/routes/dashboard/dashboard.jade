@@ -46,8 +46,8 @@
             h4 {{property.details.RoleStatus.DisplayName}}
         .property-marketing
           .item(ng-show='!property.loadingEvents')
-            label Mail outs:
-            h4 {{property.mailouts}}
+            label Offers:
+            h4 {{property.offers.length}}
           .item(ng-show='!loading("all")')
             label Viewings:
             h4 {{property.viewings.length}}

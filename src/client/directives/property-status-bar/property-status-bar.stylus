@@ -1,16 +1,16 @@
 .property-status-bar
-  overflow: hidden;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #cccccc;
+  overflow hidden
+  padding-bottom 20px
   h2
     text-align center
     color #f15b25
     font-weight 100
-    display: block;
-    padding: 15px;
-    border-bottom: 1px solid #cccccc;
+    display: block
+    padding: 15px
+    border-bottom 1px solid #cccccc
   .property-status, .property-marketing, .property-offers
     text-align center
+    display none
     h3 
       font-size 2rem
       padding-bottom 0

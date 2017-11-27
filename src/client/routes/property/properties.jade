@@ -23,7 +23,7 @@
                 a(href='/viewings') 
                   i.vs-iconstaff 
                   | Viewings
-                  p.l-number {{property.viewings.length}} 
+                  p.l-number {{property | viewingContacted}} 
               li
                 a(href='/feedback')
                   i.guarantor 

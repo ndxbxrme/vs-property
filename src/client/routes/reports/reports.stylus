@@ -26,7 +26,7 @@
         text-align center
         span
           color vs-orange
-  .results
+  .results, .stats
     text-align center
     .col-sm-6
       margin-bottom 30px
@@ -62,9 +62,18 @@
         &.offer
           background url(../../public/img/icons/vs-icons2.png) no-repeat
           background-position -82px -81px
+        &.vs-iconsearch
+          background-position -4px -336px
+        &.vs-icondocument
+          background-position -88px -84px
+        &.reserving
+          background url(../../public/img/icons/icons3.png) no-repeat
+          background-position -84px -82px
+        &.vs-iconthumb
+          background-position -340px -336px
   .rightmove-stats
     text-align center
-    margin-top 60px
+    margin 60px 0 30px 0
     display flex
     align-items center
     justify-content center

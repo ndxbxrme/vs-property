@@ -6,6 +6,9 @@
     h3(ng-hide='property.error || property.loading') {{property.Address.Number}} {{property.Address.Street }}, {{property.Address.Locality }}, {{property.Address.Town}}
     progression(ng-repeat='progression in property.progressions', data='progression')
   row.intro
+    .col-sm-8.col-sm-offset-2
+      p.lead(ng-show='property.progressions.length')
+      | Once a sale is agreed, this page will form an overview of any activity surrounding the legal progression of your sale. Our clients will be able to obtain a detailed understanding of how matters are advancing with the assistance of our dedicated sales progressor - Dawn
     .col-sm-3.col-sm-offset-2
       img(src='/public/img/Dawn.png', width='200')
     .col-sm-5

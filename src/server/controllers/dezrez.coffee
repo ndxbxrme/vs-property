@@ -48,6 +48,12 @@ module.exports = (ndx) ->
         if not err
           res.json body
         else
+          next err
+    ndx.app.get '/api/dezrez/rightmove/:id', ndx.authenticate(), (req, res, next) ->
+      ndx.dezrez.get 'stats/rightmove/{id}', null, id:req.params.id, (err, body) ->
+        if not err
+          res.json body
+        else
           next err 
     ndx.app.get '/api/dezrez/property/:id/events', ndx.authorizeDezrez, (req, res, next) ->
       ndx.dezrez.get 'role/{id}/Events', pageSize, id:req.params.id, (err, body) ->

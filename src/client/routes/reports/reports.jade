@@ -17,21 +17,21 @@
         i.vs-iconsale
         p {{property.details.DateInstructed | daysSince}}
         p.small On Market
-      .col-md-3.col-sm-6
+      .col-md-3.col-sm-6(ng-show='!loading("all")')
         i.vs-iconstaff
         p {{property.viewings.length}}
         p.small Viewings Arranged
-      .col-md-3.col-sm-6
+      .col-md-3.col-sm-6(ng-show='!loading("all")')
         i.vs-iconstaff
-        p {{daysSince(property.details.DateInstructed)}} Days
+        p {{property | viewingContacted}}
         p.small Viewings Contacted
-      .col-md-3.col-sm-6
+      .col-md-3.col-sm-6(ng-show='!loading("all")')
         i.guarantor
-        p {{daysSince(property.details.DateInstructed)}} Days
+        p {{property | getFeedbackCount}}
         p.small Feedback Received
       .col-md-3.col-sm-6
         i.mail
-        p {{daysSince(property.details.DateInstructed)}} Days
+        p {{property.mailouts}}
         p.small Mail Outs
       .col-md-3.col-sm-6
         i.vs-iconphoto
@@ -43,7 +43,7 @@
         p.small Video Walkthrough
       .col-md-3.col-sm-6
         i.offer
-        p {{daysSince(property.details.DateInstructed)}} Days
+        p {{property.offers.length}}
         p.small Offers Received
     
     .rightmove-stats
