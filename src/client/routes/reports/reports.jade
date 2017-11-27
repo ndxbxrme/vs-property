@@ -39,7 +39,7 @@
         p.small Photographs
       .col-md-3.col-sm-6
         i.vs-iconvideo
-        p {{ hasDocument('video', property) ? 'Yes' : 'No' }}
+        p {{ property | hasDocument:'video' }}
         p.small Video Walkthrough
       .col-md-3.col-sm-6
         i.offer
