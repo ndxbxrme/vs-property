@@ -13,6 +13,8 @@
     display block
     margin-top 50px
     margin-bottom 40px
+    padding-bottom 40px
+    border-bottom 1px solid #cccccc
     .col-sm-3
       img 
         width 100%
@@ -38,3 +40,48 @@
       border-bottom none
       text-align left
       border-bottom none
+  .stats
+    text-align center
+    p
+      font-size 2rem
+      line-height 1
+      padding-bottom 0
+      color vs-orange
+      &.small
+        font-size 1.4rem
+        color vs-grey
+    i
+      background url(../../public/img/icons/vs_icons.png) no-repeat
+      width 80px
+      height 80px
+      &.vs-iconsale
+        background-position -340px -252px
+      &.vs-iconstaff
+        background-position -256px -336px
+      &.guarantor
+        background url(../../public/img/icons/icons3.png) no-repeat
+        background-position -2px -82px
+      &.mail
+        background url(../../public/img/icons/vs_mail.png) no-repeat
+        display inline-block
+        background-size contain
+        width 40px
+        height 40px
+      &.vs-iconphoto
+        background-position -340px -168px
+      &.vs-iconvideo
+        background-position -4px -420px
+      &.offer
+        background url(../../public/img/icons/vs-icons2.png) no-repeat
+        background-position -82px -81px
+      &.vs-iconsearch
+        background-position -4px -336px
+      &.vs-icondocument
+        background-position -88px -84px
+      &.reserving
+        background url(../../public/img/icons/icons3.png) no-repeat
+        background-position -84px -82px
+      &.vs-iconthumb
+        background-position -340px -336px
+      &.vs-iconchoice
+        background-position -340px -0px

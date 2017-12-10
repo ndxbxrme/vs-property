@@ -4,6 +4,7 @@
     |  Back to Dashboard
   div.row(ng-repeat='property in getProperties()', ng-hide='!property.progressions.length || !property.details.Address || property.details.RoleStatus.SystemName==="InstructionToSell" || property.details.RoleStatus.SystemName==="UnderOffer"')
     h3(ng-hide='property.error || property.loading') {{property.Address.Number}} {{property.Address.Street }}, {{property.Address.Locality }}, {{property.Address.Town}}
+  
   .row.intro.noprog(ng-hide='!property.progressions.length')
     .col-sm-8.col-sm-offset-2
       p.lead
@@ -20,6 +21,7 @@
         | 07967 051 927 
         img(src='/public/img/icons/vs_mail.png', width='22', style='margin-right: 5px;margin-left:10px;vertical-align:middle;')
         |  progression@vitalspace.co.uk
+  
   .row.intro.prog(ng-hide='property.progressions.length')
     .col-md-8
       .col-xs-4
@@ -34,11 +36,37 @@
           | 07967 051 927 
           img(src='/public/img/icons/vs_mail.png', width='22', style='margin-right: 5px;margin-left:10px;vertical-align:middle;')
           |  progression@vitalspace.co.uk
+    .col-sm-2.stats
+      i.vs-iconsale
+      p {{property.details.Price.PriceValue | currency:'£':0}}
+      p.small Marketed Price
+    .col-sm-2.stats
+      i.offer
+      p {{property.details.Price.PriceValue | currency:'£':0}}
+      p.small Offer Price
+  .row.stats.stats-row
+    .col-sm-3
+      h2 progress graph
     .col-sm-2
-      h3 {{property.details.Price.PriceValue | currency:'£':0}}
-      p Marketed Price
+      .milestone.completed
+        .icon.draft Completed
+      .milestone.progressing
+        .icon.report In Progress
+      .milestone.overdue
+        .icon.survey Outstanding
+    .col-sm-3
+      h3 People Involved
+      p Vendor(s)
+        span {{vendor.Name}}
+      p Purchaser(s)
+        span {{purcahser.Name}}
     .col-sm-2
-      h3 {{property.details.Price.PriceValue | currency:'£':0}}
-      p Offer Price
+      i.vs-iconsale
+      p {{sale.Agreed.Date}}
+      p.small Sale Agreed
+    .col-sm-2
+      i.vs-iconchoice
+      p {{last.Updated.Date}}
+      p.small Last Updated
   div.row(ng-repeat='property in getProperties()', ng-hide='!property.progressions.length || !property.details.Address || property.details.RoleStatus.SystemName==="InstructionToSell" || property.details.RoleStatus.SystemName==="UnderOffer"')
     progression(ng-repeat='progression in property.progressions', data='progression')
