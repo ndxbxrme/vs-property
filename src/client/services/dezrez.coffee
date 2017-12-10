@@ -27,12 +27,16 @@ angular.module 'vsProperty'
   fetchConveyancingDetails = (property) ->
     $http
       method: 'GET'
-      url: "#{env.CONVEYANCING_URL}/properties/#{property.id}/progressions"
+      url: "#{env.CONVEYANCING_URL}/properties/#{property.id}"
       headers:
         Authorization: "Bearer #{env.CONVEYANCING_TOKEN}"
     .then (response) ->
       if response.data and not response.data.error
-        property.progressions = response.data
+        property.progressions = response.data.progressions
+        property.purchaser = response.data.purchaser
+        property.vendor = response.data.vendor
+        property.offer = response.data.offer
+        property.modifiedAt = response.data.modifiedAt
     , ->
       true
   fetchPropertyDetails = (property) ->
