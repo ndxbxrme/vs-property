@@ -42,11 +42,11 @@
         p.small Marketed Price
       .col-sm-2.stats
         i.offer
-        p {{property.details.Price.PriceValue | currency:'£':0}}
-        p.small Offer Price   
+        p {{property.offer.Value | currency:'£':0}}
+        p.small Offer Price
     .row.stats.stats-row
       .col-sm-3
-        h2 progress graph
+        h2 progress graph {{ getProgressionPercent(property) }}%
       .col-sm-2
         .milestone.completed
           .icon.draft Completed
@@ -57,15 +57,15 @@
       .col-sm-3
         h3 People Involved
         p Vendor(s)
-          span {{vendor.Name}}
+          span {{property.vendor}}
         p Purchaser(s)
-          span {{purcahser.Name}}
+          span {{property.purchaser}}
       .col-sm-2
         i.vs-iconsale
-        p {{sale.Agreed.Date}}
+        p {{property.offer.CreatedDate | date:'mediumDate'}}
         p.small Sale Agreed
       .col-sm-2
         i.vs-iconchoice
-        p {{last.Updated.Date}}
+        p {{property.modifiedAt | date:'mediumDate'}}
         p.small Last Updated
     progression(ng-repeat='progression in property.progressions', data='progression')
