@@ -55,6 +55,15 @@ angular.module 'vsProperty'
           property.loadingEvents = false
         , ->
           property.loadingEvents = false
+        ###
+        $http.get "/api/dezrez/rightmove/#{property.id}"
+        .then (response) ->
+          if response.data
+            console.log 'rightmove', response.data
+          property.loadingEvents = false
+        , ->
+          property.loadingEvents = false
+        ###
       else
         property.error = true
     , ->
