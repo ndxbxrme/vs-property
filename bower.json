@@ -34,7 +34,8 @@
     "ndx-socket": "^0.0.6",
     "ndx-pagination": "^0.1.1",
     "ndx-rest": "^0.2.0",
-    "objtrans": "^0.0.14"
+    "objtrans": "^0.0.14",
+    "angular-circular-progress": "^0.0.2"
   },
   "resolutions": {
     "angular": "~1.4.14"

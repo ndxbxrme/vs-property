@@ -6,6 +6,7 @@ angular.module 'vsProperty', [
   'propertyEngine'
   'ui.gravatar'
   'ndx'
+  'angular-circular-progress'
 ]
 .config (gravatarServiceProvider, $qProvider) ->
   gravatarServiceProvider.defaults =
