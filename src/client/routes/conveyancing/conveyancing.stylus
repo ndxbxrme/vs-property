@@ -1,24 +1,29 @@
+@import '../../variables'
 .conveyancing-page
   h2
     text-align center
     display block
     padding 15px
     border-bottom 1px solid #cccccc
+  h3
+    text-align center
+    border-bottom 1px solid #cccccc
+    color vs-grey
   .intro
     display block
     margin-top 50px
+    margin-bottom 40px
     .col-sm-3
       img 
         width 100%
         height auto
     h2 
-      color #f15b25
+      color vs-grey
       font-size 2rem
       margin-top 20px
       margin-bottom 20px
       padding 0 0 10px 0
       font-weight 600
-      text-align left
       font-family ProximaNova-Regular
     p
       margin-bottom 5px
@@ -30,3 +35,6 @@
       color #464e53
       font-weight 600
       font-family ProximaNova-Regular
+      border-bottom none
+      text-align left
+      border-bottom none
