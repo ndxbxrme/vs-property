@@ -1,4 +1,7 @@
 .reports
+  a(href='/').backlink 
+    i.fa.fa-long-arrow-left(aria-hidden='true')  
+    |  Back to Dashboard
   .property(ng-repeat='property in getProperties()' ng-hide='!property.details.Address')
     h5.loading(ng-show='property.loading') Contacting Dezrez
     a(href='/{{property.id}}/overview', ng-hide='property.error || property.loading')
@@ -24,7 +27,7 @@
       .col-md-3.col-sm-6(ng-show='!loading("all")')
         i.vs-iconstaff
         p {{property | viewingContacted}}
-        p.small Viewings Contacted
+        p.small Viewings Conducted
       .col-md-3.col-sm-6(ng-show='!loading("all")')
         i.guarantor
         p {{property | getFeedbackCount}}
@@ -39,32 +42,32 @@
         p.small Photographs
       .col-md-3.col-sm-6
         i.vs-iconvideo
-        p {{ property | hasDocument:'video' }}
+        p {{ property | hasDocument:'Virtual Tour' }}
         p.small Video Walkthrough
       .col-md-3.col-sm-6
         i.offer
         p {{property.offers.length}}
         p.small Offers Received
     
-    .rightmove-stats
-      .info
-        img(src="../../public/img/rm-logo.svg" width="300")
-        p Online Stats - Updated 
-          span date
-    .row.stats
-      .col-md-3.col-sm-6
-        i.vs-iconsearch
-        p {{Number}}
-        p.small Summary Views
-      .col-md-3.col-sm-6
-        i.vs-icondocument
-        p {{Number}}
-        p.small Detail Views
-      .col-md-3.col-sm-6
-        i.reserving
-        p {{Yes/No}}
-        p.small Premium Listing
-      .col-md-3.col-sm-6
-        i.vs-iconthumb
-        p {{Yes/No}}
-        p.small Feature Property
+//    .rightmove-stats
+//      .info
+//        img(src="../../public/img/rm-logo.svg" width="300")
+//        p Online Stats - Updated 
+//          span date
+//    .row.stats
+//      .col-md-3.col-sm-6
+//        i.vs-iconsearch
+//        p {{Number}}
+//        p.small Summary Views
+//      .col-md-3.col-sm-6
+//        i.vs-icondocument
+//        p {{Number}}
+//        p.small Detail Views
+//      .col-md-3.col-sm-6
+//        i.reserving
+//        p {{Yes/No}}
+//        p.small Premium Listing
+//      .col-md-3.col-sm-6
+//        i.vs-iconthumb
+//        p {{Yes/No}}
+//        p.small Feature Property

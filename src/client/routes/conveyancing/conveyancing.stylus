@@ -47,7 +47,7 @@
       .people p
         text-align left
         color vs-grey
-        font-size 16px
+        font-size 1.5rem
         margin-bottom 15px
         span
           color vs-orange
@@ -75,6 +75,8 @@
       margin-top 50px
       &.vs-iconsale
         background-position -340px -252px
+      &.vs-iconsold
+        background-position -172px -336px
       &.vs-iconstaff
         background-position -256px -336px
       &.guarantor
