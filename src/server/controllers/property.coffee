@@ -65,11 +65,11 @@ module.exports = (ndx) ->
       if props and props.length
         property = props[0]
         similar = []
-        if property.RoomCountsDescription and property.RoomCountsDescription.Bedrooms
-          similar = ndx.database.exec 'SELECT * FROM props WHERE RoomCountsDescription->Bedrooms=? AND Price->PriceValue>? AND Price->PriceValue<? LIMIT 4', [
+        if property.RoomCountsDescription and property.RoomCountsDescription.Bedrooms and property.PropertyType and property.RoleStatus
+          similar = ndx.database.exec 'SELECT * FROM props WHERE RoomCountsDescription->Bedrooms=? AND PropertyType.SystemName=? AND RoleType.SystemName!=? LIMIT 4', [
             property.RoomCountsDescription.Bedrooms
-            property.Price.PriceValue * 0.85
-            property.Price.PriceValue * 1.15
+            property.PropertyType.SystemName
+            'OfferAccepted'
           ]
         superagent.get "#{apiUrl}#{req.params.id}?APIKey=#{apiKey}"
         .set 'Rezi-Api-Version', '1.0'
