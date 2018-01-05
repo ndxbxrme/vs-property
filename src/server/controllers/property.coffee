@@ -66,7 +66,7 @@ module.exports = (ndx) ->
         property = props[0]
         similar = []
         if property.RoomCountsDescription and property.RoomCountsDescription.Bedrooms and property.PropertyType and property.RoleStatus
-          similar = ndx.database.exec 'SELECT * FROM props WHERE RoomCountsDescription->Bedrooms=? AND PropertyType.SystemName=? AND RoleType.SystemName!=? LIMIT 4', [
+          similar = ndx.database.exec 'SELECT * FROM props WHERE RoomCountsDescription->Bedrooms=? AND PropertyType->SystemName=? AND RoleStatus->SystemName!=? LIMIT 4', [
             property.RoomCountsDescription.Bedrooms
             property.PropertyType.SystemName
             'OfferAccepted'
