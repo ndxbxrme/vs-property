@@ -53,7 +53,7 @@
       .info
         img(src="../../public/img/rm-logo.svg" width="300")
         p Online Stats - Updated 
-          span date
+          span {{property.rightmoveStats.RightmoveStatsLastExportedDate | date:'mediumDate'}}
     .row.stats
       .col-md-3.col-sm-6
         i.vs-iconsearch
