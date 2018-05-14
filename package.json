@@ -1,6 +1,6 @@
 {
   "name": "vs-property",
-  "version": "0.7.21",
+  "version": "0.7.22",
   "description": "",
   "main": "build/server/app.js",
   "scripts": {
