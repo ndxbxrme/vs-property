@@ -49,6 +49,7 @@ angular.module 'vsProperty'
         property.Address = property.Address or property.details.Address
         property.error = false
         property.loadingEvents = true
+        property.loadingRightmove = true
         $http.get "/api/dezrez/property/#{property.id}/events"
         .then (response) ->
           if response.data and response.data.Collection and response.data.Collection.length
@@ -59,15 +60,13 @@ angular.module 'vsProperty'
           property.loadingEvents = false
         , ->
           property.loadingEvents = false
-        ###
         $http.get "/api/dezrez/rightmove/#{property.id}"
         .then (response) ->
           if response.data
-            console.log 'rightmove', response.data
-          property.loadingEvents = false
+            property.rightmoveStats = response.data
+          property.loadingRightmove = false
         , ->
-          property.loadingEvents = false
-        ###
+          property.loadingRightmove = false
       else
         property.error = true
     , ->
