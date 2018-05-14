@@ -47,7 +47,7 @@ module.exports = (ndx) ->
     if req.body.PageSize
       limit = +req.body.PageSize
     if req.body.PageNumber
-      skip = (+req.body.PageNumber - 1) * limit
+      skip = ((+req.body.PageNumber - 1) * limit) + 1
     totalProps = ndx.database.exec "SELECT * FROM props WHERE #{whereSql}", whereProps
     total = totalProps.length
     orderby = " ORDER BY #{sortby} #{if sortdir is 1 then 'ASC' else 'DESC'} "
@@ -57,7 +57,7 @@ module.exports = (ndx) ->
       TotalCount: total
       CurrentCount: props.length
       PageSize: limit
-      PageNumber: Math.floor(skip / limit) + 1
+      PageNumber: Math.floor((skip - 1) / limit) + 1
       Collection: props
   ndx.app.get '/api/property/:id', (req, res) ->
     if req.params.id

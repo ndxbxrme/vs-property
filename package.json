@@ -1,6 +1,6 @@
 {
   "name": "vs-property",
-  "version": "0.7.20",
+  "version": "0.7.21",
   "description": "",
   "main": "build/server/app.js",
   "scripts": {
@@ -60,7 +60,7 @@
     "ndx-static-routes": "0.0.13",
     "ndx-superadmin": "^0.1.4",
     "ndx-user-roles": "^0.4.0",
-    "objtrans": "0.0.11",
+    "objtrans": "*",
     "superagent": "3.3.2"
   }
 }
