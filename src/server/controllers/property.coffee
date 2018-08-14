@@ -9,22 +9,22 @@ module.exports = (ndx) ->
     whereProps = []
     whereSql = ' true=true '
     if req.body.MinimumPrice
-      whereSql += ' AND Price->PriceValue > ? '
+      whereSql += ' AND Price->PriceValue >= ? '
       whereProps.push +req.body.MinimumPrice
     if req.body.MaximumPrice and req.body.MaximumPrice isnt '0'
-      whereSql += ' AND Price->PriceValue < ? '
+      whereSql += ' AND Price->PriceValue <= ? '
       whereProps.push +req.body.MaximumPrice
     if req.body.MinimumBedrooms
-      whereSql += ' AND RoomCountsDescription->Bedrooms > ? '
+      whereSql += ' AND RoomCountsDescription->Bedrooms >= ? '
       whereProps.push +req.body.MinimumBedrooms
     if req.body.MaximumBedrooms and req.body.MaximumBedrooms isnt '0'
-      whereSql += ' AND RoomCountsDescription->Bedrooms < ? '
+      whereSql += ' AND RoomCountsDescription->Bedrooms <= ? '
       whereProps.push +req.body.MaximumBedrooms
     if req.body.MinimumRooms
-      whereSql += ' AND NoRooms > ? '
+      whereSql += ' AND NoRooms >= ? '
       whereProps.push +req.body.MinimumRooms
     if req.body.MaximumRooms
-      whereSql += ' AND NoRooms < ? '
+      whereSql += ' AND NoRooms <= ? '
       whereProps.push +req.body.MaximumRooms
     if not req.body.IncludeStc
       whereSql += ' AND stc=false '
