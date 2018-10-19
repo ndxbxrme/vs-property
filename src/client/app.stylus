@@ -197,7 +197,10 @@ body
 .main-page-content
   padding 0!important
   margin 0!important
-  
+p.quali
+  padding 0
+  font-size 1.3rem
+  line-height 1
 // Small Screens
 .lt-1024
   body
