@@ -30,6 +30,7 @@
                   | Feedback
                   p.l-number {{getFeedbackCount(property)}}             
         .property-controls
+          p.quali {{property.details.Price.PriceQualifierType.DisplayName}}
           h3 {{property.details.Price.PriceValue | currency:'£':0}}
           a(href='/{{property.id}}/overview').medium.orange.button View Details
           
