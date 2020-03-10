@@ -55,7 +55,7 @@ angular.module 'vsProperty'
           if response.data and response.data.Collection and response.data.Collection.length
             property.mailouts = 0
             for event in response.data.Collection
-              if event.EventType.Name is 'Mailout'
+              if event.EventType?.Name is 'Mailout'
                 property.mailouts += event.Properties.length
           property.loadingEvents = false
         , ->
@@ -115,7 +115,6 @@ angular.module 'vsProperty'
       loading.offers = true
       $http.get '/api/dezrez/role/offers'
       .then (response) ->
-        loading.offers = false
         if response.data and not response.data.error
           offers = []
           for property in properties
@@ -123,9 +122,10 @@ angular.module 'vsProperty'
           for offer in response.data
             offer.date = new Date(offer.DateTime).valueOf()
             prop = getProperty offer.MarketingRoleId
-            offer.prop = JSON.parse JSON.stringify prop
+            offer.prop = prop
             prop.offers.push offer
             offers.push offer
+          loading.offers = false
       , ->
         loading.offers = false
   refresh = ->

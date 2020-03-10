@@ -51,6 +51,7 @@ module.exports = (ndx) ->
           next err
     ndx.app.get '/api/dezrez/rightmove/:id', ndx.authenticate(), (req, res, next) ->
       ndx.dezrez.get 'stats/rightmove/{id}', null, id:req.params.id, (err, body) ->
+        console.log 'rightmove', err, body
         if not err
           res.json body
         else

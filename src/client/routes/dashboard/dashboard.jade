@@ -45,7 +45,7 @@
             label Property Status
             h4 {{property.details.RoleStatus.DisplayName}}
         .property-marketing
-          .item(ng-show='!property.loadingEvents')
+          .item(ng-show='!loading("offers")')
             label Offers:
             h4 {{property.offers.length}}
           .item(ng-show='!loading("all")')
