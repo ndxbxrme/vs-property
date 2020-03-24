@@ -65,6 +65,7 @@ module.exports = (ndx) ->
     ndx.app.get '/api/dezrez/property/list/:type', ndx.authorizeDezrez, (req, res, next) ->
       type = req.params.type
       ndx.dezrez.get 'people/{id}/' + type, pageSize, id:ndx.user.dezrez.Id, (err, body) ->
+        console.log 'LIST', err, body
         if not err
           res.json body
         else
