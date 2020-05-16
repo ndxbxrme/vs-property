@@ -48,7 +48,7 @@
     "ndx-database-backup": "^0.1.0",
     "ndx-file-upload": "^0.1.9",
     "ndx-keep-awake": "0.0.5",
-    "ndx-passport": "^0.4.5",
+    "ndx-passport": "git+https://github.com/ndxbxrme/ndx-passport-property.git",
     "ndx-passport-facebook": "^0.2.12",
     "ndx-passport-github": "^0.2.13",
     "ndx-passport-twitter": "^0.2.11",
