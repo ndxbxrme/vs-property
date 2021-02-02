@@ -31,7 +31,7 @@ header[role="banner"] {
 .vs-iconpool, .vs-iconpound, .vs-iconprogression, .vs-iconrent, .vs-iconsale, 
 .vs-iconsearch, .vs-iconshower, .vs-iconsold, .vs-iconstaff, .vs-iconthumb, 
 .vs-iconvideo, .vs-iconviewing, .vs-iconweb
-{ display: inline-block; background: url('../img/int/icons/vs_icons.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left;zoom:0.50;
+{ display: inline-block; background: url('/public/img/int/icons/vs_icons.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left;zoom:0.50;
     -moz-transform:scale(0.50);
     -moz-transform-origin: 0 0; }
  
@@ -66,7 +66,7 @@ header[role="banner"] {
 
 
 .arrows, .conveyancing, .mortgage, .offer, .stamp-duty
-{ display: inline-block; background: url('../img/int/icons/vs-icons2.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left;zoom:0.50;
+{ display: inline-block; background: url('/public/img/int/icons/vs-icons2.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left;zoom:0.50;
     -moz-transform:scale(0.50);
     -moz-transform-origin: 0 0; }
 	
@@ -77,7 +77,7 @@ header[role="banner"] {
 .stamp-duty { background-position: -1px -162px; width: 80px; height: 80px; }
 
 .check-checks, .clipboard, .guarantor, .reserving 
-{ display: inline-block; background: url('../img/int/icons/icons3.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left;zoom:0.50; }
+{ display: inline-block; background: url('/public/img/int/icons/icons3.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left;zoom:0.50; }
  
 .check-checks { background-position: -2px -0px; width: 80px; height: 80px; }
 .clipboard { background-position: -84px -0px; width: 80px; height: 80px; }
@@ -733,7 +733,7 @@ input#pwbox-9673 {
 }
 
 li.vs-icon {
-    background: url(../img/int/icons/vs_icon.png) no-repeat left 4px;
+    background: url(/public/img/int/icons/vs_icon.png) no-repeat left 4px;
     height: 30px;
     padding-left: 22px;
     padding-top: 0px;

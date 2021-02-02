@@ -54,7 +54,7 @@
       <ul class="property-square">
         <li ng-animate="'animate'" ng-repeat="property in Properties.list()" class="prop-list col-xs-6 col-sm-6 col-md-4 col-lg-3">
           <div class="property-images">
-            <img ng-show="hasTag(property, 'video')" class="small-play-button" src="http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/public/img/int/icons/small-play-button.png" width="48" height="48" alt="play button small"/>
+            <img ng-show="hasTag(property, 'video')" class="small-play-button" src="/public/img/int/icons/small-play-button.png" width="48" height="48" alt="play button small"/>
             <a class="main-image" ng-href="/property/#/{{ property.Address.Locality | slugify }}/{{ property.Address.Street | slugify }}/{{ property.RoleId }}/overview">
 
             <div ng-if="property.RoleStatus.SystemName == 'OfferAccepted'" class="ribbon">
@@ -98,9 +98,9 @@
                 </div>
 
           <ul class="rooms">
-            <li ng-if="property.RoomCountsDescription.Bedrooms >= 1"><img src="../wp-content/themes/VitalSpace2015/public/img/int/icons/bed-icon.png" alt="Bedroom Icon"/>{{ property.RoomCountsDescription.Bedrooms }}</li>
-            <li ng-if="property.RoomCountsDescription.Bathrooms >= 1"><img src="../wp-content/themes/VitalSpace2015/public/img/int/icons/bath-icon.png" class="bath" alt="bathroom Icon"/>{{ property.RoomCountsDescription.Bathrooms }}</li>
-            <li ng-if="property.RoomCountsDescription.Receptions >= 1"><img src="../wp-content/themes/VitalSpace2015/public/img/int/icons/reception-icon.png" alt="Reception Icon"/>{{ property.RoomCountsDescription.Receptions }}</li>
+            <li ng-if="property.RoomCountsDescription.Bedrooms >= 1"><img src="/public/img/int/icons/bed-icon.png" alt="Bedroom Icon"/>{{ property.RoomCountsDescription.Bedrooms }}</li>
+            <li ng-if="property.RoomCountsDescription.Bathrooms >= 1"><img src="/public/img/int/icons/bath-icon.png" class="bath" alt="bathroom Icon"/>{{ property.RoomCountsDescription.Bathrooms }}</li>
+            <li ng-if="property.RoomCountsDescription.Receptions >= 1"><img src="/public/img/int/icons/reception-icon.png" alt="Reception Icon"/>{{ property.RoomCountsDescription.Receptions }}</li>
           </ul>
 
           <div class="cf"></div>

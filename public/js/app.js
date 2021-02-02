@@ -11,72 +11,72 @@ angular.module('propertyRoutes', [
   $stateProvider
   .state('search1',{
     url: '/search/:RoleType',
-    templateUrl: '//vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/search.html',
+    templateUrl: 'routes/search.html',
     controller: 'SearchCtrl'
   })
   .state('search2',{
     url: '/search/:RoleType/:MinimumPrice',
-    templateUrl: '//vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/search.html',
+    templateUrl: 'routes/search.html',
     controller: 'SearchCtrl'
   })
   .state('search3',{
     url: '/search/:RoleType/:MinimumPrice/:MaximumPrice',
-    templateUrl: '//vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/search.html',
+    templateUrl: 'routes/search.html',
     controller: 'SearchCtrl'
   })
   .state('search4',{
     url: '/search/:RoleType/:MinimumPrice/:MaximumPrice/:MinimumBedrooms',
-    templateUrl: '//vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/search.html',
+    templateUrl: 'routes/search.html',
     controller: 'SearchCtrl'
   })
   .state('search',{
     url: '/search/:RoleType/:MinimumPrice/:MaximumPrice/:MinimumBedrooms/:IncludeStc',
-    templateUrl: '//vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/search.html',
+    templateUrl: 'routes/search.html',
     controller: 'SearchCtrl'
   })
   .state('search5',{
     url: '/search/:RoleType/:MinimumPrice/:MaximumPrice/:MinimumBedrooms/:IncludeStc/:Search',
-    templateUrl: '//vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/search.html',
+    templateUrl: 'routes/search.html',
     controller: 'SearchCtrl'
   })
   .state('overview', {
     url: '/:town/:street/:propertyID/overview',
-    templateUrl: '//vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/overview.php',
+    templateUrl: 'routes/overview.php',
     controller: 'ViewCtrl'
   })
   .state('photos', {
     url: '/:town/:street/:propertyID/photos',
-    templateUrl: '//vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/photos.html',
+    templateUrl: 'routes/photos.html',
     controller: 'ViewCtrl'
   })
   .state('layout', {
     url: '/:town/:street/:propertyID/layout',
-    templateUrl: '//vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/layout.html',
+    templateUrl: 'routes/layout.html',
     controller: 'ViewCtrl'
   })
   .state('maps', {
     url: '/:town/:street/:propertyID/maps',
-    templateUrl: '//vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/maps.html',
+    templateUrl: 'routes/maps.html',
     controller: 'ViewCtrl'
   })
   .state('schools', {
     url: '/:town/:street/:propertyID/schools',
-    templateUrl: '//vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/schools.html',
+    templateUrl: 'routes/schools.html',
     controller: 'ViewCtrl'
   })
   .state('transport', {
     url: '/:town/:street/:propertyID/transport',
-    templateUrl: '//vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/transport.html',
+    templateUrl: 'routes/transport.html',
     controller: 'ViewCtrl'
   })
   .state('brochure', {
     url: '/:town/:street/:propertyID/brochure',
-    templateUrl: '//vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/brochure.html',
+    templateUrl: 'routes/brochure.html',
     controller: 'ViewCtrl'
   })
   .state('taxbands', {
     url: '/:town/:street/:propertyID/taxbands',
-    templateUrl: '//vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/taxbands.html',
+    templateUrl: 'routes/taxbands.html',
     controller: 'ViewCtrl'
   });
 });
@@ -229,7 +229,7 @@ angular.module('propertyEngine', [
 .directive('searchControls', function() {
   return {
     restrict: 'AE',
-    templateUrl: '//vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/search-controls.html',
+    templateUrl: 'routes/search-controls.html',
     replace: true,
     link: function(scope, elem, attrs) {
       if(!scope.formData) {
@@ -261,7 +261,7 @@ angular.module('propertyEngine', [
 .directive('homeSearchControls', function() {
   return {
     restrict: 'AE',
-    templateUrl: '//vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/search-controls-home.html',
+    templateUrl: 'routes/search-controls-home.html',
     replace: true,
     link: function(scope, elem, attrs) {
       if(!scope.formData) {
@@ -358,7 +358,7 @@ angular.module('propertyEngine', [
   return {
     restrict: 'EA',
     replace: true,
-    templateUrl: '//vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/similar-properties.html',
+    templateUrl: 'routes/similar-properties.html',
     scope: {
       properties: '='
     },

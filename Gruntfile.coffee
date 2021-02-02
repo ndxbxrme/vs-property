@@ -131,17 +131,7 @@ module.exports = (grunt) ->
           cwd: 'legacy/partials'
           dest: 'build/client/routes/property'
           src: [
-            'brochure.html'
-            'featured-properties.html'
-            'layout.html'
-            'maps.html'
-            'mobile-slider.html'
-            'overview.html'
-            'photos.html'
-            'schools.html'
-            'similar-properties.html'
-            'taxbands.html'
-            'transport.html'
+            '**/*.*'
           ]
         }]
       styles:

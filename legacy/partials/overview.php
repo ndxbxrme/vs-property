@@ -129,9 +129,9 @@
 	        <!-- Summary -->
 	        <h3>Summary</h3>
 	        <ul class="rooms">
-	            <li ng-show="hasDescription('RoomCount')"><img src="../wp-content/themes/VitalSpace2015/public/img/int/icons/bed-icon.png" alt="Bedroom Icon"/>{{ getDescription('RoomCount').Bedrooms }}</li>
-	            <li ng-show="hasDescription('RoomCount')"><img class="bath" src="../wp-content/themes/VitalSpace2015/public/img/int/icons/bath-icon.png" alt="bathroom Icon"/>{{ getDescription('RoomCount').Bathrooms }}</li>
-	            <li ng-show="hasDescription('RoomCount')"><img src="../wp-content/themes/VitalSpace2015/public/img/int/icons/reception-icon.png" alt="Reception Icon"/>{{ getDescription('RoomCount').Receptions }}</li>
+	            <li ng-show="hasDescription('RoomCount')"><img src="/public/img/int/icons/bed-icon.png" alt="Bedroom Icon"/>{{ getDescription('RoomCount').Bedrooms }}</li>
+	            <li ng-show="hasDescription('RoomCount')"><img class="bath" src="/public/img/int/icons/bath-icon.png" alt="bathroom Icon"/>{{ getDescription('RoomCount').Bathrooms }}</li>
+	            <li ng-show="hasDescription('RoomCount')"><img src="/public/img/int/icons/reception-icon.png" alt="Reception Icon"/>{{ getDescription('RoomCount').Receptions }}</li>
 	        </ul>
 	        <!-- Features -->
 	        <h3>Features</h3>

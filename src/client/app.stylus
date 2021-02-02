@@ -172,11 +172,11 @@ body
       i
         zoom 0.70
         &.vs-iconhouse, &.vs-iconstaff, &.vs-iconprogression
-          background-image url(../../public/img/icons/vs_icons.png)
+          background-image url(/public/img/icons/vs_icons.png)
         &.guarantor
-          background-image url(../../public/img/icons/icons3.png)
+          background-image url(/public/img/icons/icons3.png)
         &.offer, &.mortgage
-          background-image url(../../public/img/icons/vs-icons2.png)
+          background-image url(/public/img/icons/vs-icons2.png)
   .property
     .property-item
       .property-image
