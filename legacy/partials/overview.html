@@ -1,0 +1,84 @@
+<div class="container">
+    <h2 class="property-title"><span>{{ Properties.current().Address.Street }}, {{ Properties.current().Address.Town }}</span></h2>
+    <section class="description row">
+      <div class="col-md-8 overview-left">
+        <h3>Description</h3>
+        <div ng-bind-html="Properties.current()['Main Marketing'].Text"></div>
+
+        <!-- <div class="row">
+          <div class="col-sm-6">
+            <h3>Directions</h3>
+            <p ng-bind-html="Properties.current().Descriptions.Directions.Text"></p>
+          </div>
+
+          <div class="col-sm-6">
+            <h3>Location</h3>
+            <p ng-bind-html="Properties.current().Descriptions.Location.Text"></p>
+          </div>
+        </div> -->
+
+        <section class="row">
+          <div class="col-sm-8">
+            <h4>More Information</h4>
+            <ul class="more-info">
+              <li>Property Status: <strong><span class="orange">{{ Properties.current().RoleStatus.DisplayName }}</span></strong></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="col-sm-8 cta">
+          <h4>Interested in this property?</h4>
+
+          <p>Call our Urmston, Sales branch for further information.</p>
+          <ul class="contact-info">
+            <li>Telephone: <strong><span class="orange phoneno"><a href="tel:0161 747 7807">0161 747 7807</a></span></strong></li>
+            <li>Email: <strong><span class="orange"><a href="mailto:urmston@vitalspace.co.uk">urmston@vitalspace.co.uk</a></span></strong></li>
+          </ul>
+              <a href="#view-prop" fancybox="" id="inline" class="medium purple button fancybox"><i class="fa fa-calendar-plus-o"></i>  Arrange Viewing</a><a class="map-pin" href="#">View Area Guide</a>
+            <div style="display:none" class="fancybox-hidden">
+                <div id="view-prop" style="width:460px;height:200px;">
+                    <h2><i class="fa fa-phone"></i> Arrange a Viewing</h2>
+                    <p>One of our team will be able to help you find your future home</p>
+                    <div class="row">
+                        <div class="form col-md-6">
+                            <?php echo do_shortcode('[gravityform id="2" title="false" description="false" ajax="true"]'); ?>
+                        </div>
+                        <div class="view-details col-md-6">
+                            <p>i am interested in...</p>
+                            <img ng-src="{{ Properties.current().Images[0].Url }}?width=320" width="100%"/>
+                            <p class="address">{{ Properties.current().Address.Street }}<br> {{ Properties.current().Address.Town }}</p>
+
+                            <p>Alternatively, contact our office</p>
+                            <ul class="branch-details">
+                                <li>Urmston Branch</li>
+                                <li>Tel: <a href="tel:0161 747 7807">0161 747 7807</a></li>
+                                <li>Email: <a href="mailto:urmston@vitalspace.co.uk">urmston@vitalspace.co.uk</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+      </div>
+      <div class="col-md-4">
+
+        <h3>Summary</h3>
+        <ul class="rooms">
+          <li ng-if="Properties.current()['RoomCountsDescription'].Bedrooms"><img src="../wp-content/themes/VitalSpace2015/public/img/int/icons/bed-icon.png" alt="Bedroom Icon"/>{{ Properties.current()['RoomCountsDescription'].Bedrooms }}</li>
+          <li ng-if="Properties.current()['RoomCountsDescription'].Bathrooms"><img src="../wp-content/themes/VitalSpace2015/public/img/int/icons/bath-icon.png" alt="bathroom Icon"/>{{ Properties.current()['RoomCountsDescription'].Bathrooms }}</li>
+          <li ng-if="Properties.current()['RoomCountsDescription'].Receptions"><img src="../wp-content/themes/VitalSpace2015/public/img/int/icons/reception-icon.png" alt="Reception Icon"/>{{ Properties.current()['RoomCountsDescription'].Receptions }}</li>
+        </ul>
+        <h3>Features</h3>
+        <ul class="boxed">
+          <li ng-repeat="feature in Properties.current().Features.Features"><i class="fa fa-check-circle-o"></i> {{ feature.Feature | titleCase }}</li>
+        </ul>
+        <div class="prop-similar">
+        <h3>Similar Properties</h3>
+        <img ng-src="{{ Properties.current().Images[0].Url }}?width=320" class="img-thumbnail" width="100%"/>
+        <p><span>{{ Properties.current().Price.PriceValue | currency:"£":0 }}</span><br/>{{ Properties.current().Address.Street | titleCase }}, {{ Properties.current().Address.Town | titleCase }}</p>
+        </div>
+      </div>
+    </section>
+</div>

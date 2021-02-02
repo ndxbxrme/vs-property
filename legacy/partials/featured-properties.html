@@ -1,0 +1,6 @@
+<ul class="slider-div">
+    <li ng-repeat="propertyf in properties | filterBy: ['Flags[1].SystemName']: 'Featured' | first: 4">
+        <a class="slider-block" ng-href="/property/#/{{ propertyf.Address.Locality | slugify }}/{{ propertyf.Address.Street | slugify }}/{{ propertyf.RoleId }}/overview"><img src="{{ propertyf.Images[0].Url }}?width=330" alt="{{ propertyf.Address.Street }}"/></a>
+        <p><span>{{ propertyf.Price.PriceValue | currency:"£":0 }}</span><br/>{{ propertyf.Address.Street | titleCase }}, {{ propertyf.Address.Locality | titleCase }}</p>
+    </li>
+</ul>

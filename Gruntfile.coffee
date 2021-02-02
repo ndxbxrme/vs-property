@@ -125,33 +125,36 @@ module.exports = (grunt) ->
             '**/*.*'
           ]
         }]
-    curl:
-      overview:
-        src: 'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/overview.php'
-        dest: 'build/client/routes/property/overview.html'
-    'curl-dir':
-      'remote-templates':
-        src: [
-          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/brochure.html'
-          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/featured-properties.html'
-          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/layout.html'
-          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/maps.html'
-          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/mobile-slider.html'
-          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/overview.html'
-          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/photos.html'
-          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/schools.html'
-          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/similar-properties.html'
-          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/taxbands.html'
-          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/partials/transport.html'
-        ]
-        dest: 'build/client/routes/property'
-      'remote-css':
-        src: [
-          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/public/css/stylesheet.css'
-          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/public/css/vitalspace.css'
-          'http://vitalspace.co.uk/wp-content/themes/VitalSpace2015/public/css/MyFontsWebfontsKit.css'
-        ]
-        dest: 'build/client/styles'
+      partials:
+        files: [{
+          expand: true
+          cwd: 'legacy/partials'
+          dest: 'build/client/routes/property'
+          src: [
+            'brochure.html'
+            'featured-properties.html'
+            'layout.html'
+            'maps.html'
+            'mobile-slider.html'
+            'overview.html'
+            'photos.html'
+            'schools.html'
+            'similar-properties.html'
+            'taxbands.html'
+            'transport.html'
+          ]
+        }]
+      styles:
+        files: [{
+          expand: true
+          cwd: 'legacy/styles'
+          dest: 'build/client/styles'
+          src: [
+            'stylesheet.css'
+            'vitalspace.css'
+            'MyFontsWebfontsKit.css'
+          ]
+        }]
     file_append:
       main:
         files: [{

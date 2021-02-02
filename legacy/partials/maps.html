@@ -1,0 +1,21 @@
+<ul class="mob-menu">
+	<li><a ui-sref="overview(getPropertyUrlData())" class="medium grey button" data-toggle="tooltip" title="Overview">
+	        <i class="fa fa-file-text-o fa-fw"></i>
+	    	<span>Back to Property Overview</span></a></li>
+</ul>
+<div class="map container">
+
+<h2>Property Location</h2>
+<div class="map-overlay">
+<ng-map center="[{{ Properties.current().Address.Location.Latitude }}, {{ Properties.current().Address.Location.Longitude }}]" zoom="16" map-type-id="TERRAIN" style="height: 600px; width: 1170px;
+" class="mob-hide">
+  <marker position="[{{ Properties.current().Address.Location.Latitude }}, {{ Properties.current().Address.Location.Longitude }}]" on-click="myfunc()"></marker>
+</ng-map>
+
+<ng-map center="[{{ Properties.current().Address.Location.Latitude }}, {{ Properties.current().Address.Location.Longitude }}]" zoom="16" map-type-id="TERRAIN" style="height: 600px; width: 400px;
+" class="mob-show">
+  <marker position="[{{ Properties.current().Address.Location.Latitude }}, {{ Properties.current().Address.Location.Longitude }}]" on-click="myfunc()"></marker>
+</ng-map>
+</div>
+
+</div>

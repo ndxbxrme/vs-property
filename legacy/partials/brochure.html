@@ -1,0 +1,24 @@
+<ul class="mob-menu">
+	<li><a ui-sref="overview(getPropertyUrlData())" class="medium grey button" data-toggle="tooltip" title="Overview">
+	        <i class="fa fa-file-text-o fa-fw"></i>
+	    	<span>Back to Property Overview</span></a></li>
+</ul>
+
+<div class="container">
+    <h2>Property Brochure</h2>
+
+    <div class="brochure">
+        <h3>Download Full Details</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <i class="fa fa-files-o"></i>
+            </div>
+            <div class="col-md-8">
+                <p>This PDF will show you exterior and internal pictures, full property measurements, local area information etc.</p>
+                <p>All this is available for you to print. Just click the below button</p>
+            </div>
+        </div>
+        <a ng-href="{{ getBrochureUrl() }}" class="medium purple button"><i class="fa fa-file-pdf-o"></i> Download PDF</a>
+
+    </div>
+</div>

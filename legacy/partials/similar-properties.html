@@ -1,0 +1,6 @@
+<ul class="slider-div">
+    <li ng-repeat="propertysim in properties | first: 5 | omit: prop">
+        <a class="slider-block" ng-href="/property/#/{{ propertysim.Address.Locality | slugify }}/{{ propertysim.Address.Street | slugify }}/{{ propertysim.RoleId }}/overview"><img ng-src="{{ propertysim.Images[0].Url }}{{ propertysim.Images[0].Url.indexOf('?')===-1?'?':'&' }}width=360" alt="{{ propertysim.Address.Street }}"/></a>
+        <p><span>{{ propertysim.Price.PriceValue | currency:"£":0 }}</span><br/>{{ propertysim.Address.Street | titleCase }}, {{ propertysim.Address.Locality | titleCase }}</p>
+    </li>
+</ul>

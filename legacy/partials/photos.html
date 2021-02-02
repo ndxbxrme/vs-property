@@ -1,0 +1,6 @@
+<div class="container">
+  <h2>Property Gallery</h2>
+  <ul class="s-property-images row">
+      <li class="col-md-4 col-sm-6" ng-repeat="image in Properties.current().Images"><a href="{{ image.Url }}{{ image.Url.indexOf('?')===-1?'?':'&' }}width=1500" class="fancybox" fancybox="" rel="gallery"><img ng-src="{{ image.Url }}{{ image.Url.indexOf('?')===-1?'?':'&' }}width=320" class="img-responsive"/></a></li>
+  </ul>
+</div>

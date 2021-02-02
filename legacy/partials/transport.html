@@ -1,0 +1,33 @@
+<ul class="mob-menu">
+  <li><a ui-sref="overview(getPropertyUrlData())" class="medium grey button" data-toggle="tooltip" title="Overview">
+      <i class="fa fa-file-text-o fa-fw"></i>
+      <span>Back to Property Overview</span></a></li>
+</ul>
+
+<div class="map container">
+
+  <h2>Local Travel</h2>
+  <div class="row">
+    <div class="col-sm-8">
+      <transportmap></transportmap>
+    </div>
+    <!-- Got to suss out how to show muliple custom Markers on this map - The Angular way -->
+    <div class="col-sm-4">
+      <transport></transport>
+    </div>
+  </div>
+  <!-- <ng-map center="[{{ Properties.current().Address.Location.Latitude }}, {{ Properties.current().Address.Location.Longitude }}]" zoom="18" style="height: 600px; width: 1170px;
+" class="mob-hide">
+    <transit-layer></transit-layer>
+    <traffic-layer></traffic-layer>
+    <marker position="[{{ Properties.current().Address.Location.Latitude }}, {{ Properties.current().Address.Location.Longitude }}]" on-click="myfunc()"></marker>
+</ng-map>
+
+<ng-map center="[{{ Properties.current().Address.Location.Latitude }}, {{ Properties.current().Address.Location.Longitude }}]" zoom="18" style="height: 600px; width: 400px;
+" class="mob-show">
+    <transit-layer></transit-layer>
+    <traffic-layer></traffic-layer>
+    <marker position="[{{ Properties.current().Address.Location.Latitude }}, {{ Properties.current().Address.Location.Longitude }}]" on-click="myfunc()"></marker>
+</ng-map> -->
+
+</div>
