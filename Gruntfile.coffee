@@ -179,6 +179,8 @@ module.exports = (grunt) ->
     'jade'
     'stylus'
     'copy:html'
+    'copy:partials'
+    'copy:styles'
     'ngtemplates'
     'filerev'
     'ndx-script-inject'
