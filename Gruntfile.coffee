@@ -87,7 +87,7 @@ module.exports = (grunt) ->
           'build/client/**/*.css'
         ]
     usemin:
-      html: ['build/client/**/*.html']
+      html: ['build/client/**/*.html', '!build/client/routes/property/**/*.html']
       js: ['build/client/**/*.js']
       css: ['build/client/**/*.css']
       options:
