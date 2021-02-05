@@ -100,6 +100,8 @@
         .image-side
           img
             width 300px
+      .login-help a.button
+        margin 20px auto 0
     .main-content
       .row.feature-blocks
         flex-direction column
