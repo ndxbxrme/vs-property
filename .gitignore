@@ -17,3 +17,4 @@ heapdump
 logs
 upload
 .DS_Store
+.vscode/sftp.json
