@@ -1,29 +1,63 @@
 .login(ng-hide='getUser()')
   .login-holder
     .login-form
-      h2 Log in or Sign up
-      form(name='loginForm', novalidate, ng-submit='login()')
-        div
-          input(type='email', name='email', required, ng-model='email', placeholder='Email address')
-          span.error(ng-show='submitted && loginForm.email.$error.email') Please use a valid email address
-          span.error(ng-show='submitted && loginForm.email.$error.required') Please use a valid email address
-          br
-          input(type='password', name='password', required, ng-model='password', placeholder='Password')
-          small.error(ng-show='submitted && loginForm.password.$error.required') A password is required
-        div.login-buttons
-          .error {{message}}
-          input.button.medium.orange(type='submit', value='Login')
-          input.button.medium.purple(type='button', ng-click='signup()', value='Sign Up')
-          .login-help
-            p Not accessed 'myproperty' before?
-            p Enter your email address and any chosen password then click sign up
-        div
-          p or use one of these...
-        .social
-          a.button.medium.twitter(href='/api/twitter', target='_self')
-            i.fa.fa-twitter
-            | &nbsp;Twitter
-          | &nbsp;
-          a.button.medium.facebook(href='/api/facebook', target='_self')
-            i.fa.fa-facebook
-            | &nbsp;Facebook
+      .row
+        .col-sm-6.image-side
+          img(src='public/img/int/myproperty-mock.jpg')
+        .col-sm-6.text-side
+          h2
+            | Welcome to 
+            span.orange my
+            | Property
+          p.lead.orange At VitalSpace, our office never closes.
+          p
+            | Our award winning service is not just limited to traditional office hours. Stay updated with your property sale via our secure online client portal. From booked viewings, viewing feedback to marketing photographs and much more. No need to wait for your telephone to ring to know how where things are up to.
+          form(name='loginForm', novalidate, ng-submit='login()')
+            div
+              input(type='email', name='email', required, ng-model='email', placeholder='Email address')
+              span.error(ng-show='submitted && loginForm.email.$error.email') Please use a valid email address
+              span.error(ng-show='submitted && loginForm.email.$error.required') Please use a valid email address
+              br
+              input(type='password', name='password', required, ng-model='password', placeholder='Password')
+              small.error(ng-show='submitted && loginForm.password.$error.required') A password is required
+            div.login-buttons
+              .error {{message}}
+              input.button.medium.orange(type='submit', value='Login')
+              input.button.medium.purple(type='button', ng-click='signup()', value='Sign Up')
+              .login-help
+                p Not accessed 'myproperty' before?
+                p Enter your email address and any chosen password then click sign up
+                p.grey If you need help, registering or logging in, click the button below to send us an email
+                a.large.purple.button(href='mailto:urmston@vitalspace.co.uk?subject=Help me with myProperty Login..')
+                  | Login Help Required 
+                  i.fal.fa-envelope
+  .main-content
+    .container
+      .row
+        .col-md-10.offset-md-1
+          p.text-center
+            | myProperty gives our clients 24/7 access to their property listing via our bespoke client dashboard. At any time of the day or night, our clients can sign into the secure area via their computer or mobile phone. From there, the dashboard offers instant access to all your property information.
+          .embed-responsive.embed-responsive-16by9
+            iframe(title="VitalSpace 'myProperty'" width='640' height='360' src='https://www.youtube.com/embed/gdTkL-c8NdU?feature=oembed' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+          .row.feature-blocks
+            .col-sm-4
+              .feature-block.block-1
+                i.fal.fa-rabbit-fast(aria-hidden='true')
+                .block-details
+                  h2 Live Property Updates
+                  p
+                    | Review property information and marketing stats 24 hours a day, 7 days a week. Feedback, viewings and offers are all available at the touch of a button.
+            .col-sm-4
+              .feature-block.block-2
+                i.fal.fa-file-chart-pie(aria-hidden='true')
+                .block-details
+                  h2 Instant Property Reports
+                  p
+                    | Sellers have been demanding transparency and better communication from estate agents for years. Obtain instant reports and detailed viewing stats.
+            .col-sm-4
+              .feature-block.block-3
+                i.fal.fa-calendar-edit(aria-hidden='true')
+                .block-details
+                  h2 Key Conveyancing Updates
+                  p
+                    | Once a sale has been agreed, stay up to date with the legal progression of your property transaction with our real time milestone updates.

@@ -1,11 +1,22 @@
 @import '../../variables'
 
 .login
-  display flex
-  justify-content center
   margin-top 3em
+  h2
+    margin-bottom 0px
+    padding-bottom 0px
+  p.lead
+    margin-bottom 0px
   .login-holder
-    text-align center
+    .row
+      display flex
+      justify-content center
+      align-items center
+    .image-side
+      img
+        padding 0px 40px 0 0px
+    form
+      margin-top 20px
     input
       margin-bottom 0.7rem
     input[type=text], input[type=email], input[type=password]
@@ -23,3 +34,76 @@
         background #464e53
     .login-help
       color vs-orange
+      margin-top 30px
+      p
+        font-size 1.8rem
+        margin-bottom 5px
+        padding 0px
+        &.grey
+          color #4a4a4a
+      a.button
+        display block
+        width 300px
+        margin-top 20px
+  .main-content
+    margin-top 60px
+    margin-bottom -50px
+    padding-top 60px
+    border-top 1px solid #e0e0e0
+    width 100vw
+    background #f1f1f1
+    margin-left 50%
+    transform translateX(-50%)
+    .row
+      display flex
+      justify-content center
+      align-items center
+      flex-direction column
+      &.feature-blocks
+        flex-direction row
+        align-items flex-start
+        text-align center
+        margin-top 50px
+        i, svg 
+          font-size 4rem
+          width auto
+          margin 0 auto 20px
+        h2
+          font-size 2.4rem
+          font-weight 800
+          margin-bottom 20px
+          position relative
+          &:after
+            content ''
+            border-bottom 0.02rem solid #df542c
+            width 80px
+            height 1px
+            display block
+            position absolute
+            bottom -10px
+            left 50%
+            margin-left -40px
+        p
+          max-width 90%
+    p
+      font-size 1.6rem
+      margin-bottom 30px
+
+@media screen and (max-width:768px)
+  .login
+    .login-holder
+      text-align center
+      .row
+        flex-direction column
+        .col-sm-6 
+          width 100%
+        .image-side
+          img
+            width 300px
+      .login-help a.button
+        margin 20px auto 0
+    .main-content
+      .row.feature-blocks
+        flex-direction column
+        p
+          margin 0 auto 30px

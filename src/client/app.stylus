@@ -204,7 +204,7 @@ p.quali
 // Small Screens
 .lt-1024
   body
-    background vs-grey!important
+    background #464e53
 .gt-1024 
   .mobile-menu
     display none
