@@ -40,12 +40,17 @@ module.exports = (ndx) ->
           return cb? err
       return
     doFetchProperties = ->
-      fetchProperties 1, ->
-        tables = ndx.database.getDb() 
-        if tables.tmpprops.data.length
-          tables.props.data = tables.tmpprops.data
-        tables.tmpprops.data = []
-        return
-      return
+      new Promise (res) ->
+        fetchProperties 1, ->
+          tables = ndx.database.getDb() 
+          if tables.tmpprops.data.length
+            tables.props.data = tables.tmpprops.data
+          tables.tmpprops.data = []
+          res()
     #setInterval doFetchProperties, 5 * 60 * 1000
     #doFetchProperties()
+  ndx.app.post '/api/webhook', (req, res, next) ->
+    await doFetchProperties()
+    superagent.post(process.env.VS_AGENCY_WEBHOOK).end()
+    superagent.post(process.env.VS_LETTINGS_WEBHOOK).end()
+    res.end 'ok'
