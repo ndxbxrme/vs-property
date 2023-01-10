@@ -21,6 +21,7 @@ module.exports = (ndx) ->
         PageNumber: pageNo
       .end (err, response) ->
         if not err and response.body.Collection
+          console.log 'GOT RESPONSE', err
           for property in response.body.Collection
             property.stc = property.RoleStatus.SystemName is 'OfferAccepted'
             property.NoRooms = 0
@@ -50,6 +51,7 @@ module.exports = (ndx) ->
     #setInterval doFetchProperties, 5 * 60 * 1000
     #doFetchProperties()
   ndx.app.post '/api/webhook', (req, res, next) ->
+    console.log 'WEBHOOK CALLED'
     await doFetchProperties()
     superagent.post(process.env.VS_AGENCY_WEBHOOK).end()
     superagent.post(process.env.VS_LETTINGS_WEBHOOK).end()
