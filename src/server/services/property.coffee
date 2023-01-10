@@ -50,7 +50,7 @@ module.exports = (ndx) ->
           res()
     #setInterval doFetchProperties, 5 * 60 * 1000
     #doFetchProperties()
-  ndx.app.post '/api/webhook', (req, res, next) ->
+  ndx.app.post '/webhook', (req, res, next) ->
     console.log 'WEBHOOK CALLED'
     await doFetchProperties()
     superagent.post(process.env.VS_AGENCY_WEBHOOK).end()
