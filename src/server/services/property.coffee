@@ -7,6 +7,7 @@ module.exports = (ndx) ->
     apiUrl = process.env.API_URL or ndx.settings.API_URL
     apiKey = process.env.API_KEY or ndx.settings.API_KEY
     fetchProperties = (pageNo, cb) ->
+      console.log "fetching from #{apiUrl}search"
       superagent.post "#{apiUrl}search?APIKey=#{apiKey}"
       .set('Rezi-Api-Version', '1.0')
       .send
