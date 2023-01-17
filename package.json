@@ -57,7 +57,6 @@
     "ndx-rest": "^0.5.0",
     "ndx-server": "^0.13.2",
     "ndx-socket": "0.0.8",
-    "ndx-static-routes": "0.0.13",
     "ndx-superadmin": "^0.1.4",
     "ndx-user-roles": "^0.4.0",
     "objtrans": "*",
