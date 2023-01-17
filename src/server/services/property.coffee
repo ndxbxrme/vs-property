@@ -59,5 +59,5 @@ module.exports = (ndx) ->
       superagent.post(process.env.VS_LETTINGS_WEBHOOK).end()
     res.end 'ok'
   ndx.app.get '/status', (req, res, next) ->
-    res.end
+    res.json
       webhookCalls: webhookCalls
