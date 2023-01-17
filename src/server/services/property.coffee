@@ -50,9 +50,14 @@ module.exports = (ndx) ->
         res()
   #setInterval doFetchProperties, 5 * 60 * 1000
   #doFetchProperties()
+  webhookCalls = 0
   ndx.app.post '/webhook', (req, res, next) ->
     console.log 'WEBHOOK CALLED'
-    doFetchProperties().then (res) ->
+    webhookCalls++
+    fetchProperties 1, (res) ->
       superagent.post(process.env.VS_AGENCY_WEBHOOK).end()
       superagent.post(process.env.VS_LETTINGS_WEBHOOK).end()
     res.end 'ok'
+  ndx.app.get '/status', (req, res, next) ->
+    res.end
+      webhookCalls: webhookCalls
