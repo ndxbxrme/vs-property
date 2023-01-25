@@ -7,6 +7,7 @@ module.exports = (ndx) ->
   apiKey = process.env.API_KEY or ndx.settings.API_KEY
   fetchProperties = (pageNo, cb) ->
     debugInfo.noInserted = 0
+    debugInfo.url = "#{apiUrl}search?APIKey=#{apiKey}"
     debugInfo.time = new Date()
     console.log "fetching from #{apiUrl}search"
     superagent.post "#{apiUrl}search?APIKey=#{apiKey}"
@@ -22,6 +23,8 @@ module.exports = (ndx) ->
       BranchIdList: []
       PageNumber: pageNo
     .end (err, response) ->
+      debugInfo.err = err
+      debugInfo.coll = response.body.Collection
       if not err and response.body.Collection
         console.log 'GOT RESPONSE', err
         for property in response.body.Collection
