@@ -1,11 +1,13 @@
 'use strict'
 
 superagent = require 'superagent'
-
+debugInfo = {}
 module.exports = (ndx) ->
   apiUrl = process.env.API_URL or ndx.settings.API_URL
   apiKey = process.env.API_KEY or ndx.settings.API_KEY
   fetchProperties = (pageNo, cb) ->
+    debugInfo.noInserted = 0
+    debugInfo.time = new Date()
     console.log "fetching from #{apiUrl}search"
     superagent.post "#{apiUrl}search?APIKey=#{apiKey}"
     .set('Rezi-Api-Version', '1.0')
@@ -33,6 +35,9 @@ module.exports = (ndx) ->
           property.SearchField = "#{property.Address.Street}|#{property.Address.Town}|#{property.Address.Locality}|#{property.Address.Postcode}|#{property.Address.County}"
           property.displayAddress = "#{property.Address.Number} #{property.Address.Street }, #{property.Address.Locality }, #{property.Address.Town}, #{property.Address.Postcode}"
           ndx.database.exec 'INSERT INTO tmpprops VALUES ?', [property], true
+          debugInfo.noInserted++
+          if property.RoleId is 25598419
+            debugInfo.prop = property.RoleStatus
         if response.body.CurrentCount < response.body.PageSize
           return cb?()
         else
