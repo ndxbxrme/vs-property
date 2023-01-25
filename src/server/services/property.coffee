@@ -54,7 +54,8 @@ module.exports = (ndx) ->
   ndx.app.post '/webhook', (req, res, next) ->
     console.log 'WEBHOOK CALLED'
     webhookCalls++
-    fetchProperties 1, (res) ->
+    doFetchProperties()
+    .then (res) ->
       superagent.post(process.env.VS_AGENCY_WEBHOOK).end()
       superagent.post(process.env.VS_LETTINGS_WEBHOOK).end()
     res.end 'ok'
