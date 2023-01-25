@@ -67,3 +67,4 @@ module.exports = (ndx) ->
   ndx.app.get '/status', (req, res, next) ->
     res.json
       webhookCalls: webhookCalls
+      debugInfo: debugInfo
