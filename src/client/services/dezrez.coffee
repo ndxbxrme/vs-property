@@ -2,6 +2,7 @@
 
 angular.module 'vsProperty'
 .factory 'dezrez', ($http, $timeout, env) ->
+  console.log 'env', env
   loading =
     selling: false
     letting: false
