@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/ndxbxrme/vs-property",
   "devDependencies": {
-    "grunt": "^1.0.1",
+    "grunt": "^1.5.3",
     "grunt-angular-templates": "^1.1.0",
     "grunt-cli": "^1.2.0",
     "grunt-contrib-clean": "^1.0.0",
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "async": "2.1.4",
-    "grunt": "1.0.1",
+    "grunt": "1.5.3",
     "ndx-auth": "^0.1.11",
     "ndx-connect": "0.0.6",
     "ndx-cors": "0.0.10",
