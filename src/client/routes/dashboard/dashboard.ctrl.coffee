@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'vsProperty'
-.controller 'DashboardCtrl', ($scope, auth, dezrez) ->
+.controller 'DashboardCtrl', ($scope, $interval, auth, dezrez) ->
   $scope.auth = auth
   $scope.getProperties = dezrez.getProperties
   $scope.loading = dezrez.loading
@@ -18,5 +18,6 @@ angular.module 'vsProperty'
     for property in properties
       $http.post 'https://server.vitalspace.co.uk/dezrez/refresh/' + (property.RoleId or property.roleId)
   iv = $interval fetchDetails, 10 * 60 * 1000
+  fetchDetails()
   $scope.$on '$destroy', () -> 
     $interval.cancel iv
