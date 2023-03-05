@@ -61,6 +61,6 @@
     "ndx-superadmin": "^0.1.4",
     "ndx-user-roles": "^0.4.0",
     "objtrans": "*",
-    "superagent": "3.3.2"
+    "superagent": "3.7.0"
   }
 }
