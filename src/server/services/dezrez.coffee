@@ -49,7 +49,7 @@ module.exports = (ndx) ->
               params[key]
           query = query or {}
           query.agencyId = process.env.AGENCY_ID or 37
-          console.log 'get', route
+          console.log 'get', route, query
           superagent.get urls.api + route
           .set 'Rezi-Api-Version', '1.0'
           .set 'Content-Type', 'application/json'
