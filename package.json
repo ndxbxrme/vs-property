@@ -40,7 +40,7 @@
     "load-grunt-tasks": "^3.5.2"
   },
   "dependencies": {
-    "async": "2.1.4",
+    "async": "2.6.4",
     "grunt": "1.0.1",
     "ndx-auth": "^0.1.11",
     "ndx-connect": "0.0.6",
