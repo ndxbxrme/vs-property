@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'vsProperty'
-.controller 'FeedbackCtrl', ($scope, $interval, dezrez) ->
+.controller 'FeedbackCtrl', ($scope, $interval, $http, dezrez) ->
   $scope.sort = '-date'
   dezrez.fetchViewings()
   $scope.getProperties = dezrez.getProperties
