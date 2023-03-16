@@ -13,14 +13,7 @@ angular.module 'vsProperty'
           v.open = false
         else if v.Feedback.length or v.Notes.length
           v.open = not v.open
-  fetchDetails = () -> 
-    properties = $scope.getProperties() or []
-    for property in properties
-      $http.post 'https://server.vitalspace.co.uk/dezrez/refresh/' + (property.RoleId or property.roleId)
-  iv = $interval fetchDetails, 10 * 60 * 1000
-  fetchDetails()
   $scope.$on '$destroy', ->
-    $interval.cancel iv
     for property in dezrez.getProperties()
       for v in property.viewings
         v.open = false
