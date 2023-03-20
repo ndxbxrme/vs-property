@@ -71,12 +71,12 @@ body
           font-family ProximaNova-Regular, sans-serif
           &:after
             float right
-            font-family FontAwesome
+            font-family 'Font Awesome 5 Pro'
             content '\f0d8'
           &.desc
             &:after
               float right
-              font-family FontAwesome
+              font-family 'Font Awesome 5 Pro'
               content '\f0d7'
       td
         padding 15px 10px

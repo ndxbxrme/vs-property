@@ -432,7 +432,7 @@ select:focus {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 5 Pro';
   content: "\f002";
   font-size: 20px;
   font-size: 2rem;
@@ -6098,7 +6098,7 @@ html.mm-opening .mm-menu.mm-offcanvas.mm-next {
     border: 0;
   }
   .clients-say .blockquote-reverse > p:before {
-    font-family: FontAwesome;
+    font-family: 'Font Awesome 5 Pro';
     content: '\f10d';
     color: #df542c;
     font-size: 1.8rem;
@@ -8032,7 +8032,7 @@ html.mm-opening .mm-menu.mm-offcanvas.mm-next {
     font-family: ProximaNovaT-Thin, sans-serif;
   }
   footer[role="contentinfo"] .footer-menu li:before {
-    font-family: FontAwesome;
+    font-family: 'Font Awesome 5 Pro';
     content: '\f054';
     padding: 0 5px 0 0;
     font-size: 1.2rem;
@@ -8252,7 +8252,7 @@ html.mm-opening .mm-menu.mm-offcanvas.mm-next {
   }
   .testimonial blockquote p:before,
   .testimonial q:before {
-    font-family: FontAwesome;
+    font-family: 'Font Awesome 5 Pro';
     content: '\f10d';
     font-size: 20px;
     color: #df542c;
@@ -8265,7 +8265,7 @@ html.mm-opening .mm-menu.mm-offcanvas.mm-next {
   }
   .testimonial blockquote p:after,
   .testimonial q:after {
-    font-family: FontAwesome;
+    font-family: 'Font Awesome 5 Pro';
     content: '\f10e';
     font-size: 20px;
     color: #df542c;
@@ -9072,12 +9072,12 @@ html.mm-opening .mm-menu.mm-offcanvas.mm-next {
     font-size: 1.6rem;
   }
   .mob-slider .slider-controls span a.bx-prev:before {
-    font-family: FontAwesome;
+    font-family: 'Font Awesome 5 Pro';
     content: '\f104';
     color: white;
   }
   .mob-slider .slider-controls span a.bx-next:after {
-    font-family: FontAwesome;
+    font-family: 'Font Awesome 5 Pro';
     content: '\f105';
     color: white;
     float: right;
