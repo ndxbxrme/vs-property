@@ -1,10 +1,9 @@
 .login(ng-hide='getUser()')
   .login-holder
-    .login-form
-      .row
-        .col-sm-6.image-side
-          img(src='public/img/int/myproperty-mock.jpg')
-        .col-sm-6.text-side
+    .row
+      .col-lg-5.col-md-8.text-side
+        .login-form
+          img.logo(src='public/img/int/vitalspace-logo-darktext.svg')
           h2
             | Welcome to 
             span.orange my
@@ -22,42 +21,13 @@
               small.error(ng-show='submitted && loginForm.password.$error.required') A password is required
             div.login-buttons
               .error {{message}}
-              input.button.medium.orange(type='submit', value='Login')
-              input.button.medium.purple(type='button', ng-click='signup()', value='Sign Up')
+              .button-row
+                input.button.medium.orange(type='submit', value='Login')
+                input.button.medium.purple(type='button', ng-click='signup()', value='Sign Up')
               .login-help
-                p Not accessed 'myproperty' before?
-                p Enter your email address and any chosen password then click sign up
-                p.grey If you need help, registering or logging in, click the button below to send us an email
-                a.large.purple.button(href='mailto:urmston@vitalspace.co.uk?subject=Help me with myProperty Login..')
-                  | Login Help Required 
-                  i.fal.fa-envelope
-  .main-content
-    .container
-      .row
-        .col-md-10.offset-md-1
-          p.text-center
-            | myProperty gives our clients 24/7 access to their property listing via our bespoke client dashboard. At any time of the day or night, our clients can sign into the secure area via their computer or mobile phone. From there, the dashboard offers instant access to all your property information.
-          .embed-responsive.embed-responsive-16by9
-            iframe(title="VitalSpace 'myProperty'" width='640' height='360' src='https://www.youtube.com/embed/gdTkL-c8NdU?feature=oembed' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
-          .row.feature-blocks
-            .col-sm-4
-              .feature-block.block-1
-                i.fal.fa-rabbit-fast(aria-hidden='true')
-                .block-details
-                  h2 Live Property Updates
-                  p
-                    | Review property information and marketing stats 24 hours a day, 7 days a week. Feedback, viewings and offers are all available at the touch of a button.
-            .col-sm-4
-              .feature-block.block-2
-                i.fal.fa-file-chart-pie(aria-hidden='true')
-                .block-details
-                  h2 Instant Property Reports
-                  p
-                    | Sellers have been demanding transparency and better communication from estate agents for years. Obtain instant reports and detailed viewing stats.
-            .col-sm-4
-              .feature-block.block-3
-                i.fal.fa-calendar-edit(aria-hidden='true')
-                .block-details
-                  h2 Key Conveyancing Updates
-                  p
-                    | Once a sale has been agreed, stay up to date with the legal progression of your property transaction with our real time milestone updates.
+                small.grey 
+                  | If you need help, registering or logging in, 
+                  a(href='mailto:urmston@vitalspace.co.uk?subject=Help me with myProperty Login..') click here
+                  |  to send us an email
+      .col-lg-7.col-md-4.image-side
+          img(src='public/img/login-bg.jpg')
