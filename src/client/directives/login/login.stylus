@@ -92,8 +92,10 @@
         margin 20px auto 0
       .text-side .login-form
         margin 0 auto
-      .form
+      form
         margin 20px auto 0
+      .image-side
+        display none
     .main-content
       .row.feature-blocks
         flex-direction column
