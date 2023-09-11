@@ -6,6 +6,7 @@ angular.module 'vsProperty'
   templateUrl: 'directives/header/header.html'
   replace: true
   link: (scope, elem) ->
+    scope.auth = auth
     scope.getUser = auth.getDezrezUser
     scope.getDezrezUser = ->
       user = auth.getDezrezUser()

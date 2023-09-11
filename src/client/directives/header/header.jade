@@ -1,4 +1,4 @@
-.vsheader(ng-show='getUser()')
+.vsheader(ng-show='auth.getUser()')
   section.container
     .branding
       a.logo(href="/")
@@ -23,5 +23,5 @@
         li(ng-class="{selected:isSelected('offers')}")
           a(href='/offers') 
             span Offers
-    button#click-me.lines-button.x2.desktop-hide(type='button', role='button', aria-label='Toggle Navigation', ng-show='getUser()', ng-click='mobileMenuOut=!mobileMenuOut; $event.stopPropagation()')
+    button#click-me.lines-button.x2.desktop-hide(type='button', role='button', aria-label='Toggle Navigation', ng-click='mobileMenuOut=!mobileMenuOut; $event.stopPropagation()')
       .fal.fa-bars

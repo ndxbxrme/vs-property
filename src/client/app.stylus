@@ -21,9 +21,7 @@ body
     width 100%
     transform translateX(0px)
     &.mobile-menu-out
-      transform translateX(-180px)
-  .view
-    padding-bottom 5rem     
+      transform translateX(-180px)  
   .viewings, .feedback, .offers, .admin
     .prop-single
       border 1px solid #f1f1f1
