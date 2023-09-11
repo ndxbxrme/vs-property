@@ -239,3 +239,7 @@ a.backlink
     display block!important
     .body
       min-height 100vh
+.subscribed, .unsubscribed
+  display flex
+  flex-direction column
+  align-items center

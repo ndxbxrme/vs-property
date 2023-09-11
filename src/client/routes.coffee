@@ -112,6 +112,10 @@ angular.module 'vsProperty'
     resolve:
       user: (auth) ->
         auth.getPromise true
+  .state 'unsubscribe',
+    url: '/unsubscribe/:id'
+    templateUrl: 'routes/unsubscribe/unsubscribe.html'
+    controller: 'UnsubCtrl'
   $urlRouterProvider.otherwise '/'
     
   #.otherwise '/'
