@@ -102,8 +102,11 @@ angular.module 'vsProperty'
     .then ->
       defer.resolve user
     , ->
-      defer.reject {}
-      $location.path '/'
+      if window.location.href.contains 'unsubscribe'
+        defer.resolve user
+      else
+        defer.reject {}
+        $location.path '/'
     defer.promise
   getDezrezPromise: (email) ->
     defer = $q.defer()
