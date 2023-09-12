@@ -16,7 +16,7 @@ angular.module 'vsProperty', [
   console.log '%c', 'font-size:3rem; background:#f15b25 url(https://myproperty.vitalspace.co.uk/public/img/VitalSpaceLogo-2016.svg);background-size:cover;background-repeat:no-repeat;padding-left:18rem;border:0.2rem solid #f15b25;border-radius:0.2rem'
 .run ($rootScope, $state, $stateParams, $http, auth) ->
   delete $http.defaults.headers.common.Authorization
-  if $state.current.name isnt 'unsubscribe'
+  if not window.location.href.contains 'unsubscribe'
     auth.getPromise false
     .then ->
       true
