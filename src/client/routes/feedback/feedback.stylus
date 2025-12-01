@@ -1,19 +1,7 @@
 @import '../../variables'
 .feedback
-  i.guarantor
-    zoom 0.3
-    vertical-align top
-    background-image url(../../public/img/icons/icons3.png)
+  background #f1f1f1
+  padding 45px 0px
+  height 100%
   h2 
     margin-top 0
-  .feedback-list, .feedback-header
-    display flex
-    justify-content center
-    .feedback-item, .feedback-title
-      flex 1
-  table
-    vs-table()
-    img.notes
-      width 32px
-      margin 0 auto
-      display block

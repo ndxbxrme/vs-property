@@ -4,9 +4,6 @@
       li(ng-class="{selected:isSelected('dashboard')}")
         a(href='/') 
           span Dashboard
-      li(ng-class="{selected:propertyPage||isSelected('properties')}")
-        a(href='/property') 
-          span Property
       li(ng-class="{selected:isSelected('viewings')}")
         a(href='/viewings') 
           span Viewings
@@ -18,5 +15,5 @@
           span Offers
       li
         a(href='/api/logout', target='_self') 
-          img.logo(src="public/img/icons/logout.svg")
+          i.fa-duotone.fa-light.fa-lock
           |  Logout

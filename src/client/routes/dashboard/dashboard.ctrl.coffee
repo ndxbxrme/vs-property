@@ -13,3 +13,17 @@ angular.module 'vsProperty'
     else if hours < 17
       return 'Good Afternoon'
     'Good Evening'
+  
+  $scope.getProgressionPercent = (property) ->
+    totalMilestones = 0
+    noCompleted = 0
+    if property and property.progressions
+      for progression in property.progressions
+        for branch in progression.milestones
+          for milestone in branch
+            totalMilestones++
+            if milestone.completed
+              noCompleted++
+      if totalMilestones > 0
+        return Math.floor noCompleted / totalMilestones * 100
+    return 0

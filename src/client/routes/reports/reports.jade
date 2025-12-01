@@ -1,7 +1,7 @@
 .reports
   a(href='/').backlink 
     i.fa.fa-long-arrow-left(aria-hidden='true')  
-    |  Back to Dashboard
+    |  Dashboard
   .property(ng-repeat='property in getProperties()' ng-hide='!property.details.Address')
     h5.loading(ng-show='property.loading') Contacting Dezrez
     a(href='/{{property.id}}/overview', ng-hide='property.error || property.loading')

@@ -1,17 +1,7 @@
 @import '../../variables'
 .offers
-  i.offer
-    zoom 0.3
-    vertical-align top
-    background-image url(../../public/img/icons/vs-icons2.png)
+  background #f1f1f1
+  padding 45px 0px
+  height 100%
   h2 
     margin-top 0
-  h3
-    text-align center
-    color #4a4a4a
-    img 
-      display block
-      width 150px
-      margin 0 auto 20px auto
-  table
-    vs-table()

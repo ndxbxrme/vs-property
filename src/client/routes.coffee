@@ -56,10 +56,10 @@ angular.module 'vsProperty'
     resolve:
       user: (auth) ->
         auth.getPromise true
-  .state 'overview',
-    url: '/:propertyID/overview',
-    templateUrl: 'routes/property/overview.html'
-    controller: 'ViewCtrl'
+  .state 'property',
+    url: '/:propertyID/property'
+    templateUrl: 'routes/property/property.html'
+    controller: 'PropertyCtrl'
     resolve:
       user: (auth) ->
         auth.getPromise true

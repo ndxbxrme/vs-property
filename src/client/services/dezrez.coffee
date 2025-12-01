@@ -90,6 +90,8 @@ angular.module 'vsProperty'
             viewing.AccompaniedBy = []
             for group in viewing.AttendingGroups
               if group.Type.Name isnt 'Owner'
+                if group.Group?.Grade
+                  viewing.Grade = group.Group.Grade
                 for person in group.AttendingPeople
                   if not viewing.MainContact
                     viewing.MainContact =

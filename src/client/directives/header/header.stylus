@@ -1,11 +1,14 @@
 @import '../../variables'
 .vsheader
   border-bottom 1px solid #e0e0e0
+  box-shadow 0px 2px 12px rgba(150,150,150,0.1)
   padding 0
   height 82px
   z-index 20
   .container
     position relative
+    display: flex
+    align-items center
   h1
     padding 1rem 0 0 0.5rem
   a
@@ -32,25 +35,36 @@
     justify-content space-between
   .user
     position absolute
-    top 7px
-    right 15px
+    top 22px
+    right 0px
     a
+      font-size 16px
+      color #464e53
+      font-family ProximaNova-SemiBold, sans-serif
       display flex
       align-items center
-      color #464e53
+      border 1px solid vs-lightgrey
+      padding 5px 20px
+      border-radius 30px
       &:hover
         color vs-orange
-      svg
+      i, svg
         width 15px
         display inline-block
-        margin-left 5px
+        margin-left 10px
         
 
   nav.main-menu ul.menu
-    top 20px
-    margin-left -266px
+    position relative
+    margin 0 0 0 30px
+    left auto
+    top 0
     > li a 
+      font-size 16px
       color #464e53
+      font-family ProximaNova-SemiBold, sans-serif
+      text-transform none
+      padding 10px 20px
 
 body.property-hub #click-me
   top 5px

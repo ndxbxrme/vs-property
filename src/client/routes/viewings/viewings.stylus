@@ -1,8 +1,7 @@
+@import '../../variables'
 .viewings
-  i.vs-iconstaff
-    zoom 0.3
-    vertical-align top
-    background-image url(../../public/img/icons/vs_icons.png)
+  background #f1f1f1
+  padding 45px 0px
+  height 100%
   h2 
     margin-top 0
-  collapse-table()

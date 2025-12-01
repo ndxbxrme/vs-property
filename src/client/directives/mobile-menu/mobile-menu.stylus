@@ -4,18 +4,19 @@
   top 81px
   width 180px
   right 0
+  bottom 0
   z-index 0
-  background #464e53
+  background #f1f1f1
   ul li
-    border-bottom 1px solid #525252
+    border-bottom 1px solid vs-lightgrey
     a 
       font-size 1.6rem
-      text-transform uppercase
-      color white
+      color vs-grey
+      font-family ProximaNova-SemiBold, sans-serif
       padding 15px 20px 10px 20px
       display block
       z-index 1
-      img
+      i
         display inline-block
         width 10px
     &.selected, &:hover
