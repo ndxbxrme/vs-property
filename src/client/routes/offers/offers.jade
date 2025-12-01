@@ -35,7 +35,17 @@
                 span.amount {{offer.Value | currency:'£':0}}
             
             
-      
-      h3(ng-show='!loading("offers") && !getOffers().length') 
-        img(src='public/img/vs-man.png')
-        |  You have not yet received any offers
+      .no-viewings(ng-show='!loading("offers") && !getOffers().length') 
+        .row
+          .col-xs-12 
+            p You don't have any offers yet
+          .col-md-6 
+            a(href="https://vitalspace.co.uk/offer-solicitor-quote/" target="_blank") 
+              img(src="public/img/need-solicitor.jpg" alt="Solicitor Quote")
+              span.title Need a solicitor?
+              span Receive a quote from our recommended solicitor
+          .col-md-6 
+            a(href="https://vitalspace.co.uk/arrange-a-survey/" target="_blank") 
+              img(src="public/img/property-survey.jpg" alt="Arrange a Survey")
+              span.title Arrange a survey
+              span Arrange a property inspection with a RICS Surveyor
