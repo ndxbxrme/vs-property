@@ -25,11 +25,11 @@
           li(role='presentation')
             a(href='#upcoming-{{$index}}' aria-controls='upcoming' role='tab' data-toggle='tab') 
               | Upcoming 
-              span.badge(ng-bind='(property.viewings | filter:{EventStatus:{Name:"Upcoming"}}).length')
+              span.badge(ng-bind='(property.viewings | filter:isUpcoming).length')
           li(role='presentation')
-            a(href='#cancelled-{{$index}}' aria-controls='cancelled' role='tab' data-toggle='tab') 
-              | Cancelled 
-              span.badge(ng-bind='(property.viewings | filter:{EventStatus:{Name:"Cancelled"}}).length')
+            a(href='#incomplete-{{$index}}' aria-controls='incomplete' role='tab' data-toggle='tab') 
+              | Incomplete 
+              span.badge(ng-bind='(property.viewings | filter:isIncomplete).length')
         
         // Tab Content
         .tab-content
@@ -76,7 +76,7 @@
           
           // Upcoming Tab
           div(id='upcoming-{{$index}}' class='tab-pane' role='tabpanel')
-            .viewing(ng-repeat='viewing in property.viewings | filter:{EventStatus:{Name:"Upcoming"}} | orderBy: sort')
+            .viewing(ng-repeat='viewing in property.viewings | filter:isUpcoming | orderBy: sort')
               .viewing-header
                 .person
                   img(gravatar-src='viewing.MainContact.email')
@@ -99,7 +99,7 @@
                   .person(ng-repeat='person in viewing.AccompaniedBy')
                     img(gravatar-src='person.email')
                     span {{person.name}}
-            .no-viewings(ng-show='!(property.viewings | filter:{EventStatus:{Name:"Upcoming"}}).length') 
+            .no-viewings(ng-show='!(property.viewings | filter:isUpcoming).length') 
               .row
                 .col-xs-12 
                   p You don't have any upcoming viewings
@@ -114,9 +114,9 @@
                     span.title Arrange a survey
                     span Arrange a property inspection with a RICS Surveyor
           
-          // Cancelled Tab
-          div(id='cancelled-{{$index}}' class='tab-pane' role='tabpanel')
-            .viewing(ng-repeat='viewing in property.viewings | filter:{EventStatus:{Name:"Cancelled"}} | orderBy: sort')
+          // Incomplete Tab
+          div(id='incomplete-{{$index}}' class='tab-pane' role='tabpanel')
+            .viewing(ng-repeat='viewing in property.viewings | filter:isIncomplete | orderBy: sort')
               .viewing-header
                 .person
                   img(gravatar-src='viewing.MainContact.email')
@@ -138,10 +138,10 @@
                   .person(ng-repeat='person in viewing.AccompaniedBy')
                     img(gravatar-src='person.email')
                     span {{person.name}}
-            .no-viewings(ng-show='!(property.viewings | filter:{EventStatus:{Name:"Cancelled"}}).length') 
+            .no-viewings(ng-show='!(property.viewings | filter:isIncomplete).length') 
               .row
                 .col-xs-12 
-                  p You don't have any cancelled viewings
+                  p You don't have any incomplete viewings
                 .col-md-6 
                   a(href="https://vitalspace.co.uk/offer-solicitor-quote/" target="_blank") 
                     img(src="public/img/need-solicitor.jpg" alt="Solicitor Quote")

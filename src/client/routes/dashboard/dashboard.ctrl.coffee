@@ -6,6 +6,12 @@ angular.module 'vsProperty'
   $scope.getProperties = dezrez.getProperties
   $scope.loading = dezrez.loading
   
+  # Filter for current properties only
+  $scope.isCurrentProperty = (property) ->
+    status = property?.details?.RoleStatus?.SystemName
+    console.log 'Property Status:', property?.Address?.Street, 'SystemName:', status, 'DisplayName:', property?.details?.RoleStatus?.DisplayName
+    status is 'InstructionToSell' or status is 'UnderOffer' or status is 'OfferAccepted'
+  
   $scope.getSalutation = ->
     hours = new Date().getHours()
     if hours < 12

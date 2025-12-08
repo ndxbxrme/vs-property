@@ -35,7 +35,7 @@
         .col-xs-12.property-summary
           h2 My Property Summary
           .row
-            .property(ng-repeat='property in getProperties()')
+            .property(ng-repeat='property in getProperties() | filter:isCurrentProperty')
               .col-md-5
                 h5.loading(ng-show='property.loading') Contacting Dezrez
                 a(href='/{{property.id}}/property', ng-hide='property.error || property.loading || !property.details.Address')
