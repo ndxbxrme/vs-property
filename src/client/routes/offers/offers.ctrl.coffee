@@ -10,6 +10,15 @@ angular.module 'vsProperty'
     while i-- > 0
       if not offers[i].prop.details.Address
         offers.splice i, 1
+    # Log all offer objects for debugging
+    if offers.length > 0
+      console.log '=== OFFERS DEBUG ==='
+      console.log 'Total offers:', offers.length
+      for offer, index in offers
+        console.log "Offer #{index + 1}:", offer
+        console.log "  - Applicant:", offer.ApplicantGroup?.PrimaryMember?.ContactName
+        console.log "  - Amount:", offer.Value
+        console.log "  - Date:", offer.DateTime
     offers
   $scope.loading = dezrez.loading
   $scope.selectedOffer = null

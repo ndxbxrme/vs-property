@@ -22,6 +22,9 @@
             .person
               img(gravatar-src='viewing.MainContact.email')
               span.main-contact {{viewing.MainContact.name}}
+            .person-position
+              p Position: 
+                span {{viewing.Grade.Name}}
             .viewing-date
               p Date: 
                 span {{viewing.StartDate | date:'mediumDate'}}

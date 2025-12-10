@@ -81,18 +81,20 @@
                 .person
                   img(gravatar-src='viewing.MainContact.email')
                   span.main-contact {{viewing.MainContact.name}}
-              .viewing-details
+                .person-position
+                  p Position: 
+                    span {{viewing.Grade.Name}}
                 .viewing-date
-                  label Date
-                  div {{viewing.StartDate | date:'mediumDate'}}
+                  p Date: 
+                    span {{viewing.StartDate | date:'mediumDate'}}
                 .viewing-time
-                  label Time
-                  div {{viewing.StartDate | date:'shortTime'}}
+                  p Time: 
+                    span {{viewing.StartDate | date:'shortTime'}}
+              .viewing-details
                 .viewing-status
-                  label Viewing status
-                  div {{viewing.EventStatus.Name}}
+                  {{viewing.EventStatus.Name}}
                 .viewing-accompanied
-                  label Accompanied by
+                  p Accompanied by
                   .person(ng-repeat='person in viewing.Negotiators')
                     img(gravatar-src='person.PrimaryEmail.Value')
                     span {{person.ContactName}}
@@ -121,6 +123,9 @@
                 .person
                   img(gravatar-src='viewing.MainContact.email')
                   span.main-contact {{viewing.MainContact.name}}
+                .person-position
+                  p Position: 
+                    span {{viewing.Grade.Name}}
                 .viewing-date
                   p Date: 
                     span {{viewing.StartDate | date:'mediumDate'}}

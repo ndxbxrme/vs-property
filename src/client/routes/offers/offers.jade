@@ -17,9 +17,11 @@
           .viewing-header
             .person
               span.main-contact {{offer.ApplicantGroup.PrimaryMember.ContactName}}
-            .offer-property
               p Property: 
                 span {{offer.Property.Address.Number}} {{offer.Property.Address.Street}}, {{offer.Property.Address.Locality}}, {{offer.Property.Address.Town}}
+            .person-position
+              p Position: 
+                span {{offer.ApplicantGroup.Grade.Name}}
             .offer-datetime
               p Date: 
                 span {{offer.DateTime | date:'mediumDate'}} at {{offer.DateTime | date:'shortTime'}}

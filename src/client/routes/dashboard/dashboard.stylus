@@ -24,6 +24,12 @@
     background white
     align-items center
     padding 60px
+    .align-items-center
+      display flex
+      align-items center
+      p:last-of-type
+        margin-bottom 0px
+        padding-bottom 0px
     img 
       border-radius 20px
   .intro
@@ -154,6 +160,10 @@
       padding 20px
       h2
         font-size 18px
+      .align-items-center
+        flex-direction column
+        img
+          margin-top 15px
     .property-details
       .buttons 
         margin 20px 0px

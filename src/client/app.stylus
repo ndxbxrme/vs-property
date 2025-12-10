@@ -415,6 +415,7 @@ body
               height 200px
             span
               width 100%
+              left 20px
     .feedback
       .feedback-controls
         flex-direction column
