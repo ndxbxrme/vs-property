@@ -37,12 +37,29 @@ angular.module 'vsProperty'
   # Cache the map URL to prevent infinite digest loop
   $scope.mapUrl = null
   
+  # Initialize map URL when property is loaded
+  initializeMap = ->
+    if $scope.property?.Address?.Location?.Latitude and $scope.property?.Address?.Location?.Longitude
+      location = $scope.property.Address.Location
+      url = "https://maps.google.com/maps?q=#{location.Latitude},#{location.Longitude}&z=15&output=embed"
+      $timeout ->
+        $scope.mapUrl = $sce.trustAsResourceUrl(url)
+      , 0
+  
   $scope.$watch 'property.Address.Location', (location) ->
     if location?.Latitude and location?.Longitude
       url = "https://maps.google.com/maps?q=#{location.Latitude},#{location.Longitude}&z=15&output=embed"
-      $scope.mapUrl = $sce.trustAsResourceUrl(url)
+      $timeout ->
+        $scope.mapUrl = $sce.trustAsResourceUrl(url)
+      , 0
     else
       $scope.mapUrl = null
+  , true
+  
+  # Initialize map when property details are loaded
+  $scope.$watch 'property.details', (details) ->
+    if details
+      initializeMap()
   , true
   
   $scope.showFullDescription = false

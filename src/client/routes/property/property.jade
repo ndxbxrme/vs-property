@@ -62,14 +62,11 @@
                 .col-xs-12.col-lg-8
                   .summary(ng-if='property.details.SummaryTextDescription')
                     h3 Description
-                    .long-desc(ng-bind-html='property.details.SummaryTextDescription' ng-class='{collapsed: !showFullDescription}')
-                    button.read-more-btn(ng-click='toggleDescription()') 
-                      | {{showFullDescription ? 'Read Less' : 'Read More'}}
-                      i.fa-light(ng-class="{'fa-chevron-up': showFullDescription, 'fa-chevron-down': !showFullDescription}")
+                    .long-desc(ng-bind-html='property.details.SummaryTextDescription')
 
-                  section.location-map
+                  section.location-map(ng-if='mapUrl')
                     h3 Location
-                    .map-holder(ng-if='mapUrl')
+                    .map-holder
                       iframe(ng-src='{{mapUrl}}' width='100%' height='450' style='border:0; border-radius:10px;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade')
 
                 .col-xs-12.col-lg-4

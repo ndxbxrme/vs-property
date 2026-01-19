@@ -26,6 +26,7 @@ body
     h2 
       font-family ProximaNova-SemiBold, sans-serif
     .prop-single
+      margin-bottom 30px
       padding 10px 20px 20px 20px
       border-radius 20px
       background white
@@ -133,16 +134,28 @@ body
             object-fit cover
             border-radius 20px 
             margin-bottom: 20px    
+          &:after
+            content ''
+            position absolute
+            top 0
+            left 0
+            right 0
+            bottom 0  
+            background-color rgba(0, 0, 0, 0.5)
+            mix-blend-mode multiply
+            border-radius 20px
+            pointer-events none
           span
-            color: vs-grey
+            color: white
             font-size 20px
             font-family ProximaNova-SemiBold, sans-serif
             position absolute
             top 70px
             left 30px
             width 55%
+            z-index 1
             &.title
-              color vs-orange            
+              color vs-orange
               font-size 25px
               top 30px
               
@@ -282,6 +295,16 @@ body
         color vs-lightgrey
 
 // Modal
+html
+  overflow-y scroll !important
+// Prevent Bootstrap from adding padding when modal opens
+body.modal-open
+  width 100%
+  padding-right 0px !important
+  overflow visible !important
+// Override any inline padding-right styles Bootstrap adds
+body.modal-open [style*="padding-right"]
+  padding-right 0px !important
 .modal
   .modal-dialog
     max-width 700px
