@@ -53,21 +53,21 @@
       .info
         img(src="../../public/img/rm-logo.svg" width="300")
         p Online Stats - Updated 
-          span {{property.rightmoveStats.RightmoveStatsLastExportedDate | date:'mediumDate'}}
+          span {{property.portals.RightmoveRTDF.RightmoveStatsLastExportedDate | date:'mediumDate'}}
     .row.stats
       .col-md-3.col-sm-6
         i.vs-iconsearch
-        p {{property.rightmoveStats.TotalSummaryViews}}
+        p {{property.portals.RightmoveRTDF.TotalSummaryViews}}
         p.small Summary Views
       .col-md-3.col-sm-6
         i.vs-icondocument
-        p {{property.rightmoveStats.TotalDetailedViews}}
+        p {{property.portals.RightmoveRTDF.TotalDetailedViews}}
         p.small Detail Views
       .col-md-3.col-sm-6
         i.reserving
-        p {{property.rightmoveStats.IsCurrentlyAPremiumListing ? 'Yes' : 'No'}}
+        p {{property.portals.RightmoveRTDF.IsCurrentlyAPremiumListing ? 'Yes' : 'No'}}
         p.small Premium Listing
       .col-md-3.col-sm-6
         i.vs-iconthumb
-        p {{property.rightmoveStats.IsCurrentlyAFeaturedProperty ? 'Yes' : 'No'}}
+        p {{property.portals.RightmoveRTDF.IsCurrentlyAFeaturedProperty ? 'Yes' : 'No'}}
         p.small Feature Property

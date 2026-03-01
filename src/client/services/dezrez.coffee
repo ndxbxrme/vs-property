@@ -51,20 +51,18 @@ angular.module 'vsProperty'
         property.error = false
         property.loadingEvents = true
         property.loadingRightmove = true
-        $http.get "/api/dezrez/property/#{property.id}/events"
+        $http.get "/api/dezrez/property/#{property.id}/mailouts"
         .then (response) ->
-          if response.data and response.data.Collection and response.data.Collection.length
-            property.mailouts = 0
-            for event in response.data.Collection
-              if event.EventType?.Name is 'Mailout'
-                property.mailouts += event.Properties.length
+          property.mailouts = 0
+          if response.data
+            property.mailouts = response.data
           property.loadingEvents = false
         , ->
           property.loadingEvents = false
-        $http.get "/api/dezrez/rightmove/#{property.id}"
+        $http.get "/api/dezrez/portals/#{property.id}"
         .then (response) ->
           if response.data
-            property.rightmoveStats = response.data
+            property.portals = response.data
           property.loadingRightmove = false
         , ->
           property.loadingRightmove = false

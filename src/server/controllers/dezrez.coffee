@@ -56,8 +56,20 @@ module.exports = (ndx) ->
           res.json body
         else
           next err 
+    ndx.app.get '/api/dezrez/portals/:id', ndx.authenticate(), (req, res, next) ->
+      ndx.dezrez.get 'stats/portals/{id}', null, id:req.params.id, (err, body) ->
+        if not err
+          res.json body
+        else
+          next err 
     ndx.app.get '/api/dezrez/property/:id/events', ndx.authorizeDezrez, (req, res, next) ->
       ndx.dezrez.get 'role/{id}/Events', pageSize, id:req.params.id, (err, body) ->
+        if not err
+          res.json body
+        else
+          next err
+    ndx.app.get '/api/dezrez/property/:id/mailouts', ndx.authorizeDezrez, (req, res, next) ->
+      ndx.dezrez.get 'role/{id}/mailouts', pageSize, id:req.params.id, (err, body) ->
         if not err
           res.json body
         else

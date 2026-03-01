@@ -100,28 +100,28 @@
                     .info
                       img(src="../../public/img/rm-logo.svg" width="200")
                       p.updated Online Stats - Updated 
-                        span {{property.rightmoveStats.RightmoveStatsLastExportedDate | date:'mediumDate'}}
+                        span {{property.portals.RightmoveRTDF.RightmoveStatsLastExportedDate | date:'mediumDate'}}
                     .results
                       .result
                         i.fa-light.fa-magnifying-glass-chart
                         p 
-                          span {{property.rightmoveStats.TotalSummaryViews}}
+                          span {{property.portals.RightmoveRTDF.TotalSummaryViews}}
                           |  Summary Views
                       .result
                         i.fa-light.fa-file
                         p 
-                          span {{property.rightmoveStats.TotalDetailedViews}}
+                          span {{property.portals.RightmoveRTDF.TotalDetailedViews}}
                           |  Detail Views
                       .result
                         i.fa-light.fa-hourglass-clock
                         p 
                           |  Premium Listing: 
-                          span {{property.rightmoveStats.IsCurrentlyAPremiumListing ? 'Yes' : 'No'}}
+                          span {{property.portals.RightmoveRTDF.IsCurrentlyAPremiumListing ? 'Yes' : 'No'}}
                           
                       .result
                         i.fa-light.fa-thumbtack
                         p 
                           | Feature Property:  
-                          span {{property.rightmoveStats.IsCurrentlyAFeaturedProperty ? 'Yes' : 'No'}}
+                          span {{property.portals.RightmoveRTDF.IsCurrentlyAFeaturedProperty ? 'Yes' : 'No'}}
                         
 admin(ng-if='auth.checkRoles(["superadmin","admin"])')
