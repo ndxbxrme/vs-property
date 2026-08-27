@@ -33,26 +33,19 @@
             span Need a Solicitor?
         .col-xs-12.property-summary
           h2 My Property Summary
-          .row
-            .property(ng-repeat='property in getProperties() | filter:isCurrentProperty')
-              .col-md-5
+          .property(ng-repeat='property in getProperties() | filter:isCurrentProperty')
+            .row
+              .col-md-6
                 h5.loading(ng-show='property.loading') Contacting Dezrez
                 a(href='/{{property.id}}/property', ng-hide='property.error || property.loading || !property.details.Address')
                   .property-item
                     .property-image
                       img(ng-src='{{property.details.Images[0].Url}}' alt='{{property.Address.Street}}')
                     span.status {{property.details.RoleStatus.DisplayName}}
+              .col-md-6
                 h4 {{property.Address.Number}} {{property.Address.Street }}, {{property.Address.Locality }}, {{property.Address.Town}}
                 p.date-instructed Date Instructed 
                   span {{property.details.DateInstructed | date:'mediumDate'}}
-                .progression-bar(ng-show='property.progressions && property.progressions.length')
-                  .progression-label Sale Progress: {{getProgressionPercent(property)}}%
-                  .progression-track
-                    .progression-fill(style='width: {{getProgressionPercent(property)}}%')
-                .buttons
-                  
-              .col-md-1
-              .col-md-6
                 .property-report
                   .results
                     .result
@@ -95,33 +88,67 @@
                       p 
                         span {{property.offers.length}}
                         |  Offers Received
-                    
-                  .rightmove-stats
-                    .info
-                      img(src="../../public/img/rm-logo.svg" width="200")
-                      p.updated Online Stats - Updated 
-                        span {{property.portals.RightmoveRTDF.RightmoveStatsLastExportedDate | date:'mediumDate'}}
-                    .results
-                      .result
-                        i.fa-light.fa-magnifying-glass-chart
-                        p 
-                          span {{property.portals.RightmoveRTDF.TotalSummaryViews}}
-                          |  Summary Views
-                      .result
-                        i.fa-light.fa-file
-                        p 
-                          span {{property.portals.RightmoveRTDF.TotalDetailedViews}}
-                          |  Detail Views
-                      .result
-                        i.fa-light.fa-hourglass-clock
-                        p 
-                          |  Premium Listing: 
-                          span {{property.portals.RightmoveRTDF.IsCurrentlyAPremiumListing ? 'Yes' : 'No'}}
-                          
-                      .result
-                        i.fa-light.fa-thumbtack
-                        p 
-                          | Feature Property:  
-                          span {{property.portals.RightmoveRTDF.IsCurrentlyAFeaturedProperty ? 'Yes' : 'No'}}
+                .progression-bar(ng-show='property.progressions && property.progressions.length')
+                  .progression-label Sale Progress: {{getProgressionPercent(property)}}%
+                  .progression-track
+                    .progression-fill(style='width: {{getProgressionPercent(property)}}%')
+            .row 
+              .col-md-6
+                .rightmove-stats
+                  .info
+                    img(src="../../public/img/rm-logo.svg" width="200")
+                    p.updated Online Stats - Updated 
+                      span {{todaysDate | date:'mediumDate'}}
+                  .results
+                    .result
+                      i.fa-light.fa-magnifying-glass-chart
+                      p 
+                        span {{property.portals.RightmoveRTDF.TotalSummaryViews}}
+                        |  Summary Views
+                    .result
+                      i.fa-light.fa-file
+                      p 
+                        span {{property.portals.RightmoveRTDF.TotalDetailedViews}}
+                        |  Detail Views
+                    .result
+                      i.fa-light.fa-hourglass-clock
+                      p 
+                        |  Premium Listing: 
+                        span {{property.portals.RightmoveRTDF.IsCurrentlyAPremiumListing ? 'Yes' : 'No'}}
+                        
+                    .result
+                      i.fa-light.fa-thumbtack
+                      p 
+                        | Feature Property:  
+                        span {{property.portals.RightmoveRTDF.IsCurrentlyAFeaturedProperty ? 'Yes' : 'No'}}
+              
+              .col-md-6
+                .otm-stats
+                  .info
+                    img(src="../../public/img/int/otm-logo.svg" width="200")
+                    p.updated Online Stats - Updated 
+                      span {{todaysDate | date:'mediumDate'}}
+                  .results
+                    .result
+                      i.fa-light.fa-magnifying-glass-chart
+                      p 
+                        span {{property.portals.OnTheMarket.TotalSummaryViews}}
+                        |  Summary Views
+                    .result
+                      i.fa-light.fa-file
+                      p 
+                        span {{property.portals.OnTheMarket.TotalDetailedViews}}
+                        |  Detail Views
+                    .result
+                      i.fa-light.fa-hourglass-clock
+                      p 
+                        |  Premium Listing: 
+                        span {{property.portals.OnTheMarket.IsCurrentlyAPremiumListing ? 'Yes' : 'No'}}
+                        
+                    .result
+                      i.fa-light.fa-thumbtack
+                      p 
+                        | Feature Property:  
+                        span {{property.portals.OnTheMarket.IsCurrentlyAFeaturedProperty ? 'Yes' : 'No'}}
                         
 admin(ng-if='auth.checkRoles(["superadmin","admin"])')

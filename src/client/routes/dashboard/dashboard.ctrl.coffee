@@ -5,7 +5,7 @@ angular.module 'vsProperty'
   $scope.auth = auth
   $scope.getProperties = dezrez.getProperties
   $scope.loading = dezrez.loading
-  
+  $scope.todaysDate = new Date();
   # Filter for current properties only
   $scope.isCurrentProperty = (property) ->
     status = property?.details?.RoleStatus?.SystemName
