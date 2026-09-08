@@ -36,8 +36,9 @@
     margin 30px 0
   .property-details
     background #f1f1f1
+    padding-top: 45px
     .buttons 
-      margin 45px 0px
+      margin 20px 0px 45px 0px
       display flex
       flex-wrap wrap
       align-items center
@@ -64,7 +65,9 @@
           box-shadow none
           background #f1f1f1
         h3 
-          color #464e53    
+          color #464e53 
+      &.lower-buttons
+        margin-top 20px
   .property
     background white
     margin-bottom 45px

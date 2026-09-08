@@ -14,25 +14,34 @@
 
   .property-details
     .container
+      h2 Property Services
       .row.mt-4
-        .col-xs-12.buttons
-          a(href='/viewings').icon-button
-            i.fa-duotone.fa-light.fa-eye
-            span Viewings
-          a(href='/feedback').icon-button
-            i.fa-duotone.fa-light.fa-comment-smile
-            span Feedback
-          a(href='/offers').icon-button
-            i.fa-duotone.fa-light.fa-envelope-open-dollar
-            span Offers
-          a(href='/conveyancing').icon-button
-            i.fa-duotone.fa-light.fa-bar-progress-three-quarters
-            span Conveyancing
+        .col-xs-12.buttons    
           a(href="https://vitalspace.co.uk/offer-solicitor-quote/", target="_blank").icon-button
             i.fa-duotone.fa-light.fa-scale-balanced
             span Need a Solicitor?
+          a(href="https://vitalspace.co.uk/arrange-an-epc/", target="_blank").icon-button
+            i.fa-duotone.fa-light.fa-chart-simple
+            span Arrange an EPC
+          a(href="https://vitalspace.co.uk/arrange-an-survey/", target="_blank").icon-button
+            i.fa-duotone.fa-light.fa-ballot-check
+            span Arrange an Survey
         .col-xs-12.property-summary
           h2 My Property Summary
+          .row
+            .col-xs-12.buttons.lower-buttons
+              a(href='/viewings').icon-button
+                i.fa-duotone.fa-light.fa-eye
+                span Viewings
+              a(href='/feedback').icon-button
+                i.fa-duotone.fa-light.fa-comment-smile
+                span Feedback
+              a(href='/offers').icon-button
+                i.fa-duotone.fa-light.fa-envelope-open-dollar
+                span Offers
+              a(href='/conveyancing').icon-button
+                i.fa-duotone.fa-light.fa-bar-progress-three-quarters
+                span Conveyancing
           .property(ng-repeat='property in getProperties() | filter:isCurrentProperty')
             .row
               .col-md-6
