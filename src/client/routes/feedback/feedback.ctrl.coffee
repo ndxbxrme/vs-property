@@ -30,7 +30,7 @@ angular.module 'vsProperty'
             <div class="feedback-container" ng-show="selectedViewing">
               <div class="viewing-feedback" ng-show="selectedViewing.Feedback.length">
                 <div class="feedback-header">
-                  <h4>Viewing Notes</h4>
+                  <h4>Feedback Request</h4>
                 </div>
                 <div class="feedback-list">
                   <div class="feedback-entry" ng-repeat="feedback in selectedViewing.Feedback">
@@ -41,7 +41,7 @@ angular.module 'vsProperty'
               </div>
               <div class="feedback-request" ng-show="selectedViewing.Notes.length">
                 <div class="feedback-header">
-                  <h4>Feedback Request</h4>
+                  <h4>Viewing Notes</h4>
                 </div>
                 <div class="feedback-list">
                   <div class="feedback-entry" ng-repeat="note in selectedViewing.Notes">
